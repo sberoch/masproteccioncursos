@@ -1,13 +1,50 @@
 import { GlobalConfig } from "payload";
+import { revalidateHeader } from "../hooks/revalidateHeader";
+import { link } from "@/fields/link";
 
 export const Header: GlobalConfig = {
   slug: "header",
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "logo",
       type: "upload",
       relationTo: "media",
-      required: true,
+    },
+    {
+      name: "navItems",
+      type: "array",
+      fields: [
+        link({
+          appearances: false,
+        }),
+      ],
+      maxRows: 6,
+      admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: "@/components/header/row-label#RowLabel",
+        },
+      },
+    },
+    {
+      name: "cta",
+      label: "Call to Action",
+      type: "group",
+      fields: [
+        {
+          name: "label",
+          type: "text",
+        },
+        link({
+          appearances: false,
+        }),
+      ],
     },
   ],
+  hooks: {
+    afterChange: [revalidateHeader],
+  },
 };
