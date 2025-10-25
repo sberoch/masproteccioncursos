@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { HeaderBlock } from "../blocks/HeaderBlock";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -12,6 +13,11 @@ export const Pages: CollectionConfig = {
       name: "slug",
       type: "text",
       required: true,
+    },
+    {
+      name: "layout",
+      type: "blocks",
+      blocks: [HeaderBlock],
     },
   ],
 };
