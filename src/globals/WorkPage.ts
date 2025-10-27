@@ -1,5 +1,13 @@
 import { GlobalConfig } from "payload";
 
+import {
+  MetaDescriptionField,
+  MetaImageField,
+  MetaTitleField,
+  OverviewField,
+  PreviewField,
+} from "@payloadcms/plugin-seo/fields";
+
 export const WorkPage: GlobalConfig = {
   slug: "work",
   admin: {
@@ -10,22 +18,61 @@ export const WorkPage: GlobalConfig = {
   },
   fields: [
     {
-      name: "heading",
+      name: "title",
       type: "text",
       required: true,
     },
     {
-      name: "subheading",
+      name: "slug",
       type: "text",
+      required: true,
     },
     {
-      name: "backgroundImage",
-      type: "upload",
-      relationTo: "media",
-    },
-    {
-      name: "content",
-      type: "richText",
+      type: "tabs",
+      tabs: [
+        {
+          name: "content",
+          label: "Content",
+          fields: [
+            {
+              name: "heading",
+              type: "text",
+              required: true,
+            },
+            {
+              name: "subheading",
+              type: "text",
+            },
+            {
+              name: "backgroundImage",
+              type: "upload",
+              relationTo: "media",
+            },
+            {
+              name: "content",
+              type: "richText",
+            },
+          ],
+        },
+        {
+          name: "meta",
+          label: "SEO",
+          fields: [
+            OverviewField({
+              titlePath: "meta.title",
+              descriptionPath: "meta.description",
+              imagePath: "meta.image",
+            }),
+            MetaTitleField({
+              hasGenerateFn: true,
+            }),
+            MetaImageField({
+              relationTo: "media",
+            }),
+            MetaDescriptionField({}),
+          ],
+        },
+      ],
     },
   ],
 };

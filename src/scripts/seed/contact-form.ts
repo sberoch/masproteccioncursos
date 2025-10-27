@@ -1,4 +1,4 @@
-import { RequiredDataFromCollectionSlug } from "payload";
+import { Payload, RequiredDataFromCollectionSlug } from "payload";
 
 export const contactForm: RequiredDataFromCollectionSlug<"forms"> = {
   confirmationMessage: {
@@ -100,4 +100,13 @@ export const contactForm: RequiredDataFromCollectionSlug<"forms"> = {
   submitButtonLabel: "Submit",
   title: "Contact Form",
   updatedAt: new Date().toISOString(),
+};
+
+export const seedContactForm = async (payload: Payload) => {
+  payload.logger.info(`— Seeding contact form...`);
+  await payload.create({
+    collection: "forms",
+    depth: 0,
+    data: contactForm,
+  });
 };

@@ -8,8 +8,8 @@ import {
   PreviewField,
 } from "@payloadcms/plugin-seo/fields";
 
-export const AboutPage: GlobalConfig = {
-  slug: "about",
+export const ServicesPage: GlobalConfig = {
+  slug: "services",
   admin: {
     group: "Main pages",
   },
