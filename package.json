@@ -16,12 +16,13 @@
     "test": "pnpm run test:int && pnpm run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" pnpm exec playwright test",
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
-    "seed": "cross-env NODE_OPTIONS=--no-deprecation payload run ./src/scripts/seed.ts"
+    "seed": "cross-env NODE_OPTIONS=--no-deprecation payload run ./src/scripts/seed/seed.ts"
   },
   "dependencies": {
     "@payloadcms/db-sqlite": "3.61.1",
     "@payloadcms/next": "3.61.1",
     "@payloadcms/payload-cloud": "3.61.1",
+    "@payloadcms/plugin-form-builder": "^3.61.1",
     "@payloadcms/richtext-lexical": "3.61.1",
     "@payloadcms/ui": "3.61.1",
     "clsx": "^2.1.1",

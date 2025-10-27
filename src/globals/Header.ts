@@ -4,6 +4,9 @@ import { link } from "@/fields/link";
 
 export const Header: GlobalConfig = {
   slug: "header",
+  admin: {
+    group: "Layout",
+  },
   access: {
     read: () => true,
   },
