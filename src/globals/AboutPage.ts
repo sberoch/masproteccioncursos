@@ -52,10 +52,6 @@ export const AboutPage: GlobalConfig = {
               relationTo: "media",
             },
             {
-              name: "content",
-              type: "richText",
-            },
-            {
               name: "blocks",
               type: "blocks",
               blocks: [Content, CallToAction, MediaBlock, Banner],

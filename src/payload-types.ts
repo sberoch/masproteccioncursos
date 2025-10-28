@@ -743,21 +743,6 @@ export interface About {
     heading: string;
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
-    content?: {
-      root: {
-        type: string;
-        children: {
-          type: any;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
     blocks?: (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock)[] | null;
   };
   meta?: {
@@ -906,21 +891,6 @@ export interface Contact {
     heading: string;
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
-    content?: {
-      root: {
-        type: string;
-        children: {
-          type: any;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
     blocks?: (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock)[] | null;
   };
   meta?: {
@@ -946,21 +916,6 @@ export interface Work {
     heading: string;
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
-    content?: {
-      root: {
-        type: string;
-        children: {
-          type: any;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
     blocks?: (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock)[] | null;
   };
   meta?: {
@@ -986,21 +941,6 @@ export interface Service {
     heading: string;
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
-    content?: {
-      root: {
-        type: string;
-        children: {
-          type: any;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
     blocks?: (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock)[] | null;
   };
   meta?: {
@@ -1058,7 +998,47 @@ export interface Header {
  */
 export interface Footer {
   id: number;
-  copyrightText: string;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  navigation?: {
+    title?: string | null;
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?: {
+              relationTo: 'pages';
+              value: number | Page;
+            } | null;
+            url?: string | null;
+            label: string;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
+  socialMedia?:
+    | {
+        title?: string | null;
+        url?: string | null;
+        icon?: ('facebook' | 'instagram' | 'twitter' | 'linkedin' | 'youtube' | 'tiktok' | 'pinterest') | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1075,7 +1055,6 @@ export interface AboutSelect<T extends boolean = true> {
         heading?: T;
         subheading?: T;
         backgroundImage?: T;
-        content?: T;
         blocks?:
           | T
           | {
@@ -1178,7 +1157,6 @@ export interface ContactSelect<T extends boolean = true> {
         heading?: T;
         subheading?: T;
         backgroundImage?: T;
-        content?: T;
         blocks?:
           | T
           | {
@@ -1212,7 +1190,6 @@ export interface WorkSelect<T extends boolean = true> {
         heading?: T;
         subheading?: T;
         backgroundImage?: T;
-        content?: T;
         blocks?:
           | T
           | {
@@ -1246,7 +1223,6 @@ export interface ServicesSelect<T extends boolean = true> {
         heading?: T;
         subheading?: T;
         backgroundImage?: T;
-        content?: T;
         blocks?:
           | T
           | {
@@ -1310,7 +1286,34 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  copyrightText?: T;
+  content?: T;
+  navigation?:
+    | T
+    | {
+        title?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                  };
+              id?: T;
+            };
+      };
+  socialMedia?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        icon?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

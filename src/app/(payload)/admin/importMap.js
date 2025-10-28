@@ -27,6 +27,8 @@ import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c08
 import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { RowLabel as RowLabel_5b248feaf326304f4d8cfabb91279e23 } from '@/components/header/row-label'
+import { RowLabelNavigation as RowLabelNavigation_26444dfa7a18819a4e2350f1710fb9d9 } from '@/components/footer/row-label-navigation'
+import { RowLabelSocials as RowLabelSocials_56306ba02f5eb51cf5d3c8e33cf999fa } from '@/components/footer/row-label-socials'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -57,5 +59,7 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#MetaTitleComponent": MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
-  "@/components/header/row-label#RowLabel": RowLabel_5b248feaf326304f4d8cfabb91279e23
+  "@/components/header/row-label#RowLabel": RowLabel_5b248feaf326304f4d8cfabb91279e23,
+  "@/components/footer/row-label-navigation#RowLabelNavigation": RowLabelNavigation_26444dfa7a18819a4e2350f1710fb9d9,
+  "@/components/footer/row-label-socials#RowLabelSocials": RowLabelSocials_56306ba02f5eb51cf5d3c8e33cf999fa
 }
