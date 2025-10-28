@@ -140,6 +140,21 @@ export interface UserAuthOperations {
 export interface Media {
   id: number;
   alt: string;
+  caption?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -477,6 +492,7 @@ export interface PayloadMigration {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  caption?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -742,6 +758,7 @@ export interface About {
       };
       [k: string]: unknown;
     } | null;
+    blocks?: (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock)[] | null;
   };
   meta?: {
     title?: string | null;
@@ -753,6 +770,129 @@ export interface About {
   };
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBlock".
+ */
+export interface ContentBlock {
+  columns?:
+    | {
+        size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        enableLink?: boolean | null;
+        link?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'content';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock".
+ */
+export interface CallToActionBlock {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock".
+ */
+export interface MediaBlock {
+  media: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlock".
+ */
+export interface BannerBlock {
+  style: 'info' | 'warning' | 'error' | 'success';
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'banner';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -781,6 +921,7 @@ export interface Contact {
       };
       [k: string]: unknown;
     } | null;
+    blocks?: (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock)[] | null;
   };
   meta?: {
     title?: string | null;
@@ -820,6 +961,7 @@ export interface Work {
       };
       [k: string]: unknown;
     } | null;
+    blocks?: (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock)[] | null;
   };
   meta?: {
     title?: string | null;
@@ -859,6 +1001,7 @@ export interface Service {
       };
       [k: string]: unknown;
     } | null;
+    blocks?: (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock)[] | null;
   };
   meta?: {
     title?: string | null;
@@ -933,6 +1076,14 @@ export interface AboutSelect<T extends boolean = true> {
         subheading?: T;
         backgroundImage?: T;
         content?: T;
+        blocks?:
+          | T
+          | {
+              content?: T | ContentBlockSelect<T>;
+              cta?: T | CallToActionBlockSelect<T>;
+              mediaBlock?: T | MediaBlockSelect<T>;
+              banner?: T | BannerBlockSelect<T>;
+            };
       };
   meta?:
     | T
@@ -944,6 +1095,75 @@ export interface AboutSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBlock_select".
+ */
+export interface ContentBlockSelect<T extends boolean = true> {
+  columns?:
+    | T
+    | {
+        size?: T;
+        richText?: T;
+        enableLink?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock_select".
+ */
+export interface CallToActionBlockSelect<T extends boolean = true> {
+  richText?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock_select".
+ */
+export interface MediaBlockSelect<T extends boolean = true> {
+  media?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlock_select".
+ */
+export interface BannerBlockSelect<T extends boolean = true> {
+  style?: T;
+  content?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -959,6 +1179,14 @@ export interface ContactSelect<T extends boolean = true> {
         subheading?: T;
         backgroundImage?: T;
         content?: T;
+        blocks?:
+          | T
+          | {
+              content?: T | ContentBlockSelect<T>;
+              cta?: T | CallToActionBlockSelect<T>;
+              mediaBlock?: T | MediaBlockSelect<T>;
+              banner?: T | BannerBlockSelect<T>;
+            };
       };
   meta?:
     | T
@@ -985,6 +1213,14 @@ export interface WorkSelect<T extends boolean = true> {
         subheading?: T;
         backgroundImage?: T;
         content?: T;
+        blocks?:
+          | T
+          | {
+              content?: T | ContentBlockSelect<T>;
+              cta?: T | CallToActionBlockSelect<T>;
+              mediaBlock?: T | MediaBlockSelect<T>;
+              banner?: T | BannerBlockSelect<T>;
+            };
       };
   meta?:
     | T
@@ -1011,6 +1247,14 @@ export interface ServicesSelect<T extends boolean = true> {
         subheading?: T;
         backgroundImage?: T;
         content?: T;
+        blocks?:
+          | T
+          | {
+              content?: T | ContentBlockSelect<T>;
+              cta?: T | CallToActionBlockSelect<T>;
+              mediaBlock?: T | MediaBlockSelect<T>;
+              banner?: T | BannerBlockSelect<T>;
+            };
       };
   meta?:
     | T

@@ -18,7 +18,7 @@ export const appearanceOptions: Record<
   },
 };
 
-type LinkType = (options?: {
+export type LinkType = (options?: {
   appearances?: LinkAppearances[] | false;
   disableLabel?: boolean;
   overrides?: Partial<GroupField>;

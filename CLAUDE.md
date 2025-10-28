@@ -15,15 +15,6 @@ This is a Payload CMS 3.x template built on Next.js 15. It uses SQLite as the da
 - `pnpm build` - Production build
 - `pnpm start` - Start production server
 
-### Testing
-
-- `pnpm test` - Run all tests (integration + e2e)
-- `pnpm test:int` - Run integration tests only (Vitest)
-- `pnpm test:e2e` - Run end-to-end tests (Playwright)
-
-Integration tests are located in `tests/int/**/*.int.spec.ts` and use Vitest with jsdom.
-E2E tests are located in `tests/e2e/**/*.e2e.spec.ts` and use Playwright.
-
 ### Code quality
 
 - `pnpm lint` - Run ESLint
