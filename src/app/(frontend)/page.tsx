@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { Hero } from "@/components/web/hero";
 
 export default function Home() {
   return (
     <main className="min-h-screen w-full">
       <div className="w-full h-full">
-        <Hero />
-
+        <div className="min-h-screen w-full h-full bg-red-500">
+          mock hero section
+        </div>
         {/* Featured Work Section */}
         <section className="mt-24 mb-16">
           <h2 className="text-4xl font-bold mb-2 font-archivo-black">
