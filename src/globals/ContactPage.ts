@@ -6,10 +6,7 @@ import {
   MetaTitleField,
   OverviewField,
 } from "@payloadcms/plugin-seo/fields";
-import { Banner } from "../blocks/Banner/config";
-import { CallToAction } from "../blocks/CallToAction/config";
-import { MediaBlock } from "../blocks/MediaBlock/config";
-import { Content } from "../blocks/Content/config";
+import { SHARED_BLOCKS } from "./utils";
 
 export const ContactPage: GlobalConfig = {
   slug: "contact",
@@ -54,7 +51,7 @@ export const ContactPage: GlobalConfig = {
             {
               name: "blocks",
               type: "blocks",
-              blocks: [Content, CallToAction, MediaBlock, Banner],
+              blocks: [...SHARED_BLOCKS],
             },
           ],
         },

@@ -6,22 +6,24 @@ import { AboutPage } from "@/globals/AboutPage";
 import { ContactPage } from "@/globals/ContactPage";
 import { Footer } from "@/globals/Footer";
 import { Header } from "@/globals/Header";
-import { WorkPage } from "@/globals/WorkPage";
 import { ServicesPage } from "@/globals/ServicesPage";
+import { WorkPage } from "@/globals/WorkPage";
+import { getServerSideURL } from "@/utilities/getURL";
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
+import { seoPlugin } from "@payloadcms/plugin-seo";
+import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 import { fileURLToPath } from "url";
-import { seoPlugin } from "@payloadcms/plugin-seo";
-import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
-
-import { getServerSideURL } from "@/utilities/getURL";
-import { Page } from "./payload-types";
+import { Categories } from "./collections/Categories";
+import { WorkItems } from "./collections/WorkItems";
+import { HomePage } from "./globals/HomePage";
 import { MainPage } from "./globals/interfaces";
+import { Page } from "./payload-types";
 
 const generateTitle: GenerateTitle<MainPage | Page> = ({ doc }) => {
   return doc?.title
@@ -44,11 +46,25 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      beforeLogin: ["@/components/BeforeLogin"],
+      graphics: {
+        Logo: "/components/graphics/logo",
+        Icon: "/components/graphics/icon",
+      },
+    },
+    avatar: "gravatar",
   },
-  globals: [AboutPage, ContactPage, WorkPage, ServicesPage, Header, Footer],
-  collections: [Users, Media, Pages].sort((a, b) =>
-    a.slug.localeCompare(b.slug)
-  ),
+  globals: [
+    HomePage,
+    AboutPage,
+    ContactPage,
+    WorkPage,
+    ServicesPage,
+    Header,
+    Footer,
+  ],
+  collections: [WorkItems, Categories, Pages, Media, Users],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

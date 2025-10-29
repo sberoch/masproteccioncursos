@@ -3,6 +3,15 @@ import { Payload } from "payload";
 export const seedMainPages = async (payload: Payload) => {
   payload.logger.info(`— Seeding main pages...`);
   await payload.updateGlobal({
+    slug: "home",
+    data: {
+      title: "Home",
+    },
+    context: {
+      disableRevalidate: true,
+    },
+  });
+  await payload.updateGlobal({
     slug: "about",
     data: {
       title: "About us",

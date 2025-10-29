@@ -8,15 +8,10 @@ import {
 } from "@payloadcms/plugin-seo/fields";
 import { SHARED_BLOCKS } from "./utils";
 
-export const WorkPage: GlobalConfig = {
-  slug: "work",
+export const HomePage: GlobalConfig = {
+  slug: "home",
   admin: {
     group: "Main pages",
-    components: {
-      elements: {
-        Description: "/components/work-page#WorkPageDescription",
-      },
-    },
   },
   access: {
     read: () => true,
@@ -28,31 +23,12 @@ export const WorkPage: GlobalConfig = {
       required: true,
     },
     {
-      name: "slug",
-      type: "text",
-      required: true,
-    },
-    {
       type: "tabs",
       tabs: [
         {
           name: "content",
           label: "Content",
           fields: [
-            {
-              name: "heading",
-              type: "text",
-              required: true,
-            },
-            {
-              name: "subheading",
-              type: "text",
-            },
-            {
-              name: "backgroundImage",
-              type: "upload",
-              relationTo: "media",
-            },
             {
               name: "blocks",
               type: "blocks",
