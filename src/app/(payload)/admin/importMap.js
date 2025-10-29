@@ -27,13 +27,13 @@ import { OverviewComponent as OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860
 import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
-import { WorkPageDescription as WorkPageDescription_b7ada26624e5a2e267589d296130fcec } from '../../../components/work-page'
-import { RowLabel as RowLabel_5b248feaf326304f4d8cfabb91279e23 } from '@/components/header/row-label'
-import { RowLabelNavigation as RowLabelNavigation_26444dfa7a18819a4e2350f1710fb9d9 } from '@/components/footer/row-label-navigation'
-import { RowLabelSocials as RowLabelSocials_56306ba02f5eb51cf5d3c8e33cf999fa } from '@/components/footer/row-label-socials'
-import { default as default_ebd89644b55f222c8cfb956ba79f6b4f } from '../../../components/graphics/icon'
-import { default as default_5b1e980b7373c54e71b42d344b9b5ae3 } from '../../../components/graphics/logo'
-import { default as default_8a7ab0eb7ab5c511aba12e68480bfe5e } from '@/components/BeforeLogin'
+import { WorkPageDescription as WorkPageDescription_c16699226b059bcbaa1ea3c23e27fe9f } from '../../../components/payload/work-page'
+import { RowLabel as RowLabel_2c169de6c9ed15ffb30bb47a1aed6a63 } from '@/components/payload/header/row-label'
+import { RowLabelNavigation as RowLabelNavigation_b83b1d8a3b5d9ed13e12cdc946351b46 } from '@/components/payload/footer/row-label-navigation'
+import { RowLabelSocials as RowLabelSocials_f3369f1285a2f20ff9ece3b755787d91 } from '@/components/payload/footer/row-label-socials'
+import { default as default_0deb73866e32444347640fd81c466b8a } from '../../../components/payload/graphics/icon'
+import { default as default_0ea45afdb41aad12227d9c5ebc86a92d } from '../../../components/payload/graphics/logo'
+import { default as default_d809ecdf9ab730ec4be88e68c974ae3c } from '@/components/payload/before-login'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -65,11 +65,11 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#MetaTitleComponent": MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
-  "/components/work-page#WorkPageDescription": WorkPageDescription_b7ada26624e5a2e267589d296130fcec,
-  "@/components/header/row-label#RowLabel": RowLabel_5b248feaf326304f4d8cfabb91279e23,
-  "@/components/footer/row-label-navigation#RowLabelNavigation": RowLabelNavigation_26444dfa7a18819a4e2350f1710fb9d9,
-  "@/components/footer/row-label-socials#RowLabelSocials": RowLabelSocials_56306ba02f5eb51cf5d3c8e33cf999fa,
-  "/components/graphics/icon#default": default_ebd89644b55f222c8cfb956ba79f6b4f,
-  "/components/graphics/logo#default": default_5b1e980b7373c54e71b42d344b9b5ae3,
-  "@/components/BeforeLogin#default": default_8a7ab0eb7ab5c511aba12e68480bfe5e
+  "/components/payload/work-page#WorkPageDescription": WorkPageDescription_c16699226b059bcbaa1ea3c23e27fe9f,
+  "@/components/payload/header/row-label#RowLabel": RowLabel_2c169de6c9ed15ffb30bb47a1aed6a63,
+  "@/components/payload/footer/row-label-navigation#RowLabelNavigation": RowLabelNavigation_b83b1d8a3b5d9ed13e12cdc946351b46,
+  "@/components/payload/footer/row-label-socials#RowLabelSocials": RowLabelSocials_f3369f1285a2f20ff9ece3b755787d91,
+  "/components/payload/graphics/icon#default": default_0deb73866e32444347640fd81c466b8a,
+  "/components/payload/graphics/logo#default": default_0ea45afdb41aad12227d9c5ebc86a92d,
+  "@/components/payload/before-login#default": default_d809ecdf9ab730ec4be88e68c974ae3c
 }

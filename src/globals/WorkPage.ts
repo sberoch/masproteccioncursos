@@ -14,7 +14,7 @@ export const WorkPage: GlobalConfig = {
     group: "Main pages",
     components: {
       elements: {
-        Description: "/components/work-page#WorkPageDescription",
+        Description: "/components/payload/work-page#WorkPageDescription",
       },
     },
   },

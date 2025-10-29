@@ -3,8 +3,8 @@ import React from "react";
 
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
-import { Media, WorkItem } from "../../payload-types";
-import { CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Media, WorkItem } from "../../../payload-types";
+import { CardContent, CardHeader, CardTitle } from "../../ui/card";
 
 export type Props = {
   workItems: WorkItem[];

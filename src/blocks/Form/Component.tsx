@@ -8,7 +8,7 @@ import type {
 import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import RichText from "@/components/RichText";
+import RichText from "@/components/web/rich-text";
 import { Button } from "@/components/ui/button";
 import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
 

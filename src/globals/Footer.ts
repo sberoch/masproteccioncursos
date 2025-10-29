@@ -31,7 +31,7 @@ export const Footer: GlobalConfig = {
             initCollapsed: true,
             components: {
               RowLabel:
-                "@/components/footer/row-label-navigation#RowLabelNavigation",
+                "@/components/payload/footer/row-label-navigation#RowLabelNavigation",
             },
           },
         },
@@ -87,7 +87,8 @@ export const Footer: GlobalConfig = {
       admin: {
         initCollapsed: true,
         components: {
-          RowLabel: "@/components/footer/row-label-socials#RowLabelSocials",
+          RowLabel:
+            "@/components/payload/footer/row-label-socials#RowLabelSocials",
         },
       },
     },

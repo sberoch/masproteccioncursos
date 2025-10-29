@@ -47,10 +47,10 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     components: {
-      beforeLogin: ["@/components/BeforeLogin"],
+      beforeLogin: ["@/components/payload/before-login"],
       graphics: {
-        Logo: "/components/graphics/logo",
-        Icon: "/components/graphics/icon",
+        Logo: "/components/payload/graphics/logo",
+        Icon: "/components/payload/graphics/icon",
       },
     },
     avatar: "gravatar",

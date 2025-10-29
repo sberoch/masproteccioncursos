@@ -13,7 +13,7 @@
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "seed": "mv .db .db.backup && cross-env NODE_OPTIONS=--no-deprecation payload run ./src/scripts/seed/seed.ts"
+    "seed": "mv .db .backup.db && cross-env NODE_OPTIONS=--no-deprecation payload run ./src/scripts/seed/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -58,7 +58,9 @@
     "date-fns": "^4.1.0",
     "dotenv": "16.4.7",
     "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.23.24",
     "graphql": "^16.8.1",
+    "gsap": "^3.13.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.548.0",
     "next": "15.4.4",
