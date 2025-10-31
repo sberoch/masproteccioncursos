@@ -26,5 +26,5 @@ jobs:
             cd website
             git pull origin main
             git checkout main
-            npm run build
+            pnpm build
             pm2 reload website
