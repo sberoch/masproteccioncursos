@@ -30,7 +30,6 @@ import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea
 import { WorkPageDescription as WorkPageDescription_c16699226b059bcbaa1ea3c23e27fe9f } from '../../../components/payload/work-page'
 import { RowLabel as RowLabel_2c169de6c9ed15ffb30bb47a1aed6a63 } from '@/components/payload/header/row-label'
 import { RowLabelNavigation as RowLabelNavigation_b83b1d8a3b5d9ed13e12cdc946351b46 } from '@/components/payload/footer/row-label-navigation'
-import { RowLabelSocials as RowLabelSocials_f3369f1285a2f20ff9ece3b755787d91 } from '@/components/payload/footer/row-label-socials'
 import { default as default_0deb73866e32444347640fd81c466b8a } from '../../../components/payload/graphics/icon'
 import { default as default_0ea45afdb41aad12227d9c5ebc86a92d } from '../../../components/payload/graphics/logo'
 import { default as default_d809ecdf9ab730ec4be88e68c974ae3c } from '@/components/payload/before-login'
@@ -68,7 +67,6 @@ export const importMap = {
   "/components/payload/work-page#WorkPageDescription": WorkPageDescription_c16699226b059bcbaa1ea3c23e27fe9f,
   "@/components/payload/header/row-label#RowLabel": RowLabel_2c169de6c9ed15ffb30bb47a1aed6a63,
   "@/components/payload/footer/row-label-navigation#RowLabelNavigation": RowLabelNavigation_b83b1d8a3b5d9ed13e12cdc946351b46,
-  "@/components/payload/footer/row-label-socials#RowLabelSocials": RowLabelSocials_f3369f1285a2f20ff9ece3b755787d91,
   "/components/payload/graphics/icon#default": default_0deb73866e32444347640fd81c466b8a,
   "/components/payload/graphics/logo#default": default_0ea45afdb41aad12227d9c5ebc86a92d,
   "@/components/payload/before-login#default": default_d809ecdf9ab730ec4be88e68c974ae3c

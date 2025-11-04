@@ -4,12 +4,14 @@ import { seedContactForm } from "./contact-form";
 import { seedLayout } from "./layout";
 import { seedMainPages } from "./main-pages";
 import { seedUsers } from "./users";
+import { seedSocials } from "./socials";
 
 export const seed = async (payload: Payload) => {
   await seedUsers(payload);
   await seedLayout(payload);
   await seedMainPages(payload);
   await seedContactForm(payload);
+  await seedSocials(payload);
 };
 
 async function runSeed() {

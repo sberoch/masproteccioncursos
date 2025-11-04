@@ -24,6 +24,7 @@ import { WorkItems } from "./collections/WorkItems";
 import { HomePage } from "./globals/HomePage";
 import { MainPage } from "./globals/interfaces";
 import { Page } from "./payload-types";
+import { Socials } from "./collections/Socials";
 
 const generateTitle: GenerateTitle<MainPage | Page> = ({ doc }) => {
   return doc?.title
@@ -64,7 +65,7 @@ export default buildConfig({
     Header,
     Footer,
   ],
-  collections: [WorkItems, Categories, Pages, Media, Users],
+  collections: [WorkItems, Categories, Pages, Media, Users, Socials],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

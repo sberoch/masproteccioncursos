@@ -31,5 +31,6 @@ jobs:
             cd website
             git pull origin main
             git checkout main
+            pnpm install
             pnpm build
             pm2 reload website

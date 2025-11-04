@@ -77,23 +77,6 @@ export const seedLayout = async (payload: Payload) => {
           },
         ],
       },
-      socialMedia: [
-        {
-          title: "Facebook",
-          url: "https://www.facebook.com",
-          icon: "facebook" as const,
-        },
-        {
-          title: "Instagram",
-          url: "https://www.instagram.com",
-          icon: "instagram" as const,
-        },
-        {
-          title: "LinkedIn",
-          url: "https://www.linkedin.com",
-          icon: "linkedin" as const,
-        },
-      ],
     },
     context: {
       disableRevalidate: true,

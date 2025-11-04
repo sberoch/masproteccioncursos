@@ -13,7 +13,7 @@
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 4000",
-    "seed": "mv .db .backup.db && cross-env NODE_OPTIONS=--no-deprecation payload run ./src/scripts/seed/seed.ts"
+    "seed": "sh -c '[ -f .db ] && mv .db .backup.db || true' && cross-env NODE_OPTIONS=--no-deprecation payload run ./src/scripts/seed/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -84,6 +84,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^22.5.4",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
