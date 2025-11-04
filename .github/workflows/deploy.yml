@@ -32,6 +32,7 @@ jobs:
             git pull origin main
             git checkout main
             pnpm install
+            pnpm payload migrate:create --skip-empty
             pnpm payload migrate
             pnpm build
             pm2 reload website
