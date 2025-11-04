@@ -16,7 +16,7 @@ import { seoPlugin } from "@payloadcms/plugin-seo";
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
-import { buildConfig } from "payload";
+import { buildConfig, PayloadRequest } from "payload";
 import sharp from "sharp";
 import { fileURLToPath } from "url";
 import { Categories } from "./collections/Categories";
@@ -76,6 +76,21 @@ export default buildConfig({
       url: process.env.DATABASE_URI || "",
     },
   }),
+  jobs: {
+    access: {
+      run: ({ req }: { req: PayloadRequest }): boolean => {
+        // Allow logged in users to execute this endpoint (default)
+        if (req.user) return true
+
+        // If there is no logged in user, then check
+        // for the Vercel Cron secret to be present as an
+        // Authorization header:
+        const authHeader = req.headers.get('authorization')
+        return authHeader === `Bearer ${process.env.CRON_SECRET}`
+      },
+    },
+    tasks: [],
+  },
   sharp,
   cors: "*",
   plugins: [

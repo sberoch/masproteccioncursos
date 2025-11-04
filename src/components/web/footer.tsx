@@ -24,8 +24,6 @@ export const Footer = async () => {
   )()) as FooterType;
   const socials = await getSocials();
 
-  console.log(footer);
-
   return (
     <footer className="w-full border-t bg-foreground">
       <div className="container mx-auto px-5 lg:px-0 py-12 text-background">
