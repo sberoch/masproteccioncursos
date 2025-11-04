@@ -72,6 +72,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   db: sqliteAdapter({
+    push: false,
     client: {
       url: process.env.DATABASE_URI || "",
     },
@@ -80,13 +81,13 @@ export default buildConfig({
     access: {
       run: ({ req }: { req: PayloadRequest }): boolean => {
         // Allow logged in users to execute this endpoint (default)
-        if (req.user) return true
+        if (req.user) return true;
 
         // If there is no logged in user, then check
         // for the Vercel Cron secret to be present as an
         // Authorization header:
-        const authHeader = req.headers.get('authorization')
-        return authHeader === `Bearer ${process.env.CRON_SECRET}`
+        const authHeader = req.headers.get("authorization");
+        return authHeader === `Bearer ${process.env.CRON_SECRET}`;
       },
     },
     tasks: [],
