@@ -14,6 +14,7 @@ import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
 
 import { fields } from "./fields";
 import { getClientSideURL } from "@/utilities/getURL";
+import { cn } from "@/utilities";
 
 export type FormBlockType = {
   blockName?: string;
@@ -21,6 +22,8 @@ export type FormBlockType = {
   enableIntro: boolean;
   form: FormType;
   introContent?: DefaultTypedEditorState;
+  className?: string;
+  formClassName?: string;
 };
 
 export const FormBlock: React.FC<
@@ -39,6 +42,8 @@ export const FormBlock: React.FC<
       submitButtonLabel,
     } = {},
     introContent,
+    className,
+    formClassName,
   } = props;
 
   const formMethods = useForm({
@@ -129,7 +134,7 @@ export const FormBlock: React.FC<
   );
 
   return (
-    <div className="container lg:max-w-3xl">
+    <div className={cn("container mx-auto", className)}>
       {enableIntro && introContent && !hasSubmitted && (
         <RichText
           className="mb-8 lg:mb-12"
@@ -137,7 +142,12 @@ export const FormBlock: React.FC<
           enableGutter={false}
         />
       )}
-      <div className="p-4 lg:p-6 border border-border rounded-[0.8rem]">
+      <div
+        className={cn(
+          "p-4 lg:p-6 border border-border rounded-[0.8rem]",
+          formClassName
+        )}
+      >
         <FormProvider {...formMethods}>
           {!isLoading && hasSubmitted && confirmationType === "message" && (
             <RichText data={confirmationMessage} />

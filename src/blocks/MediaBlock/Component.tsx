@@ -33,15 +33,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
   if (media && typeof media === "object") caption = media.caption;
 
   return (
-    <div
-      className={cn(
-        "",
-        {
-          container: enableGutter,
-        },
-        className
-      )}
-    >
+    <div className={cn(enableGutter && "container mx-auto", className)}>
       {(media || staticImage) && (
         <Media
           imgClassName={cn(

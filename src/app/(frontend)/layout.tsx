@@ -47,7 +47,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
-      <body className={cn("antialiased overflow-x-hidden")}>
+      <body className={cn("antialiased overflow-x-hidden relative")}>
         <Header />
         {children}
         <Footer />

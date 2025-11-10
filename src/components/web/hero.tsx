@@ -1,9 +1,13 @@
 "use client";
 
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
-import { MinimalistHero } from "@/components/ui/minimalist-hero";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { TextLoop } from "../ui/text-loop";
 
 export const Hero = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const imagesRef = useRef<HTMLDivElement>(null);
   const navLinks = [
     { label: "Home", href: "#" },
     { label: "Work", href: "#" },
@@ -19,26 +23,106 @@ export const Hero = () => {
     { icon: Linkedin, href: "#" },
   ];
 
-  const images = [
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
-    "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
-    "https://images.unsplash.com/photo-1426604966848-d7adac402bff",
-    "https://images.unsplash.com/photo-1472214103451-9374bd1c798e",
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
-    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d",
-  ].map((url) => `${url}?auto=format&fit=crop&w=300&q=80`);
+  const heroImages = [
+    {
+      src: "/hero1.jpg",
+      alt: "Hero image 1",
+      wrapperClass:
+        "absolute top-[15%] right-[4%] w-[25%] aspect-4/3 rounded-2xl overflow-hidden rotate-2",
+    },
+    {
+      src: "/hero2.jpeg",
+      alt: "Hero image 2",
+      wrapperClass:
+        "absolute top-[28%] right-[8%] w-[25%] aspect-4/3 rounded-2xl overflow-hidden -rotate-3",
+    },
+    {
+      src: "/hero3.webp",
+      alt: "Hero image 3",
+      wrapperClass:
+        "absolute top-[41%] right-[7%] w-[25%] aspect-4/3 rounded-2xl overflow-hidden rotate-6",
+    },
+    {
+      src: "/hero4.jpg",
+      alt: "Hero image 4",
+      wrapperClass:
+        "absolute top-[56%] right-[10%] w-[25%] aspect-4/3 rounded-2xl overflow-hidden -rotate-4",
+    },
+  ];
+
+  useEffect(() => {
+    const moveGradient = (event: MouseEvent) => {
+      const winWidth = window.innerWidth;
+      const winHeight = window.innerHeight;
+
+      const mouseX = Math.round((event.pageX / winWidth) * 100);
+      const mouseY = Math.round((event.pageY / winHeight) * 100);
+
+      if (ref.current) {
+        ref.current.style.setProperty("--mouse-x", `${mouseX}%`);
+        ref.current.style.setProperty("--mouse-y", `${mouseY}%`);
+      }
+
+      // Parallax effect for images
+      if (imagesRef.current) {
+        const moveX = (event.clientX - winWidth / 2) / 50;
+        const moveY = (event.clientY - winHeight / 2) / 50;
+        imagesRef.current.style.setProperty("--parallax-x", `${moveX}px`);
+        imagesRef.current.style.setProperty("--parallax-y", `${moveY}px`);
+      }
+    };
+    document.addEventListener("mousemove", moveGradient);
+    return () => {
+      document.removeEventListener("mousemove", moveGradient);
+    };
+  }, [ref]);
 
   return (
-    <MinimalistHero
-      logoSrc="/logo.png"
-      logoAlt="Stylus Solutions"
-      navLinks={navLinks}
-      heading="STYLUS SOLUTIONS"
-      description="Rights & Clearance Specialists, Archival Production, Music Supervision"
-      socialLinks={socialLinks}
-      locationText="NYC - MIA - LA"
-      images={images}
-      nextSectionId="next-section"
-    />
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 z-0 w-full h-full bg-[#ec409e2c]"
+        ref={ref}
+      >
+        <div className="blob-cont">
+          <div className="blob-1 blob"></div>
+          <div className="blob-2 blob"></div>
+          <div className="blob-3 blob"></div>
+          <div className="blob-4 blob"></div>
+        </div>
+      </div>
+      <div ref={imagesRef}>
+        {heroImages.map((img, index) => (
+          <div key={index} className={img.wrapperClass}>
+            <Image
+              src={img.src}
+              alt={img.alt}
+              width={800}
+              height={600}
+              className="w-fit h-fit object-contain rounded-2xl"
+              priority
+            />
+          </div>
+        ))}
+      </div>
+      <div className="relative container mx-auto px-5 lg:px-0 z-10">
+        <h1 className="lg:text-[10rem] text-6xl max-w-4xl tracking-tight font-archivo-black text-[#1d1d1d]">
+          STYLUS SOLUTIONS
+        </h1>
+
+        <div
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-4xl text-[#1d1d1d]
+            leading-relaxed font-light tracking-wide mt-12 uppercase"
+        >
+          <span>Clearances for </span>
+          <TextLoop interval={3}>
+            {["MUSIC", "FOOTAGE", "IMAGES", "TALENT"].map((text) => (
+              <span className="italic" key={text}>
+                {text}
+              </span>
+            ))}
+          </TextLoop>
+        </div>
+      </div>
+    </div>
   );
 };
