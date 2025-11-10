@@ -263,6 +263,8 @@ export interface Page {
           | BannerBlock
           | FormBlock
           | CollectionItemListBlock
+          | ClientLogosBlock
+          | GalleryBlock
         )[]
       | null;
   };
@@ -636,6 +638,80 @@ export interface CollectionItemListBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ClientLogosBlock".
+ */
+export interface ClientLogosBlock {
+  enableIntro?: boolean | null;
+  introContent?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Number of columns for the logo grid
+   */
+  columnCount?: ('3' | '4' | '5' | '6') | null;
+  logos?:
+    | {
+        logo: number | Media;
+        /**
+         * Optional. If not provided, will use the alt text from the media item.
+         */
+        alt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'clientLogos';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GalleryBlock".
+ */
+export interface GalleryBlock {
+  enableIntro?: boolean | null;
+  introContent?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  images?:
+    | {
+        image: number | Media;
+        /**
+         * Optional caption to display below the image.
+         */
+        caption?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'gallery';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -823,6 +899,8 @@ export interface PagesSelect<T extends boolean = true> {
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
               collectionItemList?: T | CollectionItemListBlockSelect<T>;
+              clientLogos?: T | ClientLogosBlockSelect<T>;
+              gallery?: T | GalleryBlockSelect<T>;
             };
       };
   meta?:
@@ -926,6 +1004,41 @@ export interface CollectionItemListBlockSelect<T extends boolean = true> {
   categories?: T;
   limit?: T;
   selectedDocs?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ClientLogosBlock_select".
+ */
+export interface ClientLogosBlockSelect<T extends boolean = true> {
+  enableIntro?: T;
+  introContent?: T;
+  columnCount?: T;
+  logos?:
+    | T
+    | {
+        logo?: T;
+        alt?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GalleryBlock_select".
+ */
+export interface GalleryBlockSelect<T extends boolean = true> {
+  enableIntro?: T;
+  introContent?: T;
+  images?:
+    | T
+    | {
+        image?: T;
+        caption?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1171,7 +1284,16 @@ export interface Home {
   title: string;
   content?: {
     blocks?:
-      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | CollectionItemListBlock)[]
+      | (
+          | ContentBlock
+          | CallToActionBlock
+          | MediaBlock
+          | BannerBlock
+          | FormBlock
+          | CollectionItemListBlock
+          | ClientLogosBlock
+          | GalleryBlock
+        )[]
       | null;
   };
   meta?: {
@@ -1198,7 +1320,16 @@ export interface About {
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
     blocks?:
-      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | CollectionItemListBlock)[]
+      | (
+          | ContentBlock
+          | CallToActionBlock
+          | MediaBlock
+          | BannerBlock
+          | FormBlock
+          | CollectionItemListBlock
+          | ClientLogosBlock
+          | GalleryBlock
+        )[]
       | null;
   };
   meta?: {
@@ -1225,7 +1356,16 @@ export interface Contact {
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
     blocks?:
-      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | CollectionItemListBlock)[]
+      | (
+          | ContentBlock
+          | CallToActionBlock
+          | MediaBlock
+          | BannerBlock
+          | FormBlock
+          | CollectionItemListBlock
+          | ClientLogosBlock
+          | GalleryBlock
+        )[]
       | null;
   };
   meta?: {
@@ -1252,7 +1392,16 @@ export interface Work {
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
     blocks?:
-      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | CollectionItemListBlock)[]
+      | (
+          | ContentBlock
+          | CallToActionBlock
+          | MediaBlock
+          | BannerBlock
+          | FormBlock
+          | CollectionItemListBlock
+          | ClientLogosBlock
+          | GalleryBlock
+        )[]
       | null;
   };
   meta?: {
@@ -1279,7 +1428,16 @@ export interface Service {
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
     blocks?:
-      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | CollectionItemListBlock)[]
+      | (
+          | ContentBlock
+          | CallToActionBlock
+          | MediaBlock
+          | BannerBlock
+          | FormBlock
+          | CollectionItemListBlock
+          | ClientLogosBlock
+          | GalleryBlock
+        )[]
       | null;
   };
   meta?: {
@@ -1391,6 +1549,8 @@ export interface HomeSelect<T extends boolean = true> {
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
               collectionItemList?: T | CollectionItemListBlockSelect<T>;
+              clientLogos?: T | ClientLogosBlockSelect<T>;
+              gallery?: T | GalleryBlockSelect<T>;
             };
       };
   meta?:
@@ -1426,6 +1586,8 @@ export interface AboutSelect<T extends boolean = true> {
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
               collectionItemList?: T | CollectionItemListBlockSelect<T>;
+              clientLogos?: T | ClientLogosBlockSelect<T>;
+              gallery?: T | GalleryBlockSelect<T>;
             };
       };
   meta?:
@@ -1461,6 +1623,8 @@ export interface ContactSelect<T extends boolean = true> {
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
               collectionItemList?: T | CollectionItemListBlockSelect<T>;
+              clientLogos?: T | ClientLogosBlockSelect<T>;
+              gallery?: T | GalleryBlockSelect<T>;
             };
       };
   meta?:
@@ -1496,6 +1660,8 @@ export interface WorkSelect<T extends boolean = true> {
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
               collectionItemList?: T | CollectionItemListBlockSelect<T>;
+              clientLogos?: T | ClientLogosBlockSelect<T>;
+              gallery?: T | GalleryBlockSelect<T>;
             };
       };
   meta?:
@@ -1531,6 +1697,8 @@ export interface ServicesSelect<T extends boolean = true> {
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
               collectionItemList?: T | CollectionItemListBlockSelect<T>;
+              clientLogos?: T | ClientLogosBlockSelect<T>;
+              gallery?: T | GalleryBlockSelect<T>;
             };
       };
   meta?:
