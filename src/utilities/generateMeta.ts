@@ -25,8 +25,8 @@ export const generateMeta = async (args: {
   const ogImage = getImageURL(doc?.meta?.image);
 
   const title = doc?.meta?.title
-    ? doc?.meta?.title + " | Stylus Solutions"
-    : "Stylus Solutions";
+    ? doc?.meta?.title + " | Erio Software"
+    : "Erio Software";
 
   return {
     description: doc?.meta?.description,

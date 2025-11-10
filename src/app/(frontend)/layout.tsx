@@ -9,26 +9,26 @@ import { Footer } from "@/components/web/footer";
 export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(`https://${(await headers()).get("host")}`),
-    title: "Music & Media Clearances | Stylus Solutions",
+    title: "Web template | Erio Software",
     description:
-      "Stylus Solutions is your one stop shop in dealing with Rights and Clearances for motion pictures, television programs and much more.",
+      "From strategy to launch: performant, maintainable software that makes your business grow. Trusted by leading brands.",
     alternates: {
       canonical: `https://${(await headers()).get("host")}`,
     },
     openGraph: {
-      title: "Music & Media Clearances | Stylus Solutions",
+      title: "Web template | Erio Software",
       url: `https://${(await headers()).get("host")}`,
       type: "website",
-      siteName: "Stylus Solutions",
+      siteName: "Erio Software",
       description:
-        "Stylus Solutions is your one stop shop in dealing with Rights and Clearances for motion pictures, television programs and much more.",
+        "From strategy to launch: performant, maintainable software that makes your business grow. Trusted by leading brands.",
       images: "/og-image.png",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Music & Media Clearances | Stylus Solutions",
+      title: "Web template | Erio Software",
       description:
-        "Stylus Solutions is your one stop shop in dealing with Rights and Clearances for motion pictures, television programs and much more.",
+        "From strategy to launch: performant, maintainable software that makes your business grow. Trusted by leading brands.",
       images: "/og-image.png",
     },
     robots: {
