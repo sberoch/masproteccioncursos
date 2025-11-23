@@ -7,11 +7,23 @@ import {
   OverviewField,
 } from "@payloadcms/plugin-seo/fields";
 import { SHARED_BLOCKS } from "./utils";
+import { revalidateAboutPage } from "@/hooks/revalidateAboutPage";
+import { getServerSideURL } from "@/utilities/getURL";
 
 export const AboutPage: GlobalConfig = {
   slug: "about",
+  label: {
+    en: "About",
+    es: "Nosotros",
+  },
   admin: {
-    group: "Main pages",
+    group: {
+      en: "Main pages",
+      es: "Páginas principales",
+    },
+    livePreview: {
+      url: `${getServerSideURL()}/about`,
+    },
   },
   access: {
     read: () => true,
@@ -19,11 +31,19 @@ export const AboutPage: GlobalConfig = {
   fields: [
     {
       name: "title",
+      label: {
+        en: "Title",
+        es: "Título",
+      },
       type: "text",
       required: true,
     },
     {
       name: "slug",
+      label: {
+        en: "Slug",
+        es: "Slug",
+      },
       type: "text",
       required: true,
     },
@@ -32,32 +52,64 @@ export const AboutPage: GlobalConfig = {
       tabs: [
         {
           name: "content",
-          label: "Content",
+          label: {
+            en: "Content",
+            es: "Contenido",
+          },
           fields: [
             {
               name: "heading",
+              label: {
+                en: "Heading",
+                es: "Encabezado",
+              },
               type: "text",
               required: true,
             },
             {
               name: "subheading",
+              label: {
+                en: "Subheading",
+                es: "Subencabezado",
+              },
               type: "text",
             },
             {
               name: "backgroundImage",
+              label: {
+                en: "Background Image",
+                es: "Imagen de fondo",
+              },
               type: "upload",
               relationTo: "media",
             },
             {
               name: "blocks",
+              label: {
+                en: "Blocks",
+                es: "Bloques",
+              },
               type: "blocks",
               blocks: [...SHARED_BLOCKS],
+              labels: {
+                plural: {
+                  en: "Blocks",
+                  es: "Bloques",
+                },
+                singular: {
+                  en: "Block",
+                  es: "Bloque",
+                },
+              },
             },
           ],
         },
         {
           name: "meta",
-          label: "SEO",
+          label: {
+            en: "SEO",
+            es: "SEO",
+          },
           fields: [
             OverviewField({
               titlePath: "meta.title",
@@ -66,14 +118,36 @@ export const AboutPage: GlobalConfig = {
             }),
             MetaTitleField({
               hasGenerateFn: true,
+              overrides: {
+                label: {
+                  en: "Title",
+                  es: "Título",
+                },
+              },
             }),
             MetaImageField({
               relationTo: "media",
+              overrides: {
+                label: {
+                  en: "Image",
+                  es: "Imagen",
+                },
+              },
             }),
-            MetaDescriptionField({}),
+            MetaDescriptionField({
+              overrides: {
+                label: {
+                  en: "Description",
+                  es: "Descripción",
+                },
+              },
+            }),
           ],
         },
       ],
     },
   ],
+  hooks: {
+    afterChange: [revalidateAboutPage],
+  },
 };

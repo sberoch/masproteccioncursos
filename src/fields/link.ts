@@ -31,6 +31,10 @@ export const link: LinkType = ({
 } = {}) => {
   const linkResult: GroupField = {
     name: "link",
+    label: {
+      en: "Link",
+      es: "Enlace",
+    },
     type: "group",
     admin: {
       hideGutter: true,
@@ -41,6 +45,10 @@ export const link: LinkType = ({
         fields: [
           {
             name: "type",
+            label: {
+              en: "Type",
+              es: "Tipo",
+            },
             type: "radio",
             admin: {
               layout: "horizontal",
@@ -49,17 +57,27 @@ export const link: LinkType = ({
             defaultValue: "reference",
             options: [
               {
-                label: "Internal link",
+                label: {
+                  en: "Internal link",
+                  es: "Enlace interno",
+                },
                 value: "reference",
               },
               {
-                label: "Custom URL",
+                label: {
+                  en: "Custom URL",
+                  es: "URL personalizada",
+                },
                 value: "custom",
               },
             ],
           },
           {
             name: "newTab",
+            label: {
+              en: "Open in new tab",
+              es: "Abrir en una nueva pestaña",
+            },
             type: "checkbox",
             admin: {
               style: {
@@ -67,7 +85,6 @@ export const link: LinkType = ({
               },
               width: "50%",
             },
-            label: "Open in new tab",
           },
         ],
       },
@@ -81,7 +98,10 @@ export const link: LinkType = ({
       admin: {
         condition: (_, siblingData) => siblingData?.type === "reference",
       },
-      label: "Document to link to",
+      label: {
+        en: "Document to link to",
+        es: "Documento al que se enlaza",
+      },
       relationTo: ["pages"] as CollectionSlug[],
       required: true,
     },
@@ -91,7 +111,10 @@ export const link: LinkType = ({
       admin: {
         condition: (_, siblingData) => siblingData?.type === "custom",
       },
-      label: "Custom URL",
+      label: {
+        en: "Custom URL",
+        es: "URL personalizada",
+      },
       required: true,
     },
   ];
@@ -115,7 +138,10 @@ export const link: LinkType = ({
           admin: {
             width: "50%",
           },
-          label: "Label",
+          label: {
+            en: "Label",
+            es: "Etiqueta",
+          },
           required: true,
         },
       ],
@@ -140,7 +166,10 @@ export const link: LinkType = ({
       name: "appearance",
       type: "select",
       admin: {
-        description: "Choose how the link should be rendered.",
+        description: {
+          en: "Choose how the link should be rendered.",
+          es: "Elige cómo se debe mostrar el enlace.",
+        },
       },
       defaultValue: "default",
       options: appearanceOptionsToUse,

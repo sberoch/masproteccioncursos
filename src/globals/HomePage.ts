@@ -7,11 +7,23 @@ import {
   OverviewField,
 } from "@payloadcms/plugin-seo/fields";
 import { SHARED_BLOCKS } from "./utils";
+import { revalidateHomePage } from "@/hooks/revalidateHomePage";
+import { getServerSideURL } from "@/utilities/getURL";
 
 export const HomePage: GlobalConfig = {
   slug: "home",
+  label: {
+    en: "Home",
+    es: "Inicio",
+  },
   admin: {
-    group: "Main pages",
+    group: {
+      en: "Main pages",
+      es: "Páginas principales",
+    },
+    livePreview: {
+      url: `${getServerSideURL()}`,
+    },
   },
   access: {
     read: () => true,
@@ -19,6 +31,10 @@ export const HomePage: GlobalConfig = {
   fields: [
     {
       name: "title",
+      label: {
+        en: "Title",
+        es: "Título",
+      },
       type: "text",
       required: true,
     },
@@ -27,18 +43,38 @@ export const HomePage: GlobalConfig = {
       tabs: [
         {
           name: "content",
-          label: "Content",
+          label: {
+            en: "Content",
+            es: "Contenido",
+          },
           fields: [
             {
               name: "blocks",
+              label: {
+                en: "Blocks",
+                es: "Bloques",
+              },
               type: "blocks",
               blocks: [...SHARED_BLOCKS],
+              labels: {
+                plural: {
+                  en: "Blocks",
+                  es: "Bloques",
+                },
+                singular: {
+                  en: "Block",
+                  es: "Bloque",
+                },
+              },
             },
           ],
         },
         {
           name: "meta",
-          label: "SEO",
+          label: {
+            en: "SEO",
+            es: "SEO",
+          },
           fields: [
             OverviewField({
               titlePath: "meta.title",
@@ -47,14 +83,36 @@ export const HomePage: GlobalConfig = {
             }),
             MetaTitleField({
               hasGenerateFn: true,
+              overrides: {
+                label: {
+                  en: "Title",
+                  es: "Título",
+                },
+              },
             }),
             MetaImageField({
               relationTo: "media",
+              overrides: {
+                label: {
+                  en: "Image",
+                  es: "Imagen",
+                },
+              },
             }),
-            MetaDescriptionField({}),
+            MetaDescriptionField({
+              overrides: {
+                label: {
+                  en: "Description",
+                  es: "Descripción",
+                },
+              },
+            }),
           ],
         },
       ],
     },
   ],
+  hooks: {
+    afterChange: [revalidateHomePage],
+  },
 };

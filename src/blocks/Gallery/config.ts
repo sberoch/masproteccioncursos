@@ -13,7 +13,10 @@ export const GalleryBlock: Block = {
     {
       name: "enableIntro",
       type: "checkbox",
-      label: "Enable Intro Content",
+      label: {
+        en: "Enable Intro Content",
+        es: "Habilitar contenido introductorio",
+      },
     },
     {
       name: "introContent",
@@ -31,12 +34,28 @@ export const GalleryBlock: Block = {
           ];
         },
       }),
-      label: "Intro Content",
+      label: {
+        en: "Intro Content",
+        es: "Contenido introductorio",
+      },
     },
     {
       name: "images",
       type: "array",
-      label: "Images",
+      label: {
+        en: "Images",
+        es: "Imágenes",
+      },
+      labels: {
+        plural: {
+          en: "Images",
+          es: "Imágenes",
+        },
+        singular: {
+          en: "Image",
+          es: "Imagen",
+        },
+      },
       minRows: 1,
       admin: {
         initCollapsed: true,
@@ -47,20 +66,36 @@ export const GalleryBlock: Block = {
           type: "upload",
           relationTo: "media",
           required: true,
+          label: {
+            en: "Image",
+            es: "Imagen",
+          },
         },
         {
           name: "caption",
           type: "text",
-          label: "Caption",
+          label: {
+            en: "Caption",
+            es: "Descripción",
+          },
           admin: {
-            description: "Optional caption to display below the image.",
+            description: {
+              en: "Optional caption to display below the image.",
+              es: "Opcional. Descripción para mostrar debajo de la imagen.",
+            },
           },
         },
       ],
     },
   ],
   labels: {
-    plural: "Gallery Blocks",
-    singular: "Gallery Block",
+    plural: {
+      en: "Gallery Blocks",
+      es: "Galería",
+    },
+    singular: {
+      en: "Gallery Block",
+      es: "Galería",
+    },
   },
 };

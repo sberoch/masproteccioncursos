@@ -13,34 +13,62 @@ export const Pages: CollectionConfig = {
   access: {
     read: () => true,
   },
+  labels: {
+    singular: {
+      en: "Page",
+      es: "Página",
+    },
+    plural: {
+      en: "Pages",
+      es: "Páginas",
+    },
+  },
   fields: [
     {
       name: "title",
       type: "text",
       required: true,
+      label: {
+        en: "Title",
+        es: "Título",
+      },
     },
     {
       name: "slug",
       type: "text",
       required: true,
+      label: {
+        en: "Slug",
+        es: "Slug",
+      },
     },
     {
       type: "tabs",
       tabs: [
         {
           name: "content",
-          label: "Content",
+          label: {
+            en: "Content",
+            es: "Contenido",
+          },
           fields: [
             {
               name: "layout",
               type: "blocks",
               blocks: [HeaderBlock, ...SHARED_BLOCKS],
+              label: {
+                en: "Content",
+                es: "Contenido",
+              },
             },
           ],
         },
         {
           name: "meta",
-          label: "SEO",
+          label: {
+            en: "SEO",
+            es: "SEO",
+          },
           fields: [
             OverviewField({
               titlePath: "meta.title",
@@ -49,11 +77,30 @@ export const Pages: CollectionConfig = {
             }),
             MetaTitleField({
               hasGenerateFn: true,
+              overrides: {
+                label: {
+                  en: "Title",
+                  es: "Título",
+                },
+              },
             }),
             MetaImageField({
               relationTo: "media",
+              overrides: {
+                label: {
+                  en: "Image",
+                  es: "Imagen",
+                },
+              },
             }),
-            MetaDescriptionField({}),
+            MetaDescriptionField({
+              overrides: {
+                label: {
+                  en: "Description",
+                  es: "Descripción",
+                },
+              },
+            }),
           ],
         },
       ],

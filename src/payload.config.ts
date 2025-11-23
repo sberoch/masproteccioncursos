@@ -25,6 +25,8 @@ import { HomePage } from "./globals/HomePage";
 import { MainPage } from "./globals/interfaces";
 import { Page } from "./payload-types";
 import { Socials } from "./collections/Socials";
+import { en } from "@payloadcms/translations/languages/en";
+import { es } from "@payloadcms/translations/languages/es";
 
 const generateTitle: GenerateTitle<MainPage | Page> = ({ doc }) => {
   return doc?.title
@@ -42,8 +44,34 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
+  i18n: {
+    fallbackLanguage: "en",
+    supportedLanguages: { en, es },
+  },
   admin: {
     user: Users.slug,
+    livePreview: {
+      breakpoints: [
+        {
+          label: "Mobile",
+          name: "mobile",
+          width: 375,
+          height: 667,
+        },
+        {
+          label: "Tablet",
+          name: "tablet",
+          width: 768,
+          height: 1024,
+        },
+        {
+          label: "Desktop",
+          name: "desktop",
+          width: 1440,
+          height: 900,
+        },
+      ],
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
@@ -96,7 +124,32 @@ export default buildConfig({
   cors: "*",
   plugins: [
     payloadCloudPlugin(),
-    formBuilderPlugin({}),
+    formBuilderPlugin({
+      formOverrides: {
+        labels: {
+          plural: {
+            en: "Forms",
+            es: "Formularios",
+          },
+          singular: {
+            en: "Form",
+            es: "Formulario",
+          },
+        },
+      },
+      formSubmissionOverrides: {
+        labels: {
+          plural: {
+            en: "Form Submissions",
+            es: "Envíos de formularios",
+          },
+          singular: {
+            en: "Form Submission",
+            es: "Envío de formulario",
+          },
+        },
+      },
+    }),
     seoPlugin({
       generateTitle,
       generateURL,

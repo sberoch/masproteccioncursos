@@ -16,10 +16,24 @@ export const Users: CollectionConfig = {
     useAsTitle: "name",
   },
   auth: true,
+  labels: {
+    singular: {
+      en: "User",
+      es: "Usuario",
+    },
+    plural: {
+      en: "Users",
+      es: "Usuarios",
+    },
+  },
   fields: [
     {
       name: "name",
       type: "text",
+      label: {
+        en: "Name",
+        es: "Nombre",
+      },
     },
   ],
   timestamps: true,

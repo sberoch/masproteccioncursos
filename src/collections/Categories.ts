@@ -15,9 +15,23 @@ export const Categories: CollectionConfig = {
   admin: {
     useAsTitle: "title",
   },
+  labels: {
+    singular: {
+      en: "Category",
+      es: "Categoría",
+    },
+    plural: {
+      en: "Categories",
+      es: "Categorías",
+    },
+  },
   fields: [
     {
       name: "title",
+      label: {
+        en: "Title",
+        es: "Título",
+      },
       type: "text",
       required: true,
     },

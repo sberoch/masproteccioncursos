@@ -13,22 +13,38 @@ const columnFields: Field[] = [
   {
     name: "size",
     type: "select",
+    label: {
+      en: "Size",
+      es: "Tamaño",
+    },
     defaultValue: "full",
     options: [
       {
-        label: "One Third",
+        label: {
+          en: "One Third",
+          es: "Un tercio",
+        },
         value: "oneThird",
       },
       {
-        label: "Half",
+        label: {
+          en: "Half",
+          es: "Mitad",
+        },
         value: "half",
       },
       {
-        label: "Two Thirds",
+        label: {
+          en: "Two Thirds",
+          es: "Dos tercios",
+        },
         value: "twoThirds",
       },
       {
-        label: "Full",
+        label: {
+          en: "Full",
+          es: "Completo",
+        },
         value: "full",
       },
     ],
@@ -51,6 +67,10 @@ const columnFields: Field[] = [
   {
     name: "enableLink",
     type: "checkbox",
+    label: {
+      en: "Enable Link",
+      es: "Habilitar enlace",
+    },
   },
   link({
     overrides: {
@@ -66,14 +86,38 @@ const columnFields: Field[] = [
 export const Content: Block = {
   slug: "content",
   interfaceName: "ContentBlock",
+  labels: {
+    plural: {
+      en: "Content Blocks",
+      es: "Contenido",
+    },
+    singular: {
+      en: "Content Block",
+      es: "Contenido",
+    },
+  },
   fields: [
     {
       name: "columns",
+      label: {
+        en: "Columns",
+        es: "Columnas",
+      },
       type: "array",
       admin: {
         initCollapsed: true,
       },
       fields: columnFields,
+      labels: {
+        plural: {
+          en: "Columns",
+          es: "Columnas",
+        },
+        singular: {
+          en: "Column",
+          es: "Columna",
+        },
+      },
     },
   ],
 };

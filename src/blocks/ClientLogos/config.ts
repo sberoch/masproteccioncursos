@@ -13,7 +13,10 @@ export const ClientLogosBlock: Block = {
     {
       name: "enableIntro",
       type: "checkbox",
-      label: "Enable Intro Content",
+      label: {
+        en: "Enable Intro Content",
+        es: "Habilitar contenido introductorio",
+      },
     },
     {
       name: "introContent",
@@ -31,26 +34,39 @@ export const ClientLogosBlock: Block = {
           ];
         },
       }),
-      label: "Intro Content",
+      label: {
+        en: "Intro Content",
+        es: "Contenido introductorio",
+      },
     },
     {
       name: "columnCount",
       type: "select",
+      label: {
+        en: "Column Count",
+        es: "Número de columnas",
+      },
       defaultValue: "4",
       options: [
-        { label: "3 Columns", value: "3" },
-        { label: "4 Columns", value: "4" },
-        { label: "5 Columns", value: "5" },
-        { label: "6 Columns", value: "6" },
+        { label: { en: "3 Columns", es: "3 Columnas" }, value: "3" },
+        { label: { en: "4 Columns", es: "4 Columnas" }, value: "4" },
+        { label: { en: "5 Columns", es: "5 Columnas" }, value: "5" },
+        { label: { en: "6 Columns", es: "6 Columnas" }, value: "6" },
       ],
       admin: {
-        description: "Number of columns for the logo grid",
+        description: {
+          en: "Number of columns for the logo grid",
+          es: "Número de columnas para la cuadrícula de logos",
+        },
       },
     },
     {
       name: "logos",
       type: "array",
-      label: "Logos",
+      label: {
+        en: "Logos",
+        es: "Logos",
+      },
       minRows: 1,
       admin: {
         initCollapsed: true,
@@ -61,20 +77,36 @@ export const ClientLogosBlock: Block = {
           type: "upload",
           relationTo: "media",
           required: true,
+          label: {
+            en: "Logo",
+            es: "Logo",
+          },
         },
         {
           name: "alt",
           type: "text",
-          label: "Alt Text Override",
+          label: {
+            en: "Alt Text Override",
+            es: "Texto alternativo (override)",
+          },
           admin: {
-            description: "Optional. If not provided, will use the alt text from the media item.",
+            description: {
+              en: "Optional. If not provided, will use the alt text from the media item.",
+              es: "Opcional. Si no se proporciona, se usará el texto alternativo del elemento multimedia.",
+            },
           },
         },
       ],
     },
   ],
   labels: {
-    plural: "Client Logos Blocks",
-    singular: "Client Logos Block",
+    plural: {
+      en: "Client Logos Blocks",
+      es: "Bloques de logos de clientes",
+    },
+    singular: {
+      en: "Client Logos Block",
+      es: "Bloque de logos de clientes",
+    },
   },
 };

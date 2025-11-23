@@ -5,14 +5,32 @@ export const Socials: CollectionConfig = {
   admin: {
     useAsTitle: "icon",
   },
+  labels: {
+    singular: {
+      en: "Social",
+      es: "Red social",
+    },
+    plural: {
+      en: "Socials",
+      es: "Redes sociales",
+    },
+  },
   fields: [
     {
       name: "url",
       type: "text",
       required: true,
+      label: {
+        en: "URL",
+        es: "URL",
+      },
     },
     {
       name: "icon",
+      label: {
+        en: "Icon",
+        es: "Icono",
+      },
       type: "select",
       options: [
         {

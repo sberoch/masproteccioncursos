@@ -10,6 +10,16 @@ import {
 export const CollectionItemListBlock: Block = {
   slug: "collectionItemList",
   interfaceName: "CollectionItemListBlock",
+  labels: {
+    plural: {
+      en: "Collection Item Lists",
+      es: "Bloques de elementos de colección",
+    },
+    singular: {
+      en: "Collection Item List",
+      es: "Bloque de elementos de colección",
+    },
+  },
   fields: [
     {
       name: "introContent",
@@ -24,7 +34,10 @@ export const CollectionItemListBlock: Block = {
           ];
         },
       }),
-      label: "Intro content",
+      label: {
+        en: "Intro content",
+        es: "Contenido introductorio",
+      },
     },
     {
       name: "populateBy",
@@ -32,14 +45,24 @@ export const CollectionItemListBlock: Block = {
       defaultValue: "collection",
       options: [
         {
-          label: "Collection",
+          label: {
+            en: "Collection",
+            es: "Colección",
+          },
           value: "collection",
         },
         {
-          label: "Individual Selection",
+          label: {
+            en: "Individual Selection",
+            es: "Selección individual",
+          },
           value: "selection",
         },
       ],
+      label: {
+        en: "Populate By",
+        es: "Rellenar por",
+      },
     },
     {
       name: "relationTo",
@@ -48,14 +71,23 @@ export const CollectionItemListBlock: Block = {
         condition: (_, siblingData) => siblingData.populateBy === "collection",
       },
       defaultValue: "work-items",
-      label: "Collection to show items from",
+      label: {
+        en: "Collection to show items from",
+        es: "Colección para mostrar elementos",
+      },
       options: [
         {
-          label: "Work Items",
+          label: {
+            en: "Work Items",
+            es: "Trabajos",
+          },
           value: "work-items",
         },
         {
-          label: "Services",
+          label: {
+            en: "Services",
+            es: "Servicios",
+          },
           value: "services",
         },
       ],
@@ -67,7 +99,10 @@ export const CollectionItemListBlock: Block = {
         condition: (_, siblingData) => siblingData.populateBy === "collection",
       },
       hasMany: true,
-      label: "Categories to show items from",
+      label: {
+        en: "Categories to show items from",
+        es: "Categorías para mostrar elementos",
+      },
       relationTo: "categories",
     },
     {
@@ -78,7 +113,10 @@ export const CollectionItemListBlock: Block = {
         step: 1,
       },
       defaultValue: 10,
-      label: "Number of items to show",
+      label: {
+        en: "Number of items to show",
+        es: "Número de elementos a mostrar",
+      },
     },
     {
       name: "selectedDocs",
@@ -87,12 +125,11 @@ export const CollectionItemListBlock: Block = {
         condition: (_, siblingData) => siblingData.populateBy === "selection",
       },
       hasMany: true,
-      label: "Selection",
+      label: {
+        en: "Selection",
+        es: "Selección",
+      },
       relationTo: ["work-items"],
     },
   ],
-  labels: {
-    plural: "Collection item lists",
-    singular: "Collection item list",
-  },
 };

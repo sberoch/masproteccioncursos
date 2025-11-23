@@ -18,8 +18,14 @@ export const WorkItems: CollectionConfig = {
     useAsTitle: "title",
   },
   labels: {
-    singular: "Work Item",
-    plural: "Work Items",
+    singular: {
+      en: "Work Item",
+      es: "Elemento de portafolio",
+    },
+    plural: {
+      en: "Work Items",
+      es: "Elementos de portafolio",
+    },
   },
   versions: {
     drafts: {
@@ -34,17 +40,28 @@ export const WorkItems: CollectionConfig = {
       type: "upload",
       relationTo: "media",
       required: true,
-      label: "Image/Video",
+      label: {
+        en: "Image/Video",
+        es: "Imagen/Video",
+      },
     },
     {
       name: "title",
       type: "text",
       required: true,
+      label: {
+        en: "Title",
+        es: "Título",
+      },
     },
     {
       name: "description",
       type: "richText",
       editor: defaultLexical,
+      label: {
+        en: "Description",
+        es: "Descripción",
+      },
     },
     {
       name: "category",
@@ -54,11 +71,18 @@ export const WorkItems: CollectionConfig = {
       admin: {
         position: "sidebar",
       },
+      label: {
+        en: "Category",
+        es: "Categoría",
+      },
     },
     {
       name: "client",
       type: "text",
-      label: "Client Name",
+      label: {
+        en: "Client Name",
+        es: "Nombre del cliente",
+      },
       admin: {
         position: "sidebar",
       },
