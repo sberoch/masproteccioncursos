@@ -1,7 +1,6 @@
 import { BannerBlock } from "@/blocks/Banner/Component";
 import { CallToActionBlock } from "@/blocks/CallToAction/Component";
 import { ClientLogosBlock } from "@/blocks/ClientLogos/Component";
-import { CollectionItemListBlock } from "@/blocks/CollectionItemListBlock/Component";
 import { ContentBlock } from "@/blocks/Content/Component";
 import { FormBlock } from "@/blocks/Form/Component";
 import { GalleryBlock } from "@/blocks/Gallery/Component";
@@ -61,15 +60,6 @@ export function renderBlocks(blocks: LayoutBlock[] | null | undefined) {
           form={form}
           introContent={block.introContent ?? undefined}
           formClassName="lg:max-w-3xl"
-        />
-      );
-    }
-    if (block.blockType === "collectionItemList") {
-      return (
-        <CollectionItemListBlock
-          key={block.id || index}
-          {...block}
-          id={block.id ?? undefined}
         />
       );
     }

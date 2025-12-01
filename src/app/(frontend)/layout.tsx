@@ -9,26 +9,26 @@ import { Footer } from "@/components/web/footer";
 export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(`https://${(await headers()).get("host")}`),
-    title: "Web template | Erio Software",
+    title: "Mas Proteccion",
     description:
-      "From strategy to launch: performant, maintainable software that makes your business grow. Trusted by leading brands.",
+      "Cursos de primeros auxilios diseñados para personas y organizaciones que necesitan responder con eficacia ante emergencias.",
     alternates: {
       canonical: `https://${(await headers()).get("host")}`,
     },
     openGraph: {
-      title: "Web template | Erio Software",
+      title: "Mas Proteccion",
       url: `https://${(await headers()).get("host")}`,
       type: "website",
-      siteName: "Erio Software",
+      siteName: "Mas Proteccion",
       description:
-        "From strategy to launch: performant, maintainable software that makes your business grow. Trusted by leading brands.",
+        "Aprende a protegerte y a proteger a los tuyos. Cursos de seguridad y prevención de riesgos.",
       images: "/og-image.png",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Web template | Erio Software",
+      title: "Mas Proteccion",
       description:
-        "From strategy to launch: performant, maintainable software that makes your business grow. Trusted by leading brands.",
+        "Aprende a protegerte y a proteger a los tuyos. Cursos de seguridad y prevención de riesgos.",
       images: "/og-image.png",
     },
     robots: {

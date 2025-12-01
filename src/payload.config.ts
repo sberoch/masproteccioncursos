@@ -6,8 +6,6 @@ import { AboutPage } from "@/globals/AboutPage";
 import { ContactPage } from "@/globals/ContactPage";
 import { Footer } from "@/globals/Footer";
 import { Header } from "@/globals/Header";
-import { ServicesPage } from "@/globals/ServicesPage";
-import { WorkPage } from "@/globals/WorkPage";
 import { getServerSideURL } from "@/utilities/getURL";
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
@@ -15,18 +13,16 @@ import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { en } from "@payloadcms/translations/languages/en";
+import { es } from "@payloadcms/translations/languages/es";
 import path from "path";
 import { buildConfig, PayloadRequest } from "payload";
 import sharp from "sharp";
 import { fileURLToPath } from "url";
-import { Categories } from "./collections/Categories";
-import { WorkItems } from "./collections/WorkItems";
+import { Socials } from "./collections/Socials";
 import { HomePage } from "./globals/HomePage";
 import { MainPage } from "./globals/interfaces";
 import { Page } from "./payload-types";
-import { Socials } from "./collections/Socials";
-import { en } from "@payloadcms/translations/languages/en";
-import { es } from "@payloadcms/translations/languages/es";
 
 const generateTitle: GenerateTitle<MainPage | Page> = ({ doc }) => {
   return doc?.title
@@ -84,16 +80,8 @@ export default buildConfig({
     },
     avatar: "gravatar",
   },
-  globals: [
-    HomePage,
-    AboutPage,
-    ContactPage,
-    WorkPage,
-    ServicesPage,
-    Header,
-    Footer,
-  ],
-  collections: [WorkItems, Categories, Pages, Media, Users, Socials],
+  globals: [HomePage, AboutPage, ContactPage, Header, Footer],
+  collections: [Pages, Media, Users, Socials],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

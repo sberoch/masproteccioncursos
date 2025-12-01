@@ -35,7 +35,7 @@ export const contactForm: RequiredDataFromCollectionSlug<"forms"> = {
   createdAt: new Date().toISOString(),
   emails: [
     {
-      emailFrom: '"Erio Software" \u003Cinfo@eriosoftware.com\u003E',
+      emailFrom: '"Mas Proteccion" \u003Cinfo@eriosoftware.com\u003E',
       emailTo: "{{email}}",
       message: {
         root: {

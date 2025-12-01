@@ -47,40 +47,4 @@ export const seedMainPages = async (payload: Payload) => {
       disableRevalidate: true,
     },
   });
-  await payload.updateGlobal({
-    slug: "work",
-    data: {
-      title: "Our work",
-      slug: "work",
-      content: {
-        heading: "Our work",
-        subheading: "See our projects",
-      },
-      meta: {
-        title: "Our work",
-        description: "See our projects",
-      },
-    },
-    context: {
-      disableRevalidate: true,
-    },
-  });
-  await payload.updateGlobal({
-    slug: "services",
-    data: {
-      title: "Our services",
-      slug: "services",
-      content: {
-        heading: "Our services",
-        subheading: "What we offer",
-      },
-      meta: {
-        title: "Our services",
-        description: "What we offer",
-      },
-    },
-    context: {
-      disableRevalidate: true,
-    },
-  });
 };

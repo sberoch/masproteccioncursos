@@ -67,8 +67,6 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    'work-items': WorkItem;
-    categories: Category;
     pages: Page;
     media: Media;
     users: User;
@@ -81,8 +79,6 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
-    'work-items': WorkItemsSelect<false> | WorkItemsSelect<true>;
-    categories: CategoriesSelect<false> | CategoriesSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -100,8 +96,6 @@ export interface Config {
     home: Home;
     about: About;
     contact: Contact;
-    work: Work;
-    services: Service;
     header: Header;
     footer: Footer;
   };
@@ -109,8 +103,6 @@ export interface Config {
     home: HomeSelect<false> | HomeSelect<true>;
     about: AboutSelect<false> | AboutSelect<true>;
     contact: ContactSelect<false> | ContactSelect<true>;
-    work: WorkSelect<false> | WorkSelect<true>;
-    services: ServicesSelect<false> | ServicesSelect<true>;
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
   };
@@ -140,89 +132,6 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "work-items".
- */
-export interface WorkItem {
-  id: number;
-  media: number | Media;
-  title: string;
-  description?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  category?: (number | Category)[] | null;
-  client?: string | null;
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  alt: string;
-  caption?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: number;
-  title: string;
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -262,7 +171,6 @@ export interface Page {
           | MediaBlock
           | BannerBlock
           | FormBlock
-          | CollectionItemListBlock
           | ClientLogosBlock
           | GalleryBlock
         )[]
@@ -278,6 +186,40 @@ export interface Page {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  caption?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -604,40 +546,6 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CollectionItemListBlock".
- */
-export interface CollectionItemListBlock {
-  introContent?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  populateBy?: ('collection' | 'selection') | null;
-  relationTo?: ('work-items' | 'services') | null;
-  categories?: (number | Category)[] | null;
-  limit?: number | null;
-  selectedDocs?:
-    | {
-        relationTo: 'work-items';
-        value: number | WorkItem;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'collectionItemList';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ClientLogosBlock".
  */
 export interface ClientLogosBlock {
@@ -771,14 +679,6 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: 'work-items';
-        value: number | WorkItem;
-      } | null)
-    | ({
-        relationTo: 'categories';
-        value: number | Category;
-      } | null)
-    | ({
         relationTo: 'pages';
         value: number | Page;
       } | null)
@@ -846,33 +746,6 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "work-items_select".
- */
-export interface WorkItemsSelect<T extends boolean = true> {
-  media?: T;
-  title?: T;
-  description?: T;
-  category?: T;
-  client?: T;
-  generateSlug?: T;
-  slug?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
- */
-export interface CategoriesSelect<T extends boolean = true> {
-  title?: T;
-  generateSlug?: T;
-  slug?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
@@ -898,7 +771,6 @@ export interface PagesSelect<T extends boolean = true> {
               mediaBlock?: T | MediaBlockSelect<T>;
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
-              collectionItemList?: T | CollectionItemListBlockSelect<T>;
               clientLogos?: T | ClientLogosBlockSelect<T>;
               gallery?: T | GalleryBlockSelect<T>;
             };
@@ -990,20 +862,6 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CollectionItemListBlock_select".
- */
-export interface CollectionItemListBlockSelect<T extends boolean = true> {
-  introContent?: T;
-  populateBy?: T;
-  relationTo?: T;
-  categories?: T;
-  limit?: T;
-  selectedDocs?: T;
   id?: T;
   blockName?: T;
 }
@@ -1284,16 +1142,7 @@ export interface Home {
   title: string;
   content?: {
     blocks?:
-      | (
-          | ContentBlock
-          | CallToActionBlock
-          | MediaBlock
-          | BannerBlock
-          | FormBlock
-          | CollectionItemListBlock
-          | ClientLogosBlock
-          | GalleryBlock
-        )[]
+      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | ClientLogosBlock | GalleryBlock)[]
       | null;
   };
   meta?: {
@@ -1320,16 +1169,7 @@ export interface About {
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
     blocks?:
-      | (
-          | ContentBlock
-          | CallToActionBlock
-          | MediaBlock
-          | BannerBlock
-          | FormBlock
-          | CollectionItemListBlock
-          | ClientLogosBlock
-          | GalleryBlock
-        )[]
+      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | ClientLogosBlock | GalleryBlock)[]
       | null;
   };
   meta?: {
@@ -1356,88 +1196,7 @@ export interface Contact {
     subheading?: string | null;
     backgroundImage?: (number | null) | Media;
     blocks?:
-      | (
-          | ContentBlock
-          | CallToActionBlock
-          | MediaBlock
-          | BannerBlock
-          | FormBlock
-          | CollectionItemListBlock
-          | ClientLogosBlock
-          | GalleryBlock
-        )[]
-      | null;
-  };
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "work".
- */
-export interface Work {
-  id: number;
-  title: string;
-  slug: string;
-  content: {
-    heading: string;
-    subheading?: string | null;
-    backgroundImage?: (number | null) | Media;
-    blocks?:
-      | (
-          | ContentBlock
-          | CallToActionBlock
-          | MediaBlock
-          | BannerBlock
-          | FormBlock
-          | CollectionItemListBlock
-          | ClientLogosBlock
-          | GalleryBlock
-        )[]
-      | null;
-  };
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "services".
- */
-export interface Service {
-  id: number;
-  title: string;
-  slug: string;
-  content: {
-    heading: string;
-    subheading?: string | null;
-    backgroundImage?: (number | null) | Media;
-    blocks?:
-      | (
-          | ContentBlock
-          | CallToActionBlock
-          | MediaBlock
-          | BannerBlock
-          | FormBlock
-          | CollectionItemListBlock
-          | ClientLogosBlock
-          | GalleryBlock
-        )[]
+      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | ClientLogosBlock | GalleryBlock)[]
       | null;
   };
   meta?: {
@@ -1548,7 +1307,6 @@ export interface HomeSelect<T extends boolean = true> {
               mediaBlock?: T | MediaBlockSelect<T>;
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
-              collectionItemList?: T | CollectionItemListBlockSelect<T>;
               clientLogos?: T | ClientLogosBlockSelect<T>;
               gallery?: T | GalleryBlockSelect<T>;
             };
@@ -1585,7 +1343,6 @@ export interface AboutSelect<T extends boolean = true> {
               mediaBlock?: T | MediaBlockSelect<T>;
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
-              collectionItemList?: T | CollectionItemListBlockSelect<T>;
               clientLogos?: T | ClientLogosBlockSelect<T>;
               gallery?: T | GalleryBlockSelect<T>;
             };
@@ -1622,81 +1379,6 @@ export interface ContactSelect<T extends boolean = true> {
               mediaBlock?: T | MediaBlockSelect<T>;
               banner?: T | BannerBlockSelect<T>;
               formBlock?: T | FormBlockSelect<T>;
-              collectionItemList?: T | CollectionItemListBlockSelect<T>;
-              clientLogos?: T | ClientLogosBlockSelect<T>;
-              gallery?: T | GalleryBlockSelect<T>;
-            };
-      };
-  meta?:
-    | T
-    | {
-        title?: T;
-        image?: T;
-        description?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "work_select".
- */
-export interface WorkSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  content?:
-    | T
-    | {
-        heading?: T;
-        subheading?: T;
-        backgroundImage?: T;
-        blocks?:
-          | T
-          | {
-              content?: T | ContentBlockSelect<T>;
-              cta?: T | CallToActionBlockSelect<T>;
-              mediaBlock?: T | MediaBlockSelect<T>;
-              banner?: T | BannerBlockSelect<T>;
-              formBlock?: T | FormBlockSelect<T>;
-              collectionItemList?: T | CollectionItemListBlockSelect<T>;
-              clientLogos?: T | ClientLogosBlockSelect<T>;
-              gallery?: T | GalleryBlockSelect<T>;
-            };
-      };
-  meta?:
-    | T
-    | {
-        title?: T;
-        image?: T;
-        description?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "services_select".
- */
-export interface ServicesSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  content?:
-    | T
-    | {
-        heading?: T;
-        subheading?: T;
-        backgroundImage?: T;
-        blocks?:
-          | T
-          | {
-              content?: T | ContentBlockSelect<T>;
-              cta?: T | CallToActionBlockSelect<T>;
-              mediaBlock?: T | MediaBlockSelect<T>;
-              banner?: T | BannerBlockSelect<T>;
-              formBlock?: T | FormBlockSelect<T>;
-              collectionItemList?: T | CollectionItemListBlockSelect<T>;
               clientLogos?: T | ClientLogosBlockSelect<T>;
               gallery?: T | GalleryBlockSelect<T>;
             };

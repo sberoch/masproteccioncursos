@@ -3,7 +3,6 @@ import { CallToAction } from "../blocks/CallToAction/config";
 import { MediaBlock } from "../blocks/MediaBlock/config";
 import { Banner } from "../blocks/Banner/config";
 import { FormBlock } from "../blocks/Form/config";
-import { CollectionItemListBlock } from "../blocks/CollectionItemListBlock/config";
 import { ClientLogosBlock } from "../blocks/ClientLogos/config";
 import { GalleryBlock } from "../blocks/Gallery/config";
 
@@ -13,7 +12,6 @@ export const SHARED_BLOCKS = [
   MediaBlock,
   Banner,
   FormBlock,
-  CollectionItemListBlock,
   ClientLogosBlock,
   GalleryBlock,
 ];
