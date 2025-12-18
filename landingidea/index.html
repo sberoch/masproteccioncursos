@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de Primeros Auxilios | Milagros Perez</title>
+  <meta name="description" content="Aprende a salvar vidas con el curso de Primeros Auxilios de Milagros Perez, Instructora Internacional y voluntaria de Cruz Roja.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue-dark: #0f4ba3;
+      --blue-medium: #1a5dc4;
+      --blue-light: #66b4e4;
+      --blue-pale: #e8f4fc;
+      --red: #EC1313;
+      --red-dark: #c91010;
+      --red-light: #ff4444;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      --shadow-red: 0 4px 14px rgba(236, 19, 19, 0.4);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ============ ANIMATIONS ============ */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.1); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.1); }
+      70% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============ LAYOUT ============ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 120px 0;
+      }
+    }
+
+    /* ============ HEADER ============ */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-100);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--blue-dark);
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .logo-text {
+        display: block;
+      }
+    }
+
+    nav {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue-dark);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--blue-dark);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background: var(--gray-800);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 77px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      padding: 24px;
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .mobile-menu.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      box-shadow: var(--shadow-red);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(236, 19, 19, 0.5);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--blue-dark);
+      border: 2px solid var(--blue-dark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-outline-white:hover {
+      background: var(--white);
+      color: var(--blue-dark);
+    }
+
+    .btn-sm {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+
+    .btn-lg {
+      padding: 18px 36px;
+      font-size: 1.1rem;
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--blue-pale) 0%, var(--white) 50%, var(--gray-50) 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 150%;
+      background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-dark) 100%);
+      transform: skewX(-15deg);
+      z-index: 0;
+      opacity: 0.1;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(102, 180, 228, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(15, 75, 163, 0.08) 0%, transparent 50%);
+      z-index: 0;
+    }
+
+    .hero-cross {
+      position: absolute;
+      top: 15%;
+      right: 10%;
+      width: 120px;
+      height: 120px;
+      opacity: 0.08;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-cross::before,
+    .hero-cross::after {
+      content: '';
+      position: absolute;
+      background: var(--red);
+      border-radius: 4px;
+    }
+
+    .hero-cross::before {
+      top: 35%;
+      left: 0;
+      right: 0;
+      height: 30%;
+    }
+
+    .hero-cross::after {
+      left: 35%;
+      top: 0;
+      bottom: 0;
+      width: 30%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+      }
+    }
+
+    .hero-text {
+      animation: slideInLeft 0.8s ease forwards;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-badge svg {
+      color: var(--red);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.1;
+      color: var(--gray-900);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+      position: relative;
+    }
+
+    .hero h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: rgba(236, 19, 19, 0.2);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+    }
+
+    .stat {
+      text-align: left;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--blue-dark);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      margin-top: 4px;
+    }
+
+    .hero-image {
+      position: relative;
+      animation: slideInRight 0.8s ease forwards;
+      animation-delay: 0.2s;
+      opacity: 0;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .hero-image-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(15, 75, 163, 0.3) 100%);
+      z-index: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-image-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--white);
+      padding: 16px 24px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-image-badge svg {
+      width: 40px;
+      height: 40px;
+      color: var(--red);
+    }
+
+    .hero-image-badge-text {
+      font-weight: 600;
+      color: var(--gray-800);
+      font-size: 0.95rem;
+    }
+
+    .hero-image-badge-text span {
+      display: block;
+      font-weight: 400;
+      color: var(--gray-600);
+      font-size: 0.85rem;
+    }
+
+    /* ============ ABOUT INSTRUCTOR ============ */
+    .about {
+      background: var(--white);
+      position: relative;
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gray-200), transparent);
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+      }
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image-inner {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .about-image-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 3px solid var(--blue-light);
+      border-radius: 20px;
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about-image-decoration {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-dark) 100%);
+      border-radius: 20px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .about-content {
+      padding: 20px 0;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--blue-dark);
+      margin-bottom: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: var(--blue-dark);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--gray-900);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      margin-bottom: 32px;
+    }
+
+    .about-credentials {
+      display: grid;
+      gap: 16px;
+    }
+
+    .credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      background: var(--gray-50);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .credential:hover {
+      background: var(--blue-pale);
+      transform: translateX(8px);
+    }
+
+    .credential-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--white);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .credential-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--blue-dark);
+    }
+
+    .credential-text h4 {
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 4px;
+    }
+
+    .credential-text p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    /* ============ COURSE CONTENT ============ */
+    .course {
+      background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+      position: relative;
+    }
+
+    .course-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 64px;
+    }
+
+    .course-subtitle {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      margin-top: 16px;
+    }
+
+    .modules-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 992px) {
+      .modules-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .module-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-100);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .module-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .module-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .module-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .module-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--blue-pale) 0%, var(--white) 100%);
+      border: 2px solid var(--blue-light);
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--blue-dark);
+      margin-bottom: 20px;
+    }
+
+    .module-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 12px;
+    }
+
+    .module-card p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .module-card .module-icon {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      opacity: 0.1;
+      color: var(--blue-dark);
+    }
+
+    /* ============ TESTIMONIALS ============ */
+    .testimonials {
+      background: var(--blue-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(102, 180, 228, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(236, 19, 19, 0.1) 0%, transparent 40%);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonials .section-label {
+      color: var(--blue-light);
+    }
+
+    .testimonials .section-label::before {
+      background: var(--blue-light);
+    }
+
+    .testimonials .section-title {
+      color: var(--white);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-video {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      cursor: pointer;
+      aspect-ratio: 16/9;
+    }
+
+    .testimonial-video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-video:hover img {
+      transform: scale(1.05);
+    }
+
+    .testimonial-video::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      transition: background 0.3s ease;
+    }
+
+    .testimonial-video:hover::before {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 4px 20px rgba(236, 19, 19, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-video:hover .play-button {
+      transform: translate(-50%, -50%) scale(1.1);
+      animation: pulse 1.5s infinite;
+    }
+
+    .play-button svg {
+      width: 28px;
+      height: 28px;
+      color: var(--white);
+      margin-left: 4px;
+    }
+
+    .testimonial-content p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.05rem;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--blue-light);
+    }
+
+    .testimonial-author-info h4 {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .testimonial-author-info span {
+      color: var(--blue-light);
+      font-size: 0.9rem;
+    }
+
+    /* ============ PRICING ============ */
+    .pricing {
+      background: var(--white);
+      position: relative;
+    }
+
+    .pricing-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 64px;
+    }
+
+    .pricing-card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: var(--shadow-xl);
+      border: 2px solid var(--gray-100);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--blue-dark), var(--red), var(--blue-light));
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 24px;
+      right: -32px;
+      background: var(--red);
+      color: var(--white);
+      padding: 8px 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transform: rotate(45deg);
+    }
+
+    .pricing-price {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .pricing-price-label {
+      font-size: 1rem;
+      color: var(--gray-600);
+      margin-bottom: 8px;
+    }
+
+    .pricing-price-value {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      color: var(--gray-900);
+      line-height: 1;
+    }
+
+    .pricing-price-value span {
+      font-size: 1.5rem;
+      vertical-align: top;
+      margin-right: 4px;
+    }
+
+    .pricing-features {
+      margin-bottom: 32px;
+    }
+
+    .pricing-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 12px 0;
+    }
+
+    .pricing-feature svg {
+      width: 24px;
+      height: 24px;
+      color: var(--blue-dark);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-feature span {
+      font-size: 1.05rem;
+      color: var(--gray-700);
+    }
+
+    .pricing-cta {
+      text-align: center;
+    }
+
+    .pricing-cta .btn {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .pricing-guarantee {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    .pricing-guarantee svg {
+      width: 20px;
+      height: 20px;
+      color: var(--blue-dark);
+    }
+
+    /* ============ FAQ ============ */
+    .faq {
+      background: var(--gray-50);
+    }
+
+    .faq-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 64px;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-100);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      color: var(--blue-dark);
+    }
+
+    .faq-question svg {
+      width: 24px;
+      height: 24px;
+      color: var(--blue-dark);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-question svg {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 24px;
+      font-size: 1rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    /* ============ CTA SECTION ============ */
+    .cta-section {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-medium) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.05);
+      transform: skewX(-15deg);
+    }
+
+    .cta-content {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .cta-content p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--gray-900);
+      color: var(--white);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand img {
+      height: 48px;
+      margin-bottom: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-brand p {
+      color: var(--gray-400);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 300px;
+    }
+
+    .footer-links h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid var(--gray-800);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: var(--gray-800);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ============ VIDEO MODAL ============ */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .video-modal.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .video-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      background: var(--gray-900);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .video-modal video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: -48px;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      padding: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .video-modal-close:hover {
+      transform: scale(1.1);
+    }
+
+    .video-modal-close svg {
+      width: 32px;
+      height: 32px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <img src="logo-mili.jpeg" alt="MP - Milagros Perez">
+          <span class="logo-text">Milagros Perez</span>
+        </a>
+
+        <nav>
+          <a href="#inicio">Inicio</a>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#curso">El Curso</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#faq">Preguntas Frecuentes</a>
+          <a href="#inscripcion" class="btn btn-primary btn-sm">Inscríbete</a>
+        </nav>
+
+        <button class="mobile-menu-btn" aria-label="Menú" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
+      <a href="#sobre-mi" onclick="toggleMobileMenu()">Sobre mí</a>
+      <a href="#curso" onclick="toggleMobileMenu()">El Curso</a>
+      <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+      <a href="#faq" onclick="toggleMobileMenu()">Preguntas Frecuentes</a>
+      <a href="#inscripcion" class="btn btn-primary" style="margin-top: 16px; text-align: center;" onclick="toggleMobileMenu()">Inscríbete</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="hero-pattern"></div>
+    <div class="hero-cross"></div>
+
+    <div class="container hero-content">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            Certificación Internacional
+          </div>
+
+          <h1>Aprende a <span>salvar vidas</span> con confianza</h1>
+
+          <p class="hero-subtitle">
+            Curso completo de Primeros Auxilios dictado por una Instructora Internacional y voluntaria de Cruz Roja.
+            Prepárate para actuar en emergencias.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#inscripcion" class="btn btn-primary btn-lg">
+              Inscríbete Ahora
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <a href="#curso" class="btn btn-secondary">Ver Contenido</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Alumnos formados</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Años de experiencia</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Práctico</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-image-wrapper">
+            <img src="instructor.jpg" alt="Milagros Perez - Instructora de Primeros Auxilios">
+          </div>
+          <div class="hero-image-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12"/>
+              <rect x="8" y="8" width="8" height="8" rx="1"/>
+            </svg>
+            <div class="hero-image-badge-text">
+              Cruz Roja
+              <span>Voluntaria Socorrista</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Instructor -->
+  <section class="about" id="sobre-mi">
+    <div class="container">
+      <div class="about-grid animate-on-scroll">
+        <div class="about-image">
+          <div class="about-image-inner">
+            <img src="instructor.jpg" alt="Milagros Perez">
+          </div>
+          <div class="about-image-decoration"></div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-label">Tu Instructora</span>
+          <h2 class="section-title">Milagros Perez</h2>
+
+          <p class="about-text">
+            Soy Instructora Internacional de Primeros Auxilios con más de 10 años de experiencia formando a personas
+            en técnicas que salvan vidas. Como voluntaria socorrista de Cruz Roja, he atendido emergencias reales
+            y sé exactamente qué conocimientos necesitas para actuar con seguridad y eficacia.
+          </p>
+
+          <p class="about-text">
+            Mi pasión es transformar el miedo a las emergencias en confianza y preparación.
+            En este curso, te enseñaré todo lo que necesitas saber de forma práctica y accesible.
+          </p>
+
+          <div class="about-credentials">
+            <div class="credential">
+              <div class="credential-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="5"/>
+                  <path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2"/>
+                </svg>
+              </div>
+              <div class="credential-text">
+                <h4>Instructora Internacional</h4>
+                <p>Certificación avalada internacionalmente en primeros auxilios y RCP</p>
+              </div>
+            </div>
+
+            <div class="credential">
+              <div class="credential-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12"/>
+                  <rect x="8" y="8" width="8" height="8" rx="1"/>
+                </svg>
+              </div>
+              <div class="credential-text">
+                <h4>Voluntaria Cruz Roja</h4>
+                <p>Socorrista activa con experiencia en emergencias reales</p>
+              </div>
+            </div>
+
+            <div class="credential">
+              <div class="credential-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <div class="credential-text">
+                <h4>+500 Alumnos Formados</h4>
+                <p>Personas preparadas para actuar en situaciones de emergencia</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Content -->
+  <section class="course" id="curso">
+    <div class="container">
+      <div class="course-header animate-on-scroll">
+        <span class="section-label">Contenido del Curso</span>
+        <h2 class="section-title">Todo lo que aprenderás</h2>
+        <p class="course-subtitle">
+          Un programa completo y práctico diseñado para que puedas actuar con confianza en cualquier emergencia.
+        </p>
+      </div>
+
+      <div class="modules-grid">
+        <div class="module-card animate-on-scroll">
+          <div class="module-number">1</div>
+          <h3>Fundamentos de Primeros Auxilios</h3>
+          <p>Aprende los principios básicos: evaluación de la escena, llamada a emergencias, y cómo mantener la calma para actuar eficazmente.</p>
+          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+
+        <div class="module-card animate-on-scroll">
+          <div class="module-number">2</div>
+          <h3>RCP - Reanimación Cardiopulmonar</h3>
+          <p>Domina las técnicas de RCP para adultos, niños y bebés. Practica las compresiones y ventilaciones que pueden salvar una vida.</p>
+          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+
+        <div class="module-card animate-on-scroll">
+          <div class="module-number">3</div>
+          <h3>Uso del DEA (Desfibrilador)</h3>
+          <p>Aprende a utilizar un Desfibrilador Externo Automático, un dispositivo que puede duplicar las posibilidades de supervivencia.</p>
+          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+          </svg>
+        </div>
+
+        <div class="module-card animate-on-scroll">
+          <div class="module-number">4</div>
+          <h3>Atención de Heridas y Hemorragias</h3>
+          <p>Técnicas para controlar sangrados, limpiar y vendar heridas, y reconocer cuándo una lesión requiere atención médica urgente.</p>
+          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H6v-2h4V7h2v4h4v2h-4v4z"/>
+          </svg>
+        </div>
+
+        <div class="module-card animate-on-scroll">
+          <div class="module-number">5</div>
+          <h3>Emergencias Respiratorias</h3>
+          <p>Manejo de atragantamientos (maniobra de Heimlich), crisis asmáticas, y otras situaciones que comprometen la respiración.</p>
+          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+
+        <div class="module-card animate-on-scroll">
+          <div class="module-number">6</div>
+          <h3>Práctica y Certificación</h3>
+          <p>Sesiones prácticas con maniquíes y simulaciones reales. Al finalizar, recibirás tu certificado de formación en primeros auxilios.</p>
+          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonios">
+    <div class="container">
+      <div class="testimonials-header animate-on-scroll">
+        <span class="section-label">Testimonios</span>
+        <h2 class="section-title">Lo que dicen nuestros alumnos</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-video" onclick="openVideoModal('test1.mp4')">
+            <img src="test1.png" alt="Testimonio de alumno">
+            <div class="play-button">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <p>"El curso superó todas mis expectativas. Milagros explica todo de forma clara y práctica.
+            Ahora me siento preparado para actuar si alguien necesita ayuda."</p>
+            <div class="testimonial-author">
+              <img src="test1.png" alt="Alumno" class="testimonial-author-avatar">
+              <div class="testimonial-author-info">
+                <h4>Estudiante del curso</h4>
+                <span>Alumno certificado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-video" onclick="openVideoModal('test2.mp4')">
+            <img src="test2.png" alt="Testimonio de alumna">
+            <div class="play-button">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <p>"Como madre, siempre tuve miedo de no saber qué hacer en una emergencia.
+            Este curso me dio la confianza y las herramientas que necesitaba. ¡Totalmente recomendado!"</p>
+            <div class="testimonial-author">
+              <img src="test2.png" alt="Alumna" class="testimonial-author-avatar">
+              <div class="testimonial-author-info">
+                <h4>Estudiante del curso</h4>
+                <span>Alumna certificada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="inscripcion">
+    <div class="container">
+      <div class="pricing-header animate-on-scroll">
+        <span class="section-label">Inversión</span>
+        <h2 class="section-title">Invierte en tu capacidad de salvar vidas</h2>
+      </div>
+
+      <div class="pricing-card animate-on-scroll">
+        <div class="pricing-badge">Popular</div>
+
+        <div class="pricing-price">
+          <p class="pricing-price-label">Precio del curso completo</p>
+          <p class="pricing-price-value"><span>$</span>300</p>
+        </div>
+
+        <div class="pricing-features">
+          <div class="pricing-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Acceso a todos los módulos del curso</span>
+          </div>
+          <div class="pricing-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Sesiones prácticas con maniquíes</span>
+          </div>
+          <div class="pricing-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Material didáctico incluido</span>
+          </div>
+          <div class="pricing-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Certificado de participación</span>
+          </div>
+          <div class="pricing-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Grupo reducido para mayor atención</span>
+          </div>
+          <div class="pricing-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Soporte post-curso para consultas</span>
+          </div>
+        </div>
+
+        <div class="pricing-cta">
+          <a href="#contacto" class="btn btn-primary btn-lg">
+            Quiero Inscribirme
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <div class="pricing-guarantee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>Garantía de satisfacción - Si no quedas conforme, te devolvemos tu dinero</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-header animate-on-scroll">
+        <span class="section-label">Preguntas Frecuentes</span>
+        <h2 class="section-title">Resolvemos tus dudas</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Necesito conocimientos previos para tomar el curso?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              No, el curso está diseñado para principiantes. Comenzamos desde los conceptos básicos y
+              avanzamos gradualmente. No necesitas ninguna experiencia previa en primeros auxilios o
+              el área de la salud.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Cuánto dura el curso?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              El curso completo tiene una duración de 8 horas, distribuidas en sesiones teóricas y
+              prácticas. Las fechas y horarios se coordinan según la disponibilidad del grupo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿El certificado tiene validez oficial?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sí, al completar el curso recibirás un certificado de formación en primeros auxilios
+              avalado por nuestra institución. Este certificado demuestra que has completado la
+              formación teórico-práctica requerida.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿El curso es presencial o virtual?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              El curso es presencial, lo cual es fundamental para las prácticas con maniquíes y
+              simulaciones. La práctica hands-on es esencial para desarrollar las habilidades
+              necesarias en primeros auxilios.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Qué incluye el precio del curso?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              El precio incluye: acceso a todas las clases teóricas y prácticas, material didáctico,
+              uso de maniquíes y equipos de práctica, certificado de participación, y soporte
+              post-curso para resolver dudas.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Tienen política de reembolso?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sí, ofrecemos garantía de satisfacción. Si por algún motivo no quedas conforme con el
+              curso después de la primera sesión, te devolvemos el 100% de tu inversión sin hacer
+              preguntas.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="contacto">
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2>¿Listo para aprender a salvar vidas?</h2>
+        <p>
+          No esperes a que ocurra una emergencia para desear haber tomado este curso.
+          Inscríbete hoy y prepárate para hacer la diferencia.
+        </p>
+        <div class="cta-buttons">
+          <a href="mailto:contacto@milagrosperez.com" class="btn btn-primary btn-lg">
+            Contáctame Ahora
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </a>
+          <a href="#" class="btn btn-outline-white btn-lg">
+            WhatsApp
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo-mili.jpeg" alt="MP - Milagros Perez">
+          <p>
+            Formación en Primeros Auxilios con certificación internacional.
+            Aprende a salvar vidas con una instructora experimentada y voluntaria de Cruz Roja.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#curso">El Curso</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:contacto@milagrosperez.com">contacto@milagrosperez.com</a></li>
+            <li><a href="#">WhatsApp</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Milagros Perez. Todos los derechos reservados.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
+    <div class="video-modal-content" onclick="event.stopPropagation()">
+      <button class="video-modal-close" onclick="closeVideoModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <video id="modalVideo" controls>
+        <source src="" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // FAQ toggle
+    function toggleFaq(button) {
+      const item = button.parentElement;
+      const wasActive = item.classList.contains('active');
+
+      // Close all FAQs
+      document.querySelectorAll('.faq-item').forEach(faq => {
+        faq.classList.remove('active');
+      });
+
+      // Open clicked one if it wasn't active
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // Video modal
+    function openVideoModal(videoSrc) {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.src = videoSrc;
+      modal.classList.add('active');
+      video.play();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal(event) {
+      if (event && event.target !== event.currentTarget) return;
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('modalVideo');
+      video.pause();
+      video.src = '';
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeVideoModal();
+      }
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
