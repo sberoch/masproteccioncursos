@@ -1,2313 +1,3039 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso de Primeros Auxilios | Milagros Perez</title>
-  <meta name="description" content="Aprende a salvar vidas con el curso de Primeros Auxilios de Milagros Perez, Instructora Internacional y voluntaria de Cruz Roja.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Más Protección - Curso de Primeros Auxilios</title>
+    <meta
+      name="description"
+      content="Aprende a salvar vidas con el curso de Primeros Auxilios de Milagros Perez, Instructora Internacional y voluntaria de Cruz Roja."
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    :root {
-      --blue-dark: #0f4ba3;
-      --blue-medium: #1a5dc4;
-      --blue-light: #66b4e4;
-      --blue-pale: #e8f4fc;
-      --red: #EC1313;
-      --red-dark: #c91010;
-      --red-light: #ff4444;
-      --white: #ffffff;
-      --gray-50: #f9fafb;
-      --gray-100: #f3f4f6;
-      --gray-200: #e5e7eb;
-      --gray-300: #d1d5db;
-      --gray-600: #4b5563;
-      --gray-700: #374151;
-      --gray-800: #1f2937;
-      --gray-900: #111827;
+    <style>
+      :root {
+        --blue-dark: #0f4ba3;
+        --blue-medium: #1a5dc4;
+        --blue-light: #66b4e4;
+        --blue-pale: #e8f4fc;
+        --red: #ec1313;
+        --red-dark: #c91010;
+        --red-light: #ff4444;
+        --white: #ffffff;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
 
-      --font-display: 'DM Serif Display', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
+        --font-display: "Fraunces", Georgia, serif;
+        --font-body: "Outfit", system-ui, sans-serif;
 
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
-      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
-      --shadow-red: 0 4px 14px rgba(236, 19, 19, 0.4);
-    }
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+        --shadow-md:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        --shadow-lg:
+          0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        --shadow-xl:
+          0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        --shadow-red: 0 4px 14px rgba(236, 19, 19, 0.4);
+      }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    html {
-      scroll-behavior: smooth;
-    }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--gray-800);
-      background: var(--white);
-      overflow-x: hidden;
-    }
+      body {
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--gray-800);
+        background: var(--white);
+        overflow-x: hidden;
+      }
 
-    /* ============ ANIMATIONS ============ */
-    @keyframes fadeInUp {
-      from {
+      /* ============ ANIMATIONS ============ */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        14% {
+          transform: scale(1.1);
+        }
+        28% {
+          transform: scale(1);
+        }
+        42% {
+          transform: scale(1.1);
+        }
+        70% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-on-scroll {
         opacity: 0;
         transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
       }
-      to {
+
+      .animate-on-scroll.visible {
         opacity: 1;
         transform: translateY(0);
       }
-    }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      14% { transform: scale(1.1); }
-      28% { transform: scale(1); }
-      42% { transform: scale(1.1); }
-      70% { transform: scale(1); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-50px);
+      /* ============ LAYOUT ============ */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
       }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
 
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============ LAYOUT ============ */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    section {
-      padding: 80px 0;
-    }
-
-    @media (min-width: 768px) {
       section {
-        padding: 120px 0;
+        padding: 80px 0;
       }
-    }
 
-    /* ============ HEADER ============ */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--gray-100);
-      transition: all 0.3s ease;
-    }
-
-    header.scrolled {
-      box-shadow: var(--shadow-md);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .logo img {
-      height: 44px;
-      width: auto;
-    }
-
-    .logo-text {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--blue-dark);
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .logo-text {
-        display: block;
+      @media (min-width: 768px) {
+        section {
+          padding: 120px 0;
+        }
       }
-    }
 
-    nav {
-      display: none;
-    }
+      /* ============ HEADER ============ */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--gray-100);
+        transition: all 0.3s ease;
+      }
 
-    @media (min-width: 768px) {
-      nav {
+      header.scrolled {
+        box-shadow: var(--shadow-md);
+      }
+
+      .header-inner {
         display: flex;
         align-items: center;
-        gap: 32px;
+        justify-content: space-between;
+        padding: 16px 0;
       }
-    }
 
-    nav a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--gray-700);
-      text-decoration: none;
-      transition: color 0.2s ease;
-      position: relative;
-    }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
 
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--blue-dark);
-      transition: width 0.3s ease;
-    }
+      .logo img {
+        height: 44px;
+        width: auto;
+      }
 
-    nav a:hover {
-      color: var(--blue-dark);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    @media (min-width: 768px) {
-      .mobile-menu-btn {
+      .logo-text {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: var(--blue-dark);
         display: none;
       }
-    }
 
-    .mobile-menu-btn span {
-      width: 24px;
-      height: 2px;
-      background: var(--gray-800);
-      transition: all 0.3s ease;
-    }
+      @media (min-width: 768px) {
+        .logo-text {
+          display: block;
+        }
+      }
 
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 77px;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      padding: 24px;
-      border-bottom: 1px solid var(--gray-200);
-      box-shadow: var(--shadow-lg);
-    }
+      nav {
+        display: none;
+      }
 
-    .mobile-menu.active {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
+      @media (min-width: 768px) {
+        nav {
+          display: flex;
+          align-items: center;
+          gap: 32px;
+        }
+      }
 
-    .mobile-menu a {
-      display: block;
-      padding: 12px 0;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--gray-700);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gray-100);
-    }
+      nav a {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        position: relative;
+      }
 
-    .mobile-menu a:last-child {
-      border-bottom: none;
-    }
+      .mobile-menu-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+      }
 
-    /* ============ BUTTONS ============ */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 28px;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+      @media (min-width: 768px) {
+        .mobile-menu-btn {
+          display: none;
+        }
+      }
 
-    .btn-primary {
-      background: var(--red);
-      color: var(--white);
-      box-shadow: var(--shadow-red);
-    }
+      .mobile-menu-btn span {
+        width: 24px;
+        height: 2px;
+        background: var(--gray-800);
+        transition: all 0.3s ease;
+      }
 
-    .btn-primary:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(236, 19, 19, 0.5);
-    }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 77px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 24px;
+        border-bottom: 1px solid var(--gray-200);
+        box-shadow: var(--shadow-lg);
+      }
 
-    .btn-secondary {
-      background: var(--white);
-      color: var(--blue-dark);
-      border: 2px solid var(--blue-dark);
-    }
+      .mobile-menu.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
 
-    .btn-secondary:hover {
-      background: var(--blue-dark);
-      color: var(--white);
-    }
+      .mobile-menu a {
+        display: block;
+        padding: 12px 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        text-decoration: none;
+        border-bottom: 1px solid var(--gray-100);
+      }
 
-    .btn-outline-white {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--white);
-    }
+      .mobile-menu a:last-child {
+        border-bottom: none;
+      }
 
-    .btn-outline-white:hover {
-      background: var(--white);
-      color: var(--blue-dark);
-    }
+      /* ============ BUTTONS ============ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 28px;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
 
-    .btn-sm {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-    }
+      .btn-primary {
+        background: var(--red);
+        color: var(--white);
+        box-shadow: var(--shadow-red);
+      }
 
-    .btn-lg {
-      padding: 18px 36px;
-      font-size: 1.1rem;
-    }
+      .btn-primary:hover {
+        background: var(--red-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(236, 19, 19, 0.5);
+      }
 
-    /* ============ HERO ============ */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 100px;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--blue-pale) 0%, var(--white) 50%, var(--gray-50) 100%);
-    }
+      .btn-secondary {
+        background: var(--white);
+        color: var(--blue-dark);
+        border: 2px solid var(--blue-dark);
+      }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 80%;
-      height: 150%;
-      background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-dark) 100%);
-      transform: skewX(-15deg);
-      z-index: 0;
-      opacity: 0.1;
-    }
+      .btn-secondary:hover {
+        background: var(--blue-dark);
+        color: var(--white);
+      }
 
-    .hero-pattern {
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 20% 80%, rgba(102, 180, 228, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(15, 75, 163, 0.08) 0%, transparent 50%);
-      z-index: 0;
-    }
+      .btn-outline-white {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid var(--white);
+      }
 
-    .hero-cross {
-      position: absolute;
-      top: 15%;
-      right: 10%;
-      width: 120px;
-      height: 120px;
-      opacity: 0.08;
-      animation: float 6s ease-in-out infinite;
-    }
+      .btn-outline-white:hover {
+        background: var(--white);
+        color: var(--blue-dark);
+      }
 
-    .hero-cross::before,
-    .hero-cross::after {
-      content: '';
-      position: absolute;
-      background: var(--red);
-      border-radius: 4px;
-    }
+      .btn-sm {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
 
-    .hero-cross::before {
-      top: 35%;
-      left: 0;
-      right: 0;
-      height: 30%;
-    }
+      .btn-lg {
+        padding: 18px 36px;
+        font-size: 1.1rem;
+      }
 
-    .hero-cross::after {
-      left: 35%;
-      top: 0;
-      bottom: 0;
-      width: 30%;
-    }
+      /* ============ HERO ============ */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 100px;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          var(--blue-pale) 0%,
+          var(--white) 50%,
+          var(--gray-50) 100%
+        );
+      }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 80%;
+        height: 150%;
+        background: linear-gradient(
+          135deg,
+          var(--blue-light) 0%,
+          var(--blue-dark) 100%
+        );
+        transform: skewX(-15deg);
+        z-index: 0;
+        opacity: 0.1;
+      }
 
-    .hero-grid {
-      display: grid;
-      gap: 48px;
-      align-items: center;
-    }
+      .hero-pattern {
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(102, 180, 228, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(15, 75, 163, 0.08) 0%,
+            transparent 50%
+          );
+        z-index: 0;
+      }
 
-    @media (min-width: 992px) {
+      .hero-cross {
+        position: absolute;
+        top: 15%;
+        right: 10%;
+        width: 120px;
+        height: 120px;
+        opacity: 0.08;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .hero-cross::before,
+      .hero-cross::after {
+        content: "";
+        position: absolute;
+        background: var(--red);
+        border-radius: 4px;
+      }
+
+      .hero-cross::before {
+        top: 35%;
+        left: 0;
+        right: 0;
+        height: 30%;
+      }
+
+      .hero-cross::after {
+        left: 35%;
+        top: 0;
+        bottom: 0;
+        width: 30%;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
       .hero-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
+        display: grid;
+        gap: 48px;
+        align-items: center;
       }
-    }
 
-    .hero-text {
-      animation: slideInLeft 0.8s ease forwards;
-    }
+      @media (min-width: 992px) {
+        .hero-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
+        }
+      }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--gray-700);
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
-    }
+      .hero-text {
+        animation: slideInLeft 0.8s ease forwards;
+      }
 
-    .hero-badge svg {
-      color: var(--red);
-    }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: var(--white);
+        border: 1px solid var(--gray-200);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        margin-bottom: 24px;
+        box-shadow: var(--shadow-sm);
+      }
 
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      line-height: 1.1;
-      color: var(--gray-900);
-      margin-bottom: 24px;
-    }
+      .hero-badge svg {
+        color: var(--red);
+      }
 
-    .hero h1 span {
-      color: var(--red);
-      position: relative;
-    }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        line-height: 1.1;
+        color: var(--gray-900);
+        margin-bottom: 24px;
+      }
 
-    .hero h1 span::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 0;
-      right: 0;
-      height: 8px;
-      background: rgba(236, 19, 19, 0.2);
-      z-index: -1;
-      border-radius: 4px;
-    }
+      .hero h1 span {
+        color: var(--red);
+        position: relative;
+      }
 
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--gray-600);
-      margin-bottom: 32px;
-      max-width: 500px;
-    }
+      .hero h1 span::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        right: 0;
+        height: 8px;
+        background: rgba(236, 19, 19, 0.2);
+        z-index: -1;
+        border-radius: 4px;
+      }
 
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--gray-600);
+        margin-bottom: 32px;
+        max-width: 500px;
+      }
 
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-    }
+      .hero-ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 48px;
+      }
 
-    .stat {
-      text-align: left;
-    }
+      .hero-stats {
+        display: flex;
+        gap: 40px;
+      }
 
-    .stat-number {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      color: var(--blue-dark);
-      line-height: 1;
-    }
+      .stat {
+        text-align: left;
+      }
 
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--gray-600);
-      margin-top: 4px;
-    }
+      .stat-number {
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 2rem;
+        color: var(--blue-dark);
+        line-height: 1;
+      }
 
-    .hero-image {
-      position: relative;
-      animation: slideInRight 0.8s ease forwards;
-      animation-delay: 0.2s;
-      opacity: 0;
-    }
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--gray-600);
+        margin-top: 4px;
+      }
 
-    .hero-image-wrapper {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow-xl);
-    }
+      .hero-image {
+        position: relative;
+        animation: slideInRight 0.8s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
 
-    .hero-image-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 60%, rgba(15, 75, 163, 0.3) 100%);
-      z-index: 1;
-    }
+      .hero-image-wrapper {
+        position: relative;
+        border-radius: 24px;
+        max-height: 600px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+      }
 
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
+      .hero-image-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          transparent 60%,
+          rgba(15, 75, 163, 0.3) 100%
+        );
+        z-index: 1;
+      }
 
-    .hero-image-badge {
-      position: absolute;
-      bottom: -20px;
-      left: -20px;
-      background: var(--white);
-      padding: 16px 24px;
-      border-radius: 16px;
-      box-shadow: var(--shadow-lg);
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
 
-    .hero-image-badge svg {
-      width: 40px;
-      height: 40px;
-      color: var(--red);
-    }
+      .hero-image-badge {
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        background: var(--white);
+        padding: 16px 24px;
+        border-radius: 16px;
+        box-shadow: var(--shadow-lg);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
 
-    .hero-image-badge-text {
-      font-weight: 600;
-      color: var(--gray-800);
-      font-size: 0.95rem;
-    }
+      .hero-image-badge svg {
+        width: 40px;
+        height: 40px;
+        color: var(--red);
+      }
 
-    .hero-image-badge-text span {
-      display: block;
-      font-weight: 400;
-      color: var(--gray-600);
-      font-size: 0.85rem;
-    }
+      .hero-image-badge-text {
+        font-weight: 600;
+        color: var(--gray-800);
+        font-size: 0.95rem;
+      }
 
-    /* ============ ABOUT INSTRUCTOR ============ */
-    .about {
-      background: var(--white);
-      position: relative;
-    }
+      .hero-image-badge-text span {
+        display: block;
+        font-weight: 400;
+        color: var(--gray-600);
+        font-size: 0.85rem;
+      }
 
-    .about::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gray-200), transparent);
-    }
+      /* ============ ABOUT INSTRUCTOR ============ */
+      .about {
+        background: var(--white);
+        position: relative;
+      }
 
-    .about-grid {
-      display: grid;
-      gap: 48px;
-      align-items: center;
-    }
+      .about::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gray-200),
+          transparent
+        );
+      }
 
-    @media (min-width: 992px) {
       .about-grid {
-        grid-template-columns: 1fr 1.2fr;
-        gap: 80px;
+        display: grid;
+        gap: 48px;
+        align-items: center;
       }
-    }
 
-    .about-image {
-      position: relative;
-    }
+      @media (min-width: 992px) {
+        .about-grid {
+          grid-template-columns: 1fr 1.2fr;
+          gap: 80px;
+        }
+      }
 
-    .about-image-inner {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow-xl);
-    }
+      .about-image {
+        position: relative;
+      }
 
-    .about-image-inner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: 3px solid var(--blue-light);
-      border-radius: 20px;
-      z-index: 1;
-      opacity: 0.5;
-    }
+      .about-image-inner {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+      }
 
-    .about-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+      .about-image-inner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 3px solid var(--blue-light);
+        border-radius: 20px;
+        z-index: 1;
+        opacity: 0.5;
+      }
 
-    .about-image-decoration {
-      position: absolute;
-      bottom: -30px;
-      right: -30px;
-      width: 150px;
-      height: 150px;
-      background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-dark) 100%);
-      border-radius: 20px;
-      z-index: -1;
-      opacity: 0.3;
-    }
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
-    .about-content {
-      padding: 20px 0;
-    }
+      .about-image-decoration {
+        position: absolute;
+        bottom: -30px;
+        right: -30px;
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(
+          135deg,
+          var(--blue-light) 0%,
+          var(--blue-dark) 100%
+        );
+        border-radius: 20px;
+        z-index: -1;
+        opacity: 0.3;
+      }
 
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--blue-dark);
-      margin-bottom: 16px;
-    }
+      .about-content {
+        padding: 20px 0;
+      }
 
-    .section-label::before {
-      content: '';
-      width: 40px;
-      height: 2px;
-      background: var(--blue-dark);
-    }
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--blue-dark);
+        margin-bottom: 16px;
+      }
 
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      color: var(--gray-900);
-      margin-bottom: 24px;
-      line-height: 1.2;
-    }
+      .section-label::before {
+        content: "";
+        width: 40px;
+        height: 2px;
+        background: var(--blue-dark);
+      }
 
-    .about-text {
-      font-size: 1.1rem;
-      color: var(--gray-600);
-      margin-bottom: 32px;
-    }
+      .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        color: var(--gray-900);
+        margin-bottom: 24px;
+        line-height: 1.2;
+      }
 
-    .about-credentials {
-      display: grid;
-      gap: 16px;
-    }
+      .about-text {
+        font-size: 1.1rem;
+        color: var(--gray-600);
+        margin-bottom: 32px;
+      }
 
-    .credential {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 16px;
-      background: var(--gray-50);
-      border-radius: 12px;
-      transition: all 0.3s ease;
-    }
+      .about-credentials {
+        display: grid;
+        gap: 16px;
+      }
 
-    .credential:hover {
-      background: var(--blue-pale);
-      transform: translateX(8px);
-    }
+      .credential {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 16px;
+        background: var(--gray-50);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
 
-    .credential-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--white);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: var(--shadow-sm);
-    }
+      .credential:hover {
+        background: var(--blue-pale);
+        transform: translateX(8px);
+      }
 
-    .credential-icon svg {
-      width: 24px;
-      height: 24px;
-      color: var(--blue-dark);
-    }
+      .credential-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--white);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: var(--shadow-sm);
+      }
 
-    .credential-text h4 {
-      font-weight: 600;
-      color: var(--gray-800);
-      margin-bottom: 4px;
-    }
+      .credential-icon svg {
+        width: 24px;
+        height: 24px;
+        color: var(--blue-dark);
+      }
 
-    .credential-text p {
-      font-size: 0.9rem;
-      color: var(--gray-600);
-    }
+      .credential-text h4 {
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 4px;
+      }
 
-    /* ============ COURSE CONTENT ============ */
-    .course {
-      background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
-      position: relative;
-    }
+      .credential-text p {
+        font-size: 0.9rem;
+        color: var(--gray-600);
+      }
 
-    .course-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 64px;
-    }
+      /* ============ COURSE CONTENT ============ */
+      .course {
+        background: linear-gradient(
+          180deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
+        position: relative;
+      }
 
-    .course-subtitle {
-      font-size: 1.15rem;
-      color: var(--gray-600);
-      margin-top: 16px;
-    }
+      .course-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 64px;
+      }
 
-    .modules-grid {
-      display: grid;
-      gap: 24px;
-    }
+      .course-subtitle {
+        font-size: 1.15rem;
+        color: var(--gray-600);
+        margin-top: 16px;
+      }
 
-    @media (min-width: 768px) {
       .modules-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        gap: 24px;
       }
-    }
 
-    @media (min-width: 992px) {
-      .modules-grid {
-        grid-template-columns: repeat(3, 1fr);
+      @media (min-width: 768px) {
+        .modules-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
-    }
 
-    .module-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--gray-100);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
+      @media (min-width: 992px) {
+        .modules-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
 
-    .module-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue-dark), var(--blue-light));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
+      .module-card {
+        background: var(--white);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--gray-100);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
 
-    .module-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
-    }
+      .module-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue-dark), var(--blue-light));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
 
-    .module-card:hover::before {
-      transform: scaleX(1);
-    }
+      .module-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+      }
 
-    .module-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--blue-pale) 0%, var(--white) 100%);
-      border: 2px solid var(--blue-light);
-      border-radius: 12px;
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--blue-dark);
-      margin-bottom: 20px;
-    }
+      .module-card:hover::before {
+        transform: scaleX(1);
+      }
 
-    .module-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--gray-800);
-      margin-bottom: 12px;
-    }
+      .module-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(
+          135deg,
+          var(--blue-pale) 0%,
+          var(--white) 100%
+        );
+        border: 2px solid var(--blue-light);
+        border-radius: 12px;
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: var(--blue-dark);
+        margin-bottom: 20px;
+      }
 
-    .module-card p {
-      font-size: 0.95rem;
-      color: var(--gray-600);
-      line-height: 1.6;
-    }
+      .module-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 12px;
+      }
 
-    .module-card .module-icon {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      opacity: 0.1;
-      color: var(--blue-dark);
-    }
+      .module-card p {
+        font-size: 0.95rem;
+        color: var(--gray-600);
+        line-height: 1.6;
+      }
 
-    /* ============ TESTIMONIALS ============ */
-    .testimonials {
-      background: var(--blue-dark);
-      position: relative;
-      overflow: hidden;
-    }
+      .module-card .module-icon {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        opacity: 0.1;
+        color: var(--blue-dark);
+      }
 
-    .testimonials::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(102, 180, 228, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(236, 19, 19, 0.1) 0%, transparent 40%);
-    }
+      /* ============ TESTIMONIALS ============ */
+      .testimonials {
+        background: var(--blue-dark);
+        position: relative;
+        overflow: hidden;
+      }
 
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 64px;
-      position: relative;
-      z-index: 1;
-    }
+      .testimonials::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(102, 180, 228, 0.2) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(236, 19, 19, 0.1) 0%,
+            transparent 40%
+          );
+      }
 
-    .testimonials .section-label {
-      color: var(--blue-light);
-    }
+      .testimonials-header {
+        text-align: center;
+        margin-bottom: 64px;
+        position: relative;
+        z-index: 1;
+      }
 
-    .testimonials .section-label::before {
-      background: var(--blue-light);
-    }
+      .testimonials .section-label {
+        color: var(--blue-light);
+      }
 
-    .testimonials .section-title {
-      color: var(--white);
-    }
+      .testimonials .section-label::before {
+        background: var(--blue-light);
+      }
 
-    .testimonials-grid {
-      display: grid;
-      gap: 32px;
-      position: relative;
-      z-index: 1;
-    }
+      .testimonials .section-title {
+        color: var(--white);
+      }
 
-    @media (min-width: 768px) {
       .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        gap: 32px;
+        position: relative;
+        z-index: 1;
       }
-    }
 
-    .testimonial-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 32px;
-      transition: all 0.3s ease;
-    }
+      @media (min-width: 768px) {
+        .testimonials-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
 
-    .testimonial-card:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-4px);
-    }
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 32px;
+        transition: all 0.3s ease;
+      }
 
-    .testimonial-video {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 24px;
-      cursor: pointer;
-      aspect-ratio: 16/9;
-    }
+      .testimonial-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-4px);
+      }
 
-    .testimonial-video img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+      .testimonial-video {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 24px;
+        cursor: pointer;
+        aspect-ratio: 16/9;
+      }
 
-    .testimonial-video:hover img {
-      transform: scale(1.05);
-    }
+      .testimonial-video img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
 
-    .testimonial-video::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 1;
-      transition: background 0.3s ease;
-    }
+      .testimonial-video:hover img {
+        transform: scale(1.05);
+      }
 
-    .testimonial-video:hover::before {
-      background: rgba(0, 0, 0, 0.2);
-    }
+      .testimonial-video::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        transition: background 0.3s ease;
+      }
 
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 72px;
-      height: 72px;
-      background: var(--red);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-      box-shadow: 0 4px 20px rgba(236, 19, 19, 0.5);
-      transition: all 0.3s ease;
-    }
+      .testimonial-video:hover::before {
+        background: rgba(0, 0, 0, 0.2);
+      }
 
-    .testimonial-video:hover .play-button {
-      transform: translate(-50%, -50%) scale(1.1);
-      animation: pulse 1.5s infinite;
-    }
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 72px;
+        height: 72px;
+        background: var(--red);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        box-shadow: 0 4px 20px rgba(236, 19, 19, 0.5);
+        transition: all 0.3s ease;
+      }
 
-    .play-button svg {
-      width: 28px;
-      height: 28px;
-      color: var(--white);
-      margin-left: 4px;
-    }
+      .testimonial-video:hover .play-button {
+        transform: translate(-50%, -50%) scale(1.1);
+        animation: pulse 1.5s infinite;
+      }
 
-    .testimonial-content p {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1.05rem;
-      font-style: italic;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
+      .play-button svg {
+        width: 28px;
+        height: 28px;
+        color: var(--white);
+        margin-left: 4px;
+      }
 
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+      .testimonial-content p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.05rem;
+        font-style: italic;
+        margin-bottom: 20px;
+        line-height: 1.7;
+      }
 
-    .testimonial-author-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--blue-light);
-    }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
 
-    .testimonial-author-info h4 {
-      color: var(--white);
-      font-weight: 600;
-      font-size: 1rem;
-    }
+      .testimonial-author-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--blue-light);
+      }
 
-    .testimonial-author-info span {
-      color: var(--blue-light);
-      font-size: 0.9rem;
-    }
+      .testimonial-author-info h4 {
+        color: var(--white);
+        font-weight: 600;
+        font-size: 1rem;
+      }
 
-    /* ============ PRICING ============ */
-    .pricing {
-      background: var(--white);
-      position: relative;
-    }
+      .testimonial-author-info span {
+        color: var(--blue-light);
+        font-size: 0.9rem;
+      }
 
-    .pricing-header {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 64px;
-    }
+      /* ============ PRICING ============ */
+      .pricing {
+        background: linear-gradient(
+          180deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
 
-    .pricing-card {
-      max-width: 520px;
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: 24px;
-      padding: 48px;
-      box-shadow: var(--shadow-xl);
-      border: 2px solid var(--gray-100);
-      position: relative;
-      overflow: hidden;
-    }
+      .pricing::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gray-200),
+          transparent
+        );
+      }
 
-    .pricing-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, var(--blue-dark), var(--red), var(--blue-light));
-    }
+      .pricing-layout {
+        display: grid;
+        gap: 48px;
+      }
 
-    .pricing-badge {
-      position: absolute;
-      top: 24px;
-      right: -32px;
-      background: var(--red);
-      color: var(--white);
-      padding: 8px 40px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transform: rotate(45deg);
-    }
+      @media (min-width: 992px) {
+        .pricing-layout {
+          grid-template-columns: 1fr 1fr;
+          gap: 80px;
+          align-items: center;
+        }
+      }
 
-    .pricing-price {
-      text-align: center;
-      margin-bottom: 32px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--gray-200);
-    }
+      .pricing-content {
+        order: 2;
+      }
 
-    .pricing-price-label {
-      font-size: 1rem;
-      color: var(--gray-600);
-      margin-bottom: 8px;
-    }
+      @media (min-width: 992px) {
+        .pricing-content {
+          order: 1;
+        }
+      }
 
-    .pricing-price-value {
-      font-family: var(--font-display);
-      font-size: 4rem;
-      color: var(--gray-900);
-      line-height: 1;
-    }
+      .pricing-content .section-title {
+        margin-bottom: 20px;
+      }
 
-    .pricing-price-value span {
-      font-size: 1.5rem;
-      vertical-align: top;
-      margin-right: 4px;
-    }
+      .pricing-description {
+        font-size: 1.1rem;
+        color: var(--gray-600);
+        margin-bottom: 40px;
+        line-height: 1.7;
+      }
 
-    .pricing-features {
-      margin-bottom: 32px;
-    }
+      .pricing-includes {
+        display: grid;
+        gap: 16px;
+      }
 
-    .pricing-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 12px 0;
-    }
+      .pricing-include {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        background: var(--white);
+        border-radius: 12px;
+        border: 1px solid var(--gray-100);
+        transition: all 0.3s ease;
+      }
 
-    .pricing-feature svg {
-      width: 24px;
-      height: 24px;
-      color: var(--blue-dark);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
+      .pricing-include:hover {
+        border-color: var(--blue-light);
+        transform: translateX(8px);
+        box-shadow: var(--shadow-md);
+      }
 
-    .pricing-feature span {
-      font-size: 1.05rem;
-      color: var(--gray-700);
-    }
+      .pricing-include-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--blue-pale);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
 
-    .pricing-cta {
-      text-align: center;
-    }
+      .pricing-include-icon svg {
+        width: 22px;
+        height: 22px;
+        color: var(--blue-dark);
+      }
 
-    .pricing-cta .btn {
-      width: 100%;
-      margin-bottom: 16px;
-    }
+      .pricing-include span {
+        font-size: 1rem;
+        color: var(--gray-700);
+        font-weight: 500;
+      }
 
-    .pricing-guarantee {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      color: var(--gray-600);
-    }
+      .pricing-box {
+        order: 1;
+      }
 
-    .pricing-guarantee svg {
-      width: 20px;
-      height: 20px;
-      color: var(--blue-dark);
-    }
+      @media (min-width: 992px) {
+        .pricing-box {
+          order: 2;
+        }
+      }
 
-    /* ============ FAQ ============ */
-    .faq {
-      background: var(--gray-50);
-    }
+      .pricing-box-inner {
+        background: var(--white);
+        border-radius: 24px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: var(--shadow-xl);
+        border: 1px solid var(--gray-100);
+        position: relative;
+      }
 
-    .faq-header {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 64px;
-    }
+      .pricing-box-inner::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue-dark), var(--blue-light));
+        border-radius: 4px;
+      }
 
-    .faq-list {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+      .pricing-label {
+        display: inline-block;
+        padding: 6px 16px;
+        background: var(--blue-pale);
+        color: var(--blue-dark);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        margin-bottom: 24px;
+      }
 
-    .faq-item {
-      background: var(--white);
-      border-radius: 12px;
-      margin-bottom: 16px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--gray-100);
-      overflow: hidden;
-    }
+      .pricing-amount {
+        margin-bottom: 8px;
+      }
 
-    .faq-question {
-      width: 100%;
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      font-family: var(--font-body);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--gray-800);
-      transition: all 0.3s ease;
-    }
+      .pricing-currency {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--gray-600);
+        vertical-align: top;
+        margin-right: 4px;
+      }
 
-    .faq-question:hover {
-      color: var(--blue-dark);
-    }
+      .pricing-value {
+        font-family: var(--font-body);
+        font-size: 5rem;
+        font-weight: 600;
+        color: var(--gray-900);
+        line-height: 1;
+        letter-spacing: -2px;
+      }
 
-    .faq-question svg {
-      width: 24px;
-      height: 24px;
-      color: var(--blue-dark);
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
+      .pricing-period {
+        font-size: 1rem;
+        color: var(--gray-600);
+        margin-bottom: 32px;
+      }
 
-    .faq-item.active .faq-question svg {
-      transform: rotate(180deg);
-    }
+      .pricing-cta {
+        margin-bottom: 24px;
+      }
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
+      .pricing-cta .btn {
+        width: 100%;
+        padding: 18px 32px;
+        font-size: 1.1rem;
+      }
 
-    .faq-item.active .faq-answer {
-      max-height: 500px;
-    }
+      .pricing-guarantee {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px;
+        background: var(--gray-50);
+        border-radius: 12px;
+      }
 
-    .faq-answer-inner {
-      padding: 0 24px 24px;
-      font-size: 1rem;
-      color: var(--gray-600);
-      line-height: 1.7;
-    }
+      .pricing-guarantee svg {
+        width: 24px;
+        height: 24px;
+        color: var(--blue-dark);
+        flex-shrink: 0;
+      }
 
-    /* ============ BLOG ============ */
-    .blog {
-      background: var(--white);
-      position: relative;
-    }
+      .pricing-guarantee span {
+        font-size: 0.9rem;
+        color: var(--gray-600);
+        text-align: left;
+      }
 
-    .blog-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 24px;
-      margin-bottom: 48px;
-    }
+      /* ============ FAQ ============ */
+      .faq {
+        background: var(--gray-50);
+      }
 
-    .blog-header-text {
-      max-width: 500px;
-    }
+      .faq-header {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 64px;
+      }
 
-    .blog-header .btn {
-      flex-shrink: 0;
-    }
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-    .blog-grid {
-      display: grid;
-      gap: 32px;
-    }
+      .faq-item {
+        background: var(--white);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-100);
+        overflow: hidden;
+      }
 
-    @media (min-width: 768px) {
+      .faq-question {
+        width: 100%;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        transition: all 0.3s ease;
+      }
+
+      .faq-question:hover {
+        color: var(--blue-dark);
+      }
+
+      .faq-question svg {
+        width: 24px;
+        height: 24px;
+        color: var(--blue-dark);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .faq-item.active .faq-question svg {
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+      }
+
+      .faq-answer-inner {
+        padding: 0 24px 24px;
+        font-size: 1rem;
+        color: var(--gray-600);
+        line-height: 1.7;
+      }
+
+      /* ============ BLOG ============ */
+      .blog {
+        background: var(--white);
+        position: relative;
+      }
+
+      .blog-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      .blog-header-text {
+        max-width: 500px;
+      }
+
+      .blog-header .btn {
+        flex-shrink: 0;
+      }
+
       .blog-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        gap: 32px;
       }
-    }
 
-    @media (min-width: 992px) {
-      .blog-grid {
-        grid-template-columns: repeat(3, 1fr);
+      @media (min-width: 768px) {
+        .blog-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
-    }
 
-    .blog-card {
-      background: var(--gray-50);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid var(--gray-100);
-    }
+      @media (min-width: 992px) {
+        .blog-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
 
-    .blog-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
-      border-color: var(--blue-light);
-    }
+      .blog-card {
+        background: var(--gray-50);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid var(--gray-100);
+      }
 
-    .blog-card-image {
-      position: relative;
-      height: 200px;
-      background: linear-gradient(135deg, var(--blue-pale) 0%, var(--gray-100) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+      .blog-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--blue-light);
+      }
 
-    .blog-card-image svg {
-      width: 64px;
-      height: 64px;
-      color: var(--blue-light);
-      opacity: 0.5;
-    }
+      .blog-card-image {
+        position: relative;
+        height: 200px;
+        background: linear-gradient(
+          135deg,
+          var(--blue-pale) 0%,
+          var(--gray-100) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
 
-    .blog-card-image::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.05) 100%);
-    }
+      .blog-card-image svg {
+        width: 64px;
+        height: 64px;
+        color: var(--blue-light);
+        opacity: 0.5;
+      }
 
-    .blog-card-content {
-      padding: 24px;
-    }
+      .blog-card-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 60%,
+          rgba(0, 0, 0, 0.05) 100%
+        );
+      }
 
-    .blog-card-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
+      .blog-card-content {
+        padding: 24px;
+      }
 
-    .blog-card-category {
-      display: inline-block;
-      padding: 4px 12px;
-      background: var(--blue-pale);
-      color: var(--blue-dark);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-radius: 50px;
-    }
+      .blog-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
 
-    .blog-card-date {
-      font-size: 0.85rem;
-      color: var(--gray-600);
-    }
+      .blog-card-category {
+        display: inline-block;
+        padding: 4px 12px;
+        background: var(--blue-pale);
+        color: var(--blue-dark);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 50px;
+      }
 
-    .blog-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--gray-900);
-      margin-bottom: 12px;
-      line-height: 1.3;
-      transition: color 0.2s ease;
-    }
+      .blog-card-date {
+        font-size: 0.85rem;
+        color: var(--gray-600);
+      }
 
-    .blog-card:hover h3 {
-      color: var(--blue-dark);
-    }
+      .blog-card h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: var(--gray-900);
+        margin-bottom: 12px;
+        line-height: 1.3;
+        transition: color 0.2s ease;
+      }
 
-    .blog-card p {
-      font-size: 0.95rem;
-      color: var(--gray-600);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
+      .blog-card:hover h3 {
+        color: var(--blue-dark);
+      }
 
-    .blog-card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--blue-dark);
-      text-decoration: none;
-      transition: gap 0.2s ease;
-    }
+      .blog-card p {
+        font-size: 0.95rem;
+        color: var(--gray-600);
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
 
-    .blog-card-link:hover {
-      gap: 10px;
-    }
+      .blog-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--blue-dark);
+        text-decoration: none;
+        transition: gap 0.2s ease;
+      }
 
-    .blog-card-link svg {
-      width: 16px;
-      height: 16px;
-    }
+      .blog-card-link:hover {
+        gap: 10px;
+      }
 
-    /* ============ CTA SECTION ============ */
-    .cta-section {
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-medium) 100%);
-      position: relative;
-      overflow: hidden;
-    }
+      .blog-card-link svg {
+        width: 16px;
+        height: 16px;
+      }
 
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 60%;
-      height: 200%;
-      background: rgba(255, 255, 255, 0.05);
-      transform: skewX(-15deg);
-    }
+      /* ============ CTA SECTION ============ */
+      .cta-section {
+        background: linear-gradient(
+          135deg,
+          var(--blue-dark) 0%,
+          var(--blue-medium) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
 
-    .cta-content {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.05);
+        transform: skewX(-15deg);
+      }
 
-    .cta-content h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--white);
-      margin-bottom: 24px;
-    }
+      .cta-content {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
 
-    .cta-content p {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 40px;
-    }
+      .cta-content h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--white);
+        margin-bottom: 24px;
+      }
 
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-    }
+      .cta-content p {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+      }
 
-    /* ============ FOOTER ============ */
-    footer {
-      background: var(--gray-900);
-      color: var(--white);
-      padding: 64px 0 32px;
-    }
+      .cta-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
 
-    .footer-grid {
-      display: grid;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
+      /* ============ FOOTER ============ */
+      footer {
+        background: var(--gray-900);
+        color: var(--white);
+        padding: 64px 0 32px;
+      }
 
-    @media (min-width: 768px) {
       .footer-grid {
-        grid-template-columns: 2fr 1fr 1fr;
+        display: grid;
+        gap: 48px;
+        margin-bottom: 48px;
       }
-    }
 
-    .footer-brand img {
-      height: 48px;
-      margin-bottom: 20px;
-      filter: brightness(0) invert(1);
-    }
+      @media (min-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 2fr 1fr 1fr;
+        }
+      }
 
-    .footer-brand p {
-      color: var(--gray-400);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      max-width: 300px;
-    }
+      .footer-brand img {
+        height: 48px;
+        margin-bottom: 20px;
+        filter: brightness(0) invert(1);
+      }
 
-    .footer-links h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: var(--white);
-    }
+      .footer-brand p {
+        color: var(--gray-400);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        max-width: 300px;
+      }
 
-    .footer-links ul {
-      list-style: none;
-    }
+      .footer-links h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--white);
+      }
 
-    .footer-links li {
-      margin-bottom: 12px;
-    }
+      .footer-links ul {
+        list-style: none;
+      }
 
-    .footer-links a {
-      color: var(--gray-400);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-    }
+      .footer-links li {
+        margin-bottom: 12px;
+      }
 
-    .footer-links a:hover {
-      color: var(--white);
-    }
+      .footer-links a {
+        color: var(--gray-400);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+      }
 
-    .footer-bottom {
-      padding-top: 32px;
-      border-top: 1px solid var(--gray-800);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
+      .footer-links a:hover {
+        color: var(--white);
+      }
 
-    .footer-bottom p {
-      color: var(--gray-500);
-      font-size: 0.9rem;
-    }
+      .footer-bottom {
+        padding-top: 32px;
+        border-top: 1px solid var(--gray-800);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
 
-    .footer-social {
-      display: flex;
-      gap: 16px;
-    }
+      .footer-bottom p {
+        color: var(--gray-500);
+        font-size: 0.9rem;
+      }
 
-    .footer-social a {
-      width: 40px;
-      height: 40px;
-      background: var(--gray-800);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-400);
-      transition: all 0.3s ease;
-    }
+      .footer-social {
+        display: flex;
+        gap: 16px;
+      }
 
-    .footer-social a:hover {
-      background: var(--blue-dark);
-      color: var(--white);
-    }
+      .footer-social a {
+        width: 40px;
+        height: 40px;
+        background: var(--gray-800);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-400);
+        transition: all 0.3s ease;
+      }
 
-    .footer-social svg {
-      width: 20px;
-      height: 20px;
-    }
+      .footer-social a:hover {
+        background: var(--blue-dark);
+        color: var(--white);
+      }
 
-    /* ============ VIDEO MODAL ============ */
-    .video-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
+      .footer-social svg {
+        width: 20px;
+        height: 20px;
+      }
 
-    .video-modal.active {
-      display: flex;
-      animation: fadeIn 0.3s ease;
-    }
+      /* ============ COURSE INTRO ============ */
+      .course-intro {
+        background: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
 
-    .video-modal-content {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      aspect-ratio: 16/9;
-      background: var(--gray-900);
-      border-radius: 12px;
-      overflow: hidden;
-    }
+      .course-intro::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gray-200),
+          transparent
+        );
+      }
 
-    .video-modal video {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+      .course-intro-grid {
+        display: grid;
+        gap: 48px;
+        align-items: center;
+      }
 
-    .video-modal-close {
-      position: absolute;
-      top: -48px;
-      right: 0;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-      padding: 8px;
-      transition: transform 0.2s ease;
-    }
+      @media (min-width: 992px) {
+        .course-intro-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
+        }
+      }
 
-    .video-modal-close:hover {
-      transform: scale(1.1);
-    }
+      .course-intro-story {
+        order: 2;
+      }
 
-    .video-modal-close svg {
-      width: 32px;
-      height: 32px;
-    }
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="header-inner">
-        <a href="#" class="logo">
-          <img src="logo-mili.jpeg" alt="MP - Milagros Perez">
-          <span class="logo-text">Milagros Perez</span>
-        </a>
+      @media (min-width: 992px) {
+        .course-intro-story {
+          order: 1;
+        }
+      }
 
-        <nav>
-          <a href="#inicio">Inicio</a>
-          <a href="#sobre-mi">Sobre mí</a>
-          <a href="#curso">El Curso</a>
-          <a href="#blog">Blog</a>
-          <a href="#contacto">Contacto</a>
-          <a href="#faq">Preguntas Frecuentes</a>
-          <a href="#inscripcion" class="btn btn-primary btn-sm">Inscríbete</a>
-        </nav>
+      .course-intro-story .section-title {
+        margin-bottom: 24px;
+      }
 
-        <button class="mobile-menu-btn" aria-label="Menú" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+      .course-intro-story p {
+        font-size: 1.1rem;
+        color: var(--gray-600);
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+
+      .course-intro-story p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .course-intro-video {
+        order: 1;
+      }
+
+      @media (min-width: 992px) {
+        .course-intro-video {
+          order: 2;
+        }
+      }
+
+      .course-intro-video-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+        cursor: pointer;
+        aspect-ratio: 16/9;
+        background: var(--gray-100);
+      }
+
+      .course-intro-video-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .course-intro-video-wrapper:hover img {
+        transform: scale(1.03);
+      }
+
+      .course-intro-video-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 75, 163, 0.2) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        z-index: 1;
+        transition: background 0.3s ease;
+      }
+
+      .course-intro-video-wrapper:hover::before {
+        background: linear-gradient(
+          135deg,
+          rgba(15, 75, 163, 0.1) 0%,
+          rgba(0, 0, 0, 0.2) 100%
+        );
+      }
+
+      .course-intro-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        background: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .course-intro-video-wrapper:hover .course-intro-play {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      .course-intro-play svg {
+        width: 32px;
+        height: 32px;
+        color: var(--red);
+        margin-left: 4px;
+      }
+
+      .course-intro-description {
+        margin-top: 80px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        padding: 48px 56px;
+        background: linear-gradient(
+          135deg,
+          var(--blue-pale) 0%,
+          var(--gray-50) 100%
+        );
+        border-radius: 24px;
+        border: 1px solid var(--gray-100);
+      }
+
+      .course-intro-description::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue-dark), var(--blue-light));
+        border-radius: 4px;
+      }
+
+      .course-intro-description p {
+        font-size: 1.2rem;
+        color: var(--gray-700);
+        line-height: 1.9;
+      }
+
+      .course-intro-description p strong {
+        color: var(--blue-dark);
+        font-weight: 600;
+      }
+
+      @media (max-width: 768px) {
+        .course-intro-description {
+          padding: 32px 24px;
+          margin-top: 56px;
+        }
+
+        .course-intro-description p {
+          font-size: 1.05rem;
+        }
+      }
+
+      /* ============ VIDEO MODAL ============ */
+      .video-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .video-modal.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .video-modal-content {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        aspect-ratio: 16/9;
+        background: var(--gray-900);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .video-modal video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .video-modal-close {
+        position: absolute;
+        top: -48px;
+        right: 0;
+        background: none;
+        border: none;
+        color: var(--white);
+        cursor: pointer;
+        padding: 8px;
+        transition: transform 0.2s ease;
+      }
+
+      .video-modal-close:hover {
+        transform: scale(1.1);
+      }
+
+      .video-modal-close svg {
+        width: 32px;
+        height: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-inner">
+          <a href="#" class="logo">
+            <img src="logo-mili.jpeg" alt="MP - Mas Proteccion" />
+            <span class="logo-text">Más Protección</span>
+          </a>
+
+          <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#curso">El Curso</a>
+            <a href="#blog">Blog</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#faq">Preguntas Frecuentes</a>
+            <a href="#inscripcion" class="btn btn-primary btn-sm"
+              >Inscribirse</a
+            >
+          </nav>
+
+          <button
+            class="mobile-menu-btn"
+            aria-label="Menú"
+            onclick="toggleMobileMenu()"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
-      <a href="#sobre-mi" onclick="toggleMobileMenu()">Sobre mí</a>
-      <a href="#curso" onclick="toggleMobileMenu()">El Curso</a>
-      <a href="#blog" onclick="toggleMobileMenu()">Blog</a>
-      <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
-      <a href="#faq" onclick="toggleMobileMenu()">Preguntas Frecuentes</a>
-      <a href="#inscripcion" class="btn btn-primary" style="margin-top: 16px; text-align: center;" onclick="toggleMobileMenu()">Inscríbete</a>
-    </div>
-  </header>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
+        <a href="#sobre-mi" onclick="toggleMobileMenu()">Sobre mí</a>
+        <a href="#curso" onclick="toggleMobileMenu()">El Curso</a>
+        <a href="#blog" onclick="toggleMobileMenu()">Blog</a>
+        <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+        <a href="#faq" onclick="toggleMobileMenu()">Preguntas Frecuentes</a>
+        <a
+          href="#inscripcion"
+          class="btn btn-primary"
+          style="margin-top: 16px; text-align: center"
+          onclick="toggleMobileMenu()"
+          >Inscribirse</a
+        >
+      </div>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="inicio">
-    <div class="hero-pattern"></div>
-    <div class="hero-cross"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+      <div class="hero-pattern"></div>
+      <div class="hero-cross"></div>
 
-    <div class="container hero-content">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <div class="hero-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-            Certificación Internacional
-          </div>
-
-          <h1>Aprende a <span>salvar vidas</span> con confianza</h1>
-
-          <p class="hero-subtitle">
-            Curso completo de Primeros Auxilios dictado por una Instructora Internacional y voluntaria de Cruz Roja.
-            Prepárate para actuar en emergencias.
-          </p>
-
-          <div class="hero-ctas">
-            <a href="#inscripcion" class="btn btn-primary btn-lg">
-              Inscríbete Ahora
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
+      <div class="container hero-content">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="hero-badge">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
               </svg>
-            </a>
-            <a href="#curso" class="btn btn-secondary">Ver Contenido</a>
+              Certificación Internacional
+            </div>
+
+            <h1>Aprende a <span>salvar vidas</span> con confianza</h1>
+
+            <p class="hero-subtitle">
+              Curso completo de Primeros Auxilios dictado por una Instructora
+              Internacional y voluntaria de Cruz Roja. Prepárate para actuar en
+              emergencias.
+            </p>
+
+            <div class="hero-ctas">
+              <a href="#inscripcion" class="btn btn-primary btn-lg">
+                Inscribirse
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+              <a href="#curso" class="btn btn-secondary">Ver Contenido</a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Alumnos formados</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Años de experiencia</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Práctico</div>
+              </div>
+            </div>
           </div>
 
-          <div class="hero-stats">
-            <div class="stat">
-              <div class="stat-number">500+</div>
-              <div class="stat-label">Alumnos formados</div>
+          <div class="hero-image">
+            <div class="hero-image-wrapper">
+              <img
+                src="instructor.jpg"
+                alt="Milagros Perez - Instructora de Primeros Auxilios"
+              />
             </div>
-            <div class="stat">
-              <div class="stat-number">10+</div>
-              <div class="stat-label">Años de experiencia</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Práctico</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-image">
-          <div class="hero-image-wrapper">
-            <img src="instructor.jpg" alt="Milagros Perez - Instructora de Primeros Auxilios">
-          </div>
-          <div class="hero-image-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12"/>
-              <rect x="8" y="8" width="8" height="8" rx="1"/>
-            </svg>
-            <div class="hero-image-badge-text">
-              Cruz Roja
-              <span>Voluntaria Socorrista</span>
+            <div class="hero-image-badge">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12" />
+                <rect x="8" y="8" width="8" height="8" rx="1" />
+              </svg>
+              <div class="hero-image-badge-text">
+                Cruz Roja
+                <span>Voluntaria Socorrista</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Instructor -->
-  <section class="about" id="sobre-mi">
-    <div class="container">
-      <div class="about-grid animate-on-scroll">
-        <div class="about-image">
-          <div class="about-image-inner">
-            <img src="instructor.jpg" alt="Milagros Perez">
+    <!-- Course Intro -->
+    <section class="course-intro" id="introduccion">
+      <div class="container">
+        <div class="course-intro-grid animate-on-scroll">
+          <div class="course-intro-story">
+            <span class="section-label">Por qué este curso</span>
+            <h2 class="section-title">Una historia que cambió todo</h2>
+            <p>
+              Hace años, presencié una emergencia donde nadie sabía qué hacer.
+              En ese momento entendí que el conocimiento en primeros auxilios no
+              es un lujo, es una responsabilidad que todos deberíamos asumir.
+            </p>
+            <p>
+              Desde entonces, me dediqué a formar personas comunes en técnicas
+              que pueden marcar la diferencia entre la vida y la muerte. No
+              necesitas ser médico ni enfermero para salvar una vida, solo
+              necesitas estar preparado.
+            </p>
           </div>
-          <div class="about-image-decoration"></div>
-        </div>
 
-        <div class="about-content">
-          <span class="section-label">Tu Instructora</span>
-          <h2 class="section-title">Milagros Perez</h2>
-
-          <p class="about-text">
-            Soy Instructora Internacional de Primeros Auxilios con más de 10 años de experiencia formando a personas
-            en técnicas que salvan vidas. Como voluntaria socorrista de Cruz Roja, he atendido emergencias reales
-            y sé exactamente qué conocimientos necesitas para actuar con seguridad y eficacia.
-          </p>
-
-          <p class="about-text">
-            Mi pasión es transformar el miedo a las emergencias en confianza y preparación.
-            En este curso, te enseñaré todo lo que necesitas saber de forma práctica y accesible.
-          </p>
-
-          <div class="about-credentials">
-            <div class="credential">
-              <div class="credential-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="8" r="5"/>
-                  <path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2"/>
+          <div class="course-intro-video">
+            <div
+              class="course-intro-video-wrapper"
+              onclick="openVideoModal('test1.mp4')"
+            >
+              <img
+                src="test1.png"
+                alt="Introducción al curso de Primeros Auxilios"
+              />
+              <div class="course-intro-play">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
-              <div class="credential-text">
-                <h4>Instructora Internacional</h4>
-                <p>Certificación avalada internacionalmente en primeros auxilios y RCP</p>
-              </div>
-            </div>
-
-            <div class="credential">
-              <div class="credential-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12"/>
-                  <rect x="8" y="8" width="8" height="8" rx="1"/>
-                </svg>
-              </div>
-              <div class="credential-text">
-                <h4>Voluntaria Cruz Roja</h4>
-                <p>Socorrista activa con experiencia en emergencias reales</p>
-              </div>
-            </div>
-
-            <div class="credential">
-              <div class="credential-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-              </div>
-              <div class="credential-text">
-                <h4>+500 Alumnos Formados</h4>
-                <p>Personas preparadas para actuar en situaciones de emergencia</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Course Content -->
-  <section class="course" id="curso">
-    <div class="container">
-      <div class="course-header animate-on-scroll">
-        <span class="section-label">Contenido del Curso</span>
-        <h2 class="section-title">Todo lo que aprenderás</h2>
-        <p class="course-subtitle">
-          Un programa completo y práctico diseñado para que puedas actuar con confianza en cualquier emergencia.
-        </p>
-      </div>
-
-      <div class="modules-grid">
-        <div class="module-card animate-on-scroll">
-          <div class="module-number">1</div>
-          <h3>Fundamentos de Primeros Auxilios</h3>
-          <p>Aprende los principios básicos: evaluación de la escena, llamada a emergencias, y cómo mantener la calma para actuar eficazmente.</p>
-          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-          </svg>
-        </div>
-
-        <div class="module-card animate-on-scroll">
-          <div class="module-number">2</div>
-          <h3>RCP - Reanimación Cardiopulmonar</h3>
-          <p>Domina las técnicas de RCP para adultos, niños y bebés. Practica las compresiones y ventilaciones que pueden salvar una vida.</p>
-          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-        </div>
-
-        <div class="module-card animate-on-scroll">
-          <div class="module-number">3</div>
-          <h3>Uso del DEA (Desfibrilador)</h3>
-          <p>Aprende a utilizar un Desfibrilador Externo Automático, un dispositivo que puede duplicar las posibilidades de supervivencia.</p>
-          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
-          </svg>
-        </div>
-
-        <div class="module-card animate-on-scroll">
-          <div class="module-number">4</div>
-          <h3>Atención de Heridas y Hemorragias</h3>
-          <p>Técnicas para controlar sangrados, limpiar y vendar heridas, y reconocer cuándo una lesión requiere atención médica urgente.</p>
-          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H6v-2h4V7h2v4h4v2h-4v4z"/>
-          </svg>
-        </div>
-
-        <div class="module-card animate-on-scroll">
-          <div class="module-number">5</div>
-          <h3>Emergencias Respiratorias</h3>
-          <p>Manejo de atragantamientos (maniobra de Heimlich), crisis asmáticas, y otras situaciones que comprometen la respiración.</p>
-          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-          </svg>
-        </div>
-
-        <div class="module-card animate-on-scroll">
-          <div class="module-number">6</div>
-          <h3>Práctica y Certificación</h3>
-          <p>Sesiones prácticas con maniquíes y simulaciones reales. Al finalizar, recibirás tu certificado de formación en primeros auxilios.</p>
-          <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials" id="testimonios">
-    <div class="container">
-      <div class="testimonials-header animate-on-scroll">
-        <span class="section-label">Testimonios</span>
-        <h2 class="section-title">Lo que dicen nuestros alumnos</h2>
-      </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card animate-on-scroll">
-          <div class="testimonial-video" onclick="openVideoModal('test1.mp4')">
-            <img src="test1.png" alt="Testimonio de alumno">
-            <div class="play-button">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="testimonial-content">
-            <p>"El curso superó todas mis expectativas. Milagros explica todo de forma clara y práctica.
-            Ahora me siento preparado para actuar si alguien necesita ayuda."</p>
-            <div class="testimonial-author">
-              <img src="test1.png" alt="Alumno" class="testimonial-author-avatar">
-              <div class="testimonial-author-info">
-                <h4>Estudiante del curso</h4>
-                <span>Alumno certificado</span>
-              </div>
             </div>
           </div>
         </div>
 
-        <div class="testimonial-card animate-on-scroll">
-          <div class="testimonial-video" onclick="openVideoModal('test2.mp4')">
-            <img src="test2.png" alt="Testimonio de alumna">
-            <div class="play-button">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="testimonial-content">
-            <p>"Como madre, siempre tuve miedo de no saber qué hacer en una emergencia.
-            Este curso me dio la confianza y las herramientas que necesitaba. ¡Totalmente recomendado!"</p>
-            <div class="testimonial-author">
-              <img src="test2.png" alt="Alumna" class="testimonial-author-avatar">
-              <div class="testimonial-author-info">
-                <h4>Estudiante del curso</h4>
-                <span>Alumna certificada</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="pricing" id="inscripcion">
-    <div class="container">
-      <div class="pricing-header animate-on-scroll">
-        <span class="section-label">Inversión</span>
-        <h2 class="section-title">Invierte en tu capacidad de salvar vidas</h2>
-      </div>
-
-      <div class="pricing-card animate-on-scroll">
-        <div class="pricing-badge">Popular</div>
-
-        <div class="pricing-price">
-          <p class="pricing-price-label">Precio del curso completo</p>
-          <p class="pricing-price-value"><span>$</span>300</p>
-        </div>
-
-        <div class="pricing-features">
-          <div class="pricing-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Acceso a todos los módulos del curso</span>
-          </div>
-          <div class="pricing-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Sesiones prácticas con maniquíes</span>
-          </div>
-          <div class="pricing-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Material didáctico incluido</span>
-          </div>
-          <div class="pricing-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Certificado de participación</span>
-          </div>
-          <div class="pricing-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Grupo reducido para mayor atención</span>
-          </div>
-          <div class="pricing-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Soporte post-curso para consultas</span>
-          </div>
-        </div>
-
-        <div class="pricing-cta">
-          <a href="#contacto" class="btn btn-primary btn-lg">
-            Quiero Inscribirme
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </a>
-          <div class="pricing-guarantee">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            <span>Garantía de satisfacción - Si no quedas conforme, te devolvemos tu dinero</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <div class="faq-header animate-on-scroll">
-        <span class="section-label">Preguntas Frecuentes</span>
-        <h2 class="section-title">Resolvemos tus dudas</h2>
-      </div>
-
-      <div class="faq-list">
-        <div class="faq-item animate-on-scroll">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Necesito conocimientos previos para tomar el curso?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              No, el curso está diseñado para principiantes. Comenzamos desde los conceptos básicos y
-              avanzamos gradualmente. No necesitas ninguna experiencia previa en primeros auxilios o
-              el área de la salud.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item animate-on-scroll">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Cuánto dura el curso?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              El curso completo tiene una duración de 8 horas, distribuidas en sesiones teóricas y
-              prácticas. Las fechas y horarios se coordinan según la disponibilidad del grupo.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item animate-on-scroll">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿El certificado tiene validez oficial?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Sí, al completar el curso recibirás un certificado de formación en primeros auxilios
-              avalado por nuestra institución. Este certificado demuestra que has completado la
-              formación teórico-práctica requerida.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item animate-on-scroll">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿El curso es presencial o virtual?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              El curso es presencial, lo cual es fundamental para las prácticas con maniquíes y
-              simulaciones. La práctica hands-on es esencial para desarrollar las habilidades
-              necesarias en primeros auxilios.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item animate-on-scroll">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Qué incluye el precio del curso?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              El precio incluye: acceso a todas las clases teóricas y prácticas, material didáctico,
-              uso de maniquíes y equipos de práctica, certificado de participación, y soporte
-              post-curso para resolver dudas.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item animate-on-scroll">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Tienen política de reembolso?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Sí, ofrecemos garantía de satisfacción. Si por algún motivo no quedas conforme con el
-              curso después de la primera sesión, te devolvemos el 100% de tu inversión sin hacer
-              preguntas.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section class="blog" id="blog">
-    <div class="container">
-      <div class="blog-header animate-on-scroll">
-        <div class="blog-header-text">
-          <span class="section-label">Blog</span>
-          <h2 class="section-title">Últimas publicaciones</h2>
-        </div>
-        <a href="#" class="btn btn-secondary">Ver todas las publicaciones</a>
-      </div>
-
-      <div class="blog-grid">
-        <article class="blog-card animate-on-scroll">
-          <div class="blog-card-image">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-          </div>
-          <div class="blog-card-content">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">RCP</span>
-              <span class="blog-card-date">15 Dic 2024</span>
-            </div>
-            <h3>¿Cada cuánto debo renovar mi certificación en RCP?</h3>
-            <p>Mantener tus habilidades actualizadas es crucial. Te explicamos la frecuencia recomendada para recertificarte.</p>
-            <a href="#" class="blog-card-link">
-              Leer más
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="blog-card animate-on-scroll">
-          <div class="blog-card-image">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12"/>
-              <rect x="8" y="8" width="8" height="8" rx="1"/>
-            </svg>
-          </div>
-          <div class="blog-card-content">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">Consejos</span>
-              <span class="blog-card-date">10 Dic 2024</span>
-            </div>
-            <h3>5 elementos que no pueden faltar en tu botiquín de primeros auxilios</h3>
-            <p>Un botiquín bien equipado puede marcar la diferencia. Conoce los elementos esenciales que debes tener siempre a mano.</p>
-            <a href="#" class="blog-card-link">
-              Leer más
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="blog-card animate-on-scroll">
-          <div class="blog-card-image">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
-            </svg>
-          </div>
-          <div class="blog-card-content">
-            <div class="blog-card-meta">
-              <span class="blog-card-category">DEA</span>
-              <span class="blog-card-date">5 Dic 2024</span>
-            </div>
-            <h3>¿Qué es un DEA y por qué deberías saber usarlo?</h3>
-            <p>El Desfibrilador Externo Automático puede duplicar las posibilidades de supervivencia. Aprende por qué es tan importante.</p>
-            <a href="#" class="blog-card-link">
-              Leer más
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section" id="contacto">
-    <div class="container">
-      <div class="cta-content animate-on-scroll">
-        <h2>¿Listo para aprender a salvar vidas?</h2>
-        <p>
-          No esperes a que ocurra una emergencia para desear haber tomado este curso.
-          Inscríbete hoy y prepárate para hacer la diferencia.
-        </p>
-        <div class="cta-buttons">
-          <a href="mailto:contacto@milagrosperez.com" class="btn btn-primary btn-lg">
-            Contáctame Ahora
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </a>
-          <a href="#" class="btn btn-outline-white btn-lg">
-            WhatsApp
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="logo-mili.jpeg" alt="MP - Milagros Perez">
+        <div class="course-intro-description animate-on-scroll">
           <p>
-            Formación en Primeros Auxilios con certificación internacional.
-            Aprende a salvar vidas con una instructora experimentada y voluntaria de Cruz Roja.
+            <strong>Más Protección</strong> es un programa de formación integral
+            en primeros auxilios diseñado para personas sin experiencia previa.
+            Al finalizar, tendrás las herramientas necesarias para actuar cuando
+            más importa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Instructor -->
+    <section class="about" id="sobre-mi">
+      <div class="container">
+        <div class="about-grid animate-on-scroll">
+          <div class="about-image">
+            <div class="about-image-inner">
+              <img src="instructor.jpg" alt="Milagros Perez" />
+            </div>
+            <div class="about-image-decoration"></div>
+          </div>
+
+          <div class="about-content">
+            <span class="section-label">Tu Instructora</span>
+            <h2 class="section-title">Milagros Perez</h2>
+
+            <p class="about-text">
+              Soy Instructora Internacional de Primeros Auxilios con más de 10
+              años de experiencia formando a personas en técnicas que salvan
+              vidas. Como voluntaria socorrista de Cruz Roja, he atendido
+              emergencias reales y sé exactamente qué conocimientos necesitas
+              para actuar con seguridad y eficacia.
+            </p>
+
+            <p class="about-text">
+              Mi pasión es transformar el miedo a las emergencias en confianza y
+              preparación. En este curso, te enseñaré todo lo que necesitas
+              saber de forma práctica y accesible.
+            </p>
+
+            <div class="about-credentials">
+              <div class="credential">
+                <div class="credential-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="8" r="5" />
+                    <path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2" />
+                  </svg>
+                </div>
+                <div class="credential-text">
+                  <h4>Instructora Internacional</h4>
+                  <p>
+                    Certificación avalada internacionalmente en primeros
+                    auxilios y RCP
+                  </p>
+                </div>
+              </div>
+
+              <div class="credential">
+                <div class="credential-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12" />
+                    <rect x="8" y="8" width="8" height="8" rx="1" />
+                  </svg>
+                </div>
+                <div class="credential-text">
+                  <h4>Voluntaria Cruz Roja</h4>
+                  <p>Socorrista activa con experiencia en emergencias reales</p>
+                </div>
+              </div>
+
+              <div class="credential">
+                <div class="credential-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div class="credential-text">
+                  <h4>+500 Alumnos Formados</h4>
+                  <p>
+                    Personas preparadas para actuar en situaciones de emergencia
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="course" id="curso">
+      <div class="container">
+        <div class="course-header animate-on-scroll">
+          <span class="section-label">Contenido del Curso</span>
+          <h2 class="section-title">Todo lo que aprenderás</h2>
+          <p class="course-subtitle">
+            Un programa completo y práctico diseñado para que puedas actuar con
+            confianza en cualquier emergencia.
           </p>
         </div>
 
-        <div class="footer-links">
-          <h4>Navegación</h4>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#curso">El Curso</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#testimonios">Testimonios</a></li>
-            <li><a href="#faq">Preguntas Frecuentes</a></li>
-          </ul>
-        </div>
+        <div class="modules-grid">
+          <div class="module-card animate-on-scroll">
+            <div class="module-number">1</div>
+            <h3>Fundamentos de Primeros Auxilios</h3>
+            <p>
+              Aprende los principios básicos: evaluación de la escena, llamada a
+              emergencias, y cómo mantener la calma para actuar eficazmente.
+            </p>
+            <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              />
+            </svg>
+          </div>
 
-        <div class="footer-links">
-          <h4>Contacto</h4>
-          <ul>
-            <li><a href="mailto:contacto@milagrosperez.com">contacto@milagrosperez.com</a></li>
-            <li><a href="#">WhatsApp</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
+          <div class="module-card animate-on-scroll">
+            <div class="module-number">2</div>
+            <h3>RCP - Reanimación Cardiopulmonar</h3>
+            <p>
+              Domina las técnicas de RCP para adultos, niños y bebés. Practica
+              las compresiones y ventilaciones que pueden salvar una vida.
+            </p>
+            <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              />
+            </svg>
+          </div>
+
+          <div class="module-card animate-on-scroll">
+            <div class="module-number">3</div>
+            <h3>Uso del DEA (Desfibrilador)</h3>
+            <p>
+              Aprende a utilizar un Desfibrilador Externo Automático, un
+              dispositivo que puede duplicar las posibilidades de supervivencia.
+            </p>
+            <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 2v11h3v9l7-12h-4l4-8z" />
+            </svg>
+          </div>
+
+          <div class="module-card animate-on-scroll">
+            <div class="module-number">4</div>
+            <h3>Atención de Heridas y Hemorragias</h3>
+            <p>
+              Técnicas para controlar sangrados, limpiar y vendar heridas, y
+              reconocer cuándo una lesión requiere atención médica urgente.
+            </p>
+            <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H6v-2h4V7h2v4h4v2h-4v4z"
+              />
+            </svg>
+          </div>
+
+          <div class="module-card animate-on-scroll">
+            <div class="module-number">5</div>
+            <h3>Emergencias Respiratorias</h3>
+            <p>
+              Manejo de atragantamientos (maniobra de Heimlich), crisis
+              asmáticas, y otras situaciones que comprometen la respiración.
+            </p>
+            <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+              />
+            </svg>
+          </div>
+
+          <div class="module-card animate-on-scroll">
+            <div class="module-number">6</div>
+            <h3>Práctica y Certificación</h3>
+            <p>
+              Sesiones prácticas con maniquíes y simulaciones reales. Al
+              finalizar, recibirás tu certificado de formación en primeros
+              auxilios.
+            </p>
+            <svg class="module-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
+              />
+            </svg>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="footer-bottom">
-        <p>&copy; 2024 Milagros Perez. Todos los derechos reservados.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12"/>
-              <circle cx="4" cy="4" r="2"/>
-            </svg>
-          </a>
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonios">
+      <div class="container">
+        <div class="testimonials-header animate-on-scroll">
+          <span class="section-label">Testimonios</span>
+          <h2 class="section-title">Lo que dicen nuestros alumnos</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card animate-on-scroll">
+            <div
+              class="testimonial-video"
+              onclick="openVideoModal('test1.mp4')"
+            >
+              <img src="test1.png" alt="Testimonio de alumno" />
+              <div class="play-button">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                "El curso superó todas mis expectativas. Milagros explica todo
+                de forma clara y práctica. Ahora me siento preparado para actuar
+                si alguien necesita ayuda."
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="test1.png"
+                  alt="Alumno"
+                  class="testimonial-author-avatar"
+                />
+                <div class="testimonial-author-info">
+                  <h4>Estudiante del curso</h4>
+                  <span>Alumno certificado</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card animate-on-scroll">
+            <div
+              class="testimonial-video"
+              onclick="openVideoModal('test2.mp4')"
+            >
+              <img src="test2.png" alt="Testimonio de alumna" />
+              <div class="play-button">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                "Como madre, siempre tuve miedo de no saber qué hacer en una
+                emergencia. Este curso me dio la confianza y las herramientas
+                que necesitaba. ¡Totalmente recomendado!"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="test2.png"
+                  alt="Alumna"
+                  class="testimonial-author-avatar"
+                />
+                <div class="testimonial-author-info">
+                  <h4>Estudiante del curso</h4>
+                  <span>Alumna certificada</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="inscripcion">
+      <div class="container">
+        <div class="pricing-layout">
+          <div class="pricing-content animate-on-scroll">
+            <span class="section-label">Inversión</span>
+            <h2 class="section-title">Todo lo que incluye el curso</h2>
+            <p class="pricing-description">
+              Una formación completa y práctica que te preparará para actuar con
+              confianza en situaciones de emergencia.
+            </p>
+
+            <div class="pricing-includes">
+              <div class="pricing-include">
+                <div class="pricing-include-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                    <path
+                      d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                    />
+                  </svg>
+                </div>
+                <span>6 módulos teórico-prácticos</span>
+              </div>
+              <div class="pricing-include">
+                <div class="pricing-include-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <span>8 horas de formación presencial</span>
+              </div>
+              <div class="pricing-include">
+                <div class="pricing-include-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <span>Práctica con maniquíes y DEA</span>
+              </div>
+              <div class="pricing-include">
+                <div class="pricing-include-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M3 9h18" />
+                    <path d="M9 21V9" />
+                  </svg>
+                </div>
+                <span>Material didáctico incluido</span>
+              </div>
+              <div class="pricing-include">
+                <div class="pricing-include-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <span>Certificado de formación</span>
+              </div>
+              <div class="pricing-include">
+                <div class="pricing-include-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                    />
+                  </svg>
+                </div>
+                <span>Soporte post-curso</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-box animate-on-scroll">
+            <div class="pricing-box-inner">
+              <span class="pricing-label">Curso Completo</span>
+              <div class="pricing-amount">
+                <span class="pricing-currency">$</span
+                ><span class="pricing-value">79.999</span>
+              </div>
+              <p class="pricing-period">Pago único · Acceso completo</p>
+
+              <div class="pricing-cta">
+                <a href="#contacto" class="btn btn-primary">
+                  Inscribirme Ahora
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+
+              <div class="pricing-guarantee">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span
+                  >Garantía de satisfacción: si no quedas conforme, te
+                  devolvemos tu dinero</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="faq-header animate-on-scroll">
+          <span class="section-label">Preguntas Frecuentes</span>
+          <h2 class="section-title">Resolvemos tus dudas</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Necesito conocimientos previos para tomar el curso?
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No, el curso está diseñado para principiantes. Comenzamos desde
+                los conceptos básicos y avanzamos gradualmente. No necesitas
+                ninguna experiencia previa en primeros auxilios o el área de la
+                salud.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Cuánto dura el curso?
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                El curso completo tiene una duración de 8 horas, distribuidas en
+                sesiones teóricas y prácticas. Las fechas y horarios se
+                coordinan según la disponibilidad del grupo.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿El certificado tiene validez oficial?
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Sí, al completar el curso recibirás un certificado de formación
+                en primeros auxilios avalado por nuestra institución. Este
+                certificado demuestra que has completado la formación
+                teórico-práctica requerida.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿El curso es presencial o virtual?
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                El curso es presencial, lo cual es fundamental para las
+                prácticas con maniquíes y simulaciones. La práctica hands-on es
+                esencial para desarrollar las habilidades necesarias en primeros
+                auxilios.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Qué incluye el precio del curso?
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                El precio incluye: acceso a todas las clases teóricas y
+                prácticas, material didáctico, uso de maniquíes y equipos de
+                práctica, certificado de participación, y soporte post-curso
+                para resolver dudas.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Tienen política de reembolso?
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Sí, ofrecemos garantía de satisfacción. Si por algún motivo no
+                quedas conforme con el curso después de la primera sesión, te
+                devolvemos el 100% de tu inversión sin hacer preguntas.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+      <div class="container">
+        <div class="blog-header animate-on-scroll">
+          <div class="blog-header-text">
+            <span class="section-label">Blog</span>
+            <h2 class="section-title">Últimas publicaciones</h2>
+          </div>
+          <a href="#" class="btn btn-secondary">Ver todas las publicaciones</a>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card animate-on-scroll">
+            <div class="blog-card-image">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                />
+              </svg>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">RCP</span>
+                <span class="blog-card-date">15 Dic 2024</span>
+              </div>
+              <h3>¿Cada cuánto debo renovar mi certificación en RCP?</h3>
+              <p>
+                Mantener tus habilidades actualizadas es crucial. Te explicamos
+                la frecuencia recomendada para recertificarte.
+              </p>
+              <a href="#" class="blog-card-link">
+                Leer más
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card animate-on-scroll">
+            <div class="blog-card-image">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M12 2L12 6M12 18L12 22M2 12L6 12M18 12L22 12" />
+                <rect x="8" y="8" width="8" height="8" rx="1" />
+              </svg>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">Consejos</span>
+                <span class="blog-card-date">10 Dic 2024</span>
+              </div>
+              <h3>
+                5 elementos que no pueden faltar en tu botiquín de primeros
+                auxilios
+              </h3>
+              <p>
+                Un botiquín bien equipado puede marcar la diferencia. Conoce los
+                elementos esenciales que debes tener siempre a mano.
+              </p>
+              <a href="#" class="blog-card-link">
+                Leer más
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card animate-on-scroll">
+            <div class="blog-card-image">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M7 2v11h3v9l7-12h-4l4-8z" />
+              </svg>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span class="blog-card-category">DEA</span>
+                <span class="blog-card-date">5 Dic 2024</span>
+              </div>
+              <h3>¿Qué es un DEA y por qué deberías saber usarlo?</h3>
+              <p>
+                El Desfibrilador Externo Automático puede duplicar las
+                posibilidades de supervivencia. Aprende por qué es tan
+                importante.
+              </p>
+              <a href="#" class="blog-card-link">
+                Leer más
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contacto">
+      <div class="container">
+        <div class="cta-content animate-on-scroll">
+          <h2>¿Listo para aprender a salvar vidas?</h2>
+          <p>
+            No esperes a que ocurra una emergencia para desear haber tomado este
+            curso. Inscribite hoy y prepárate para actuar cuando más importa.
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="mailto:contacto@milagrosperez.com"
+              class="btn btn-primary btn-lg"
+            >
+              Contáctame Ahora
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </a>
+            <a href="#" class="btn btn-outline-white btn-lg">
+              WhatsApp
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="logo-mili.jpeg" alt="MP - Milagros Perez" />
+            <p>
+              Formación en Primeros Auxilios con certificación internacional.
+              Aprende a salvar vidas con una instructora experimentada y
+              voluntaria de Cruz Roja.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Navegación</h4>
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#sobre-mi">Sobre mí</a></li>
+              <li><a href="#curso">El Curso</a></li>
+              <li><a href="#blog">Blog</a></li>
+              <li><a href="#testimonios">Testimonios</a></li>
+              <li><a href="#faq">Preguntas Frecuentes</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Contacto</h4>
+            <ul>
+              <li>
+                <a href="mailto:contacto@milagrosperez.com"
+                  >contacto@milagrosperez.com</a
+                >
+              </li>
+              <li><a href="#">WhatsApp</a></li>
+              <li><a href="#">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 Más Protección. Todos los derechos reservados.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
+      <div class="video-modal-content" onclick="event.stopPropagation()">
+        <button class="video-modal-close" onclick="closeVideoModal()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <video id="modalVideo" controls>
+          <source src="" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
     </div>
-  </footer>
 
-  <!-- Video Modal -->
-  <div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
-    <div class="video-modal-content" onclick="event.stopPropagation()">
-      <button class="video-modal-close" onclick="closeVideoModal()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="18" y1="6" x2="6" y2="18"/>
-          <line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-      <video id="modalVideo" controls>
-        <source src="" type="video/mp4">
-        Tu navegador no soporta el elemento de video.
-      </video>
-    </div>
-  </div>
-
-  <script>
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-    }
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+    <script>
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("active");
       }
-    });
 
-    // FAQ toggle
-    function toggleFaq(button) {
-      const item = button.parentElement;
-      const wasActive = item.classList.contains('active');
-
-      // Close all FAQs
-      document.querySelectorAll('.faq-item').forEach(faq => {
-        faq.classList.remove('active');
-      });
-
-      // Open clicked one if it wasn't active
-      if (!wasActive) {
-        item.classList.add('active');
-      }
-    }
-
-    // Video modal
-    function openVideoModal(videoSrc) {
-      const modal = document.getElementById('videoModal');
-      const video = document.getElementById('modalVideo');
-      video.src = videoSrc;
-      modal.classList.add('active');
-      video.play();
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeVideoModal(event) {
-      if (event && event.target !== event.currentTarget) return;
-      const modal = document.getElementById('videoModal');
-      const video = document.getElementById('modalVideo');
-      video.pause();
-      video.src = '';
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeVideoModal();
-      }
-    });
-
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
         }
       });
-    }, observerOptions);
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
+      // FAQ toggle
+      function toggleFaq(button) {
+        const item = button.parentElement;
+        const wasActive = item.classList.contains("active");
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          const headerOffset = 80;
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // Close all FAQs
+        document.querySelectorAll(".faq-item").forEach((faq) => {
+          faq.classList.remove("active");
+        });
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+        // Open clicked one if it wasn't active
+        if (!wasActive) {
+          item.classList.add("active");
+        }
+      }
+
+      // Video modal
+      function openVideoModal(videoSrc) {
+        const modal = document.getElementById("videoModal");
+        const video = document.getElementById("modalVideo");
+        video.src = videoSrc;
+        modal.classList.add("active");
+        video.play();
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeVideoModal(event) {
+        if (event && event.target !== event.currentTarget) return;
+        const modal = document.getElementById("videoModal");
+        const video = document.getElementById("modalVideo");
+        video.pause();
+        video.src = "";
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeVideoModal();
         }
       });
-    });
-  </script>
-</body>
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

@@ -16,6 +16,7 @@ export const seedUsers = async (payload: Payload) => {
     data: {
       email: adminEmail,
       password: adminPassword,
+      role: "admin",
     },
   });
 };

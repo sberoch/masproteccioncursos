@@ -1,6 +1,12 @@
 // storage-adapter-import-placeholder
+import { Certificates } from "@/collections/Certificates";
+import { Courses } from "@/collections/Courses";
+import { LessonProgress } from "@/collections/LessonProgress";
+import { Lessons } from "@/collections/Lessons";
 import { Media } from "@/collections/Media";
+import { Modules } from "@/collections/Modules";
 import { Pages } from "@/collections/Pages";
+import { QuizAttempts } from "@/collections/QuizAttempts";
 import { Users } from "@/collections/Users";
 import { AboutPage } from "@/globals/AboutPage";
 import { ContactPage } from "@/globals/ContactPage";
@@ -81,7 +87,21 @@ export default buildConfig({
     avatar: "gravatar",
   },
   globals: [HomePage, AboutPage, ContactPage, Header, Footer],
-  collections: [Pages, Media, Users, Socials],
+  collections: [
+    // Content
+    Pages,
+    Media,
+    Socials,
+    // Course Management
+    Courses,
+    Modules,
+    Lessons,
+    // Users & Progress
+    Users,
+    LessonProgress,
+    QuizAttempts,
+    Certificates,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

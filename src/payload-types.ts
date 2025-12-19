@@ -69,8 +69,14 @@ export interface Config {
   collections: {
     pages: Page;
     media: Media;
-    users: User;
     socials: Social;
+    courses: Course;
+    modules: Module;
+    lessons: Lesson;
+    users: User;
+    'lesson-progress': LessonProgress;
+    'quiz-attempts': QuizAttempt;
+    certificates: Certificate;
     forms: Form;
     'form-submissions': FormSubmission;
     'payload-locked-documents': PayloadLockedDocument;
@@ -81,8 +87,14 @@ export interface Config {
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    users: UsersSelect<false> | UsersSelect<true>;
     socials: SocialsSelect<false> | SocialsSelect<true>;
+    courses: CoursesSelect<false> | CoursesSelect<true>;
+    modules: ModulesSelect<false> | ModulesSelect<true>;
+    lessons: LessonsSelect<false> | LessonsSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
+    'lesson-progress': LessonProgressSelect<false> | LessonProgressSelect<true>;
+    'quiz-attempts': QuizAttemptsSelect<false> | QuizAttemptsSelect<true>;
+    certificates: CertificatesSelect<false> | CertificatesSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -620,11 +632,68 @@ export interface GalleryBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "socials".
+ */
+export interface Social {
+  id: number;
+  url: string;
+  icon: 'facebook' | 'instagram' | 'twitter' | 'linkedin' | 'youtube' | 'tiktok' | 'pinterest';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "courses".
+ */
+export interface Course {
+  id: number;
+  title: string;
+  /**
+   * Auto-generated URL-friendly identifier
+   */
+  slug: string;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Course thumbnail image
+   */
+  thumbnail?: (number | null) | Media;
+  /**
+   * Minimum percentage required to pass the final quiz
+   */
+  passingScore: number;
+  /**
+   * Only published courses are visible to students
+   */
+  isPublished?: boolean | null;
+  createdBy?: (number | null) | User;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
   id: number;
   name?: string | null;
+  /**
+   * Students can only access the frontend. Admins can access the admin panel.
+   */
+  role: 'student' | 'admin';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -645,12 +714,129 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "socials".
+ * via the `definition` "modules".
  */
-export interface Social {
+export interface Module {
   id: number;
-  url: string;
-  icon: 'facebook' | 'instagram' | 'twitter' | 'linkedin' | 'youtube' | 'tiktok' | 'pinterest';
+  title: string;
+  course: number | Course;
+  /**
+   * Order within the course (lower numbers appear first)
+   */
+  position: number;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "lessons".
+ */
+export interface Lesson {
+  id: number;
+  title: string;
+  module: number | Module;
+  type: 'video' | 'text' | 'quiz';
+  position: number;
+  /**
+   * Passing this quiz issues a certificate
+   */
+  isFinalQuiz?: boolean | null;
+  /**
+   * Full YouTube video URL
+   */
+  youtubeUrl?: string | null;
+  /**
+   * Video duration in seconds
+   */
+  durationSeconds?: number | null;
+  body?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Add quiz questions with their options
+   */
+  questions?:
+    | {
+        questionText: string;
+        questionType: 'multiple_choice' | 'true_false';
+        options: {
+          optionText: string;
+          isCorrect?: boolean | null;
+          id?: string | null;
+        }[];
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "lesson-progress".
+ */
+export interface LessonProgress {
+  id: number;
+  user: number | User;
+  lesson: number | Lesson;
+  completed?: boolean | null;
+  completedAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "quiz-attempts".
+ */
+export interface QuizAttempt {
+  id: number;
+  user: number | User;
+  lesson: number | Lesson;
+  scorePercent: number;
+  passed?: boolean | null;
+  answers?:
+    | {
+        /**
+         * Index of the question in the quiz (0-based)
+         */
+        questionIndex: number;
+        selectedOptionIndex: number;
+        isCorrect?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "certificates".
+ */
+export interface Certificate {
+  id: number;
+  user: number | User;
+  course: number | Course;
+  quizAttempt: number | QuizAttempt;
+  /**
+   * ID from external certificate service (for future integration)
+   */
+  externalCertificateId?: string | null;
+  /**
+   * URL to view/download certificate (for future integration)
+   */
+  externalCertificateUrl?: string | null;
+  issuedAt: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -687,12 +873,36 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
+        relationTo: 'socials';
+        value: number | Social;
+      } | null)
+    | ({
+        relationTo: 'courses';
+        value: number | Course;
+      } | null)
+    | ({
+        relationTo: 'modules';
+        value: number | Module;
+      } | null)
+    | ({
+        relationTo: 'lessons';
+        value: number | Lesson;
+      } | null)
+    | ({
         relationTo: 'users';
         value: number | User;
       } | null)
     | ({
-        relationTo: 'socials';
-        value: number | Social;
+        relationTo: 'lesson-progress';
+        value: number | LessonProgress;
+      } | null)
+    | ({
+        relationTo: 'quiz-attempts';
+        value: number | QuizAttempt;
+      } | null)
+    | ({
+        relationTo: 'certificates';
+        value: number | Certificate;
       } | null)
     | ({
         relationTo: 'forms';
@@ -921,10 +1131,77 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "socials_select".
+ */
+export interface SocialsSelect<T extends boolean = true> {
+  url?: T;
+  icon?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "courses_select".
+ */
+export interface CoursesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  thumbnail?: T;
+  passingScore?: T;
+  isPublished?: T;
+  createdBy?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "modules_select".
+ */
+export interface ModulesSelect<T extends boolean = true> {
+  title?: T;
+  course?: T;
+  position?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "lessons_select".
+ */
+export interface LessonsSelect<T extends boolean = true> {
+  title?: T;
+  module?: T;
+  type?: T;
+  position?: T;
+  isFinalQuiz?: T;
+  youtubeUrl?: T;
+  durationSeconds?: T;
+  body?: T;
+  questions?:
+    | T
+    | {
+        questionText?: T;
+        questionType?: T;
+        options?:
+          | T
+          | {
+              optionText?: T;
+              isCorrect?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -944,11 +1221,47 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "socials_select".
+ * via the `definition` "lesson-progress_select".
  */
-export interface SocialsSelect<T extends boolean = true> {
-  url?: T;
-  icon?: T;
+export interface LessonProgressSelect<T extends boolean = true> {
+  user?: T;
+  lesson?: T;
+  completed?: T;
+  completedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "quiz-attempts_select".
+ */
+export interface QuizAttemptsSelect<T extends boolean = true> {
+  user?: T;
+  lesson?: T;
+  scorePercent?: T;
+  passed?: T;
+  answers?:
+    | T
+    | {
+        questionIndex?: T;
+        selectedOptionIndex?: T;
+        isCorrect?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "certificates_select".
+ */
+export interface CertificatesSelect<T extends boolean = true> {
+  user?: T;
+  course?: T;
+  quizAttempt?: T;
+  externalCertificateId?: T;
+  externalCertificateUrl?: T;
+  issuedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
