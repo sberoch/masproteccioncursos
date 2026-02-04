@@ -1,28 +1,28 @@
-import type { Contact } from "@/payload-types";
+import type { About } from "@/payload-types";
 import { getCachedGlobal } from "@/utilities/getGlobals";
 import { renderBlocks } from "@/blocks/render-blocks";
-import { LivePreviewListener } from "../../../components/payload/live-preview";
+import { LivePreviewListener } from "@/components/payload/live-preview";
 
-export default async function ContactPage() {
-  const contact: Contact = (await getCachedGlobal("contact", 1)()) as Contact;
+export default async function AboutPage() {
+  const about: About = (await getCachedGlobal("about", 1)()) as About;
 
   return (
     <>
       <LivePreviewListener />
       <main className="px-5 lg:px-0 py-20">
         <div className="container w-full mx-auto">
-          {contact.content.heading && (
+          {about.content.heading && (
             <h1 className="text-4xl lg:text-6xl font-bold mb-4">
-              {contact.content.heading}
+              {about.content.heading}
             </h1>
           )}
-          {contact.content.subheading && (
+          {about.content.subheading && (
             <p className="text-xl lg:text-2xl text-gray-600">
-              {contact.content.subheading}
+              {about.content.subheading}
             </p>
           )}
         </div>
-        {renderBlocks(contact.content.blocks)}
+        {renderBlocks(about.content.blocks)}
       </main>
     </>
   );

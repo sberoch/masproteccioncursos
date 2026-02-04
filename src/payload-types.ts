@@ -1455,7 +1455,17 @@ export interface Home {
   title: string;
   content?: {
     blocks?:
-      | (ContentBlock | CallToActionBlock | MediaBlock | BannerBlock | FormBlock | ClientLogosBlock | GalleryBlock)[]
+      | (
+          | HeroBlock
+          | CourseIntroBlock
+          | AboutInstructorBlock
+          | CourseModulesBlock
+          | TestimonialsBlock
+          | PricingBlock
+          | FAQBlock
+          | BlogBlock
+          | CTABlock
+        )[]
       | null;
   };
   meta?: {
@@ -1468,6 +1478,259 @@ export interface Home {
   };
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  /**
+   * Small label above headline
+   */
+  badge?: string | null;
+  headline?: string | null;
+  /**
+   * Word or phrase to highlight (e.g. salvar vidas)
+   */
+  headlineHighlight?: string | null;
+  subtitle?: string | null;
+  primaryCtaLabel?: string | null;
+  /**
+   * e.g. #inscripcion
+   */
+  primaryCtaHref?: string | null;
+  secondaryCtaLabel?: string | null;
+  secondaryCtaHref?: string | null;
+  stats?:
+    | {
+        number: string;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  image?: (number | null) | Media;
+  imageBadgeTitle?: string | null;
+  imageBadgeSubtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CourseIntroBlock".
+ */
+export interface CourseIntroBlock {
+  /**
+   * Small label above title
+   */
+  label?: string | null;
+  title?: string | null;
+  storyParagraphs?:
+    | {
+        paragraph?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  videoThumbnail?: (number | null) | Media;
+  /**
+   * Upload .mp4 or leave empty to use video URL
+   */
+  video?: (number | null) | Media;
+  /**
+   * Use if video is hosted elsewhere
+   */
+  videoUrl?: string | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'courseIntro';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutInstructorBlock".
+ */
+export interface AboutInstructorBlock {
+  label?: string | null;
+  title?: string | null;
+  image?: (number | null) | Media;
+  bioParagraphs?:
+    | {
+        paragraph?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  credentials?:
+    | {
+        title: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'aboutInstructor';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CourseModulesBlock".
+ */
+export interface CourseModulesBlock {
+  label?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  modules?:
+    | {
+        number: number;
+        title: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'courseModules';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock".
+ */
+export interface TestimonialsBlock {
+  label?: string | null;
+  title?: string | null;
+  testimonials?:
+    | {
+        quote?: string | null;
+        authorName?: string | null;
+        authorRole?: string | null;
+        video?: (number | null) | Media;
+        thumbnail?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonials';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PricingBlock".
+ */
+export interface PricingBlock {
+  label?: string | null;
+  title?: string | null;
+  description?: string | null;
+  includes?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * e.g. Curso Completo
+   */
+  priceLabel?: string | null;
+  /**
+   * e.g. $
+   */
+  priceCurrency?: string | null;
+  priceValue?: string | null;
+  /**
+   * e.g. Pago único · Acceso completo
+   */
+  pricePeriod?: string | null;
+  ctaLabel?: string | null;
+  ctaHref?: string | null;
+  guaranteeText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pricing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQBlock".
+ */
+export interface FAQBlock {
+  label?: string | null;
+  title?: string | null;
+  items?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBlock".
+ */
+export interface BlogBlock {
+  label?: string | null;
+  title?: string | null;
+  viewAllLabel?: string | null;
+  viewAllHref?: string | null;
+  cards?:
+    | {
+        category?: string | null;
+        date?: string | null;
+        title: string;
+        excerpt?: string | null;
+        href?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CTABlock".
+ */
+export interface CTABlock {
+  heading?: string | null;
+  text?: string | null;
+  primaryLabel?: string | null;
+  /**
+   * e.g. mailto:contact@example.com
+   */
+  primaryHref?: string | null;
+  secondaryLabel?: string | null;
+  secondaryHref?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cta';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1615,13 +1878,15 @@ export interface HomeSelect<T extends boolean = true> {
         blocks?:
           | T
           | {
-              content?: T | ContentBlockSelect<T>;
-              cta?: T | CallToActionBlockSelect<T>;
-              mediaBlock?: T | MediaBlockSelect<T>;
-              banner?: T | BannerBlockSelect<T>;
-              formBlock?: T | FormBlockSelect<T>;
-              clientLogos?: T | ClientLogosBlockSelect<T>;
-              gallery?: T | GalleryBlockSelect<T>;
+              hero?: T | HeroBlockSelect<T>;
+              courseIntro?: T | CourseIntroBlockSelect<T>;
+              aboutInstructor?: T | AboutInstructorBlockSelect<T>;
+              courseModules?: T | CourseModulesBlockSelect<T>;
+              testimonials?: T | TestimonialsBlockSelect<T>;
+              pricing?: T | PricingBlockSelect<T>;
+              faq?: T | FAQBlockSelect<T>;
+              blog?: T | BlogBlockSelect<T>;
+              cta?: T | CTABlockSelect<T>;
             };
       };
   meta?:
@@ -1634,6 +1899,192 @@ export interface HomeSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock_select".
+ */
+export interface HeroBlockSelect<T extends boolean = true> {
+  badge?: T;
+  headline?: T;
+  headlineHighlight?: T;
+  subtitle?: T;
+  primaryCtaLabel?: T;
+  primaryCtaHref?: T;
+  secondaryCtaLabel?: T;
+  secondaryCtaHref?: T;
+  stats?:
+    | T
+    | {
+        number?: T;
+        label?: T;
+        id?: T;
+      };
+  image?: T;
+  imageBadgeTitle?: T;
+  imageBadgeSubtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CourseIntroBlock_select".
+ */
+export interface CourseIntroBlockSelect<T extends boolean = true> {
+  label?: T;
+  title?: T;
+  storyParagraphs?:
+    | T
+    | {
+        paragraph?: T;
+        id?: T;
+      };
+  videoThumbnail?: T;
+  video?: T;
+  videoUrl?: T;
+  description?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutInstructorBlock_select".
+ */
+export interface AboutInstructorBlockSelect<T extends boolean = true> {
+  label?: T;
+  title?: T;
+  image?: T;
+  bioParagraphs?:
+    | T
+    | {
+        paragraph?: T;
+        id?: T;
+      };
+  credentials?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CourseModulesBlock_select".
+ */
+export interface CourseModulesBlockSelect<T extends boolean = true> {
+  label?: T;
+  title?: T;
+  subtitle?: T;
+  modules?:
+    | T
+    | {
+        number?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock_select".
+ */
+export interface TestimonialsBlockSelect<T extends boolean = true> {
+  label?: T;
+  title?: T;
+  testimonials?:
+    | T
+    | {
+        quote?: T;
+        authorName?: T;
+        authorRole?: T;
+        video?: T;
+        thumbnail?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PricingBlock_select".
+ */
+export interface PricingBlockSelect<T extends boolean = true> {
+  label?: T;
+  title?: T;
+  description?: T;
+  includes?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  priceLabel?: T;
+  priceCurrency?: T;
+  priceValue?: T;
+  pricePeriod?: T;
+  ctaLabel?: T;
+  ctaHref?: T;
+  guaranteeText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQBlock_select".
+ */
+export interface FAQBlockSelect<T extends boolean = true> {
+  label?: T;
+  title?: T;
+  items?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBlock_select".
+ */
+export interface BlogBlockSelect<T extends boolean = true> {
+  label?: T;
+  title?: T;
+  viewAllLabel?: T;
+  viewAllHref?: T;
+  cards?:
+    | T
+    | {
+        category?: T;
+        date?: T;
+        title?: T;
+        excerpt?: T;
+        href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CTABlock_select".
+ */
+export interface CTABlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  primaryLabel?: T;
+  primaryHref?: T;
+  secondaryLabel?: T;
+  secondaryHref?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

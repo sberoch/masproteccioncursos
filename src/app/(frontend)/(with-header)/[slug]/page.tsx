@@ -1,4 +1,5 @@
 import { renderBlocks } from "@/blocks/render-blocks";
+import { LivePreviewListener } from "@/components/payload/live-preview";
 import { generateMeta } from "@/utilities/generateMeta";
 import configPromise from "@payload-config";
 import { Metadata } from "next";
@@ -6,7 +7,6 @@ import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { getPayload, RequiredDataFromCollectionSlug } from "payload";
 import { cache } from "react";
-import { LivePreviewListener } from "../../../components/payload/live-preview";
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise });

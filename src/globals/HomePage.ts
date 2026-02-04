@@ -6,7 +6,7 @@ import {
   MetaTitleField,
   OverviewField,
 } from "@payloadcms/plugin-seo/fields";
-import { SHARED_BLOCKS } from "./utils";
+import { LANDING_BLOCKS } from "./utils";
 import { revalidateHomePage } from "@/hooks/revalidateHomePage";
 import { getServerSideURL } from "@/utilities/getURL";
 
@@ -55,7 +55,7 @@ export const HomePage: GlobalConfig = {
                 es: "Bloques",
               },
               type: "blocks",
-              blocks: [...SHARED_BLOCKS],
+              blocks: [...LANDING_BLOCKS],
               labels: {
                 plural: {
                   en: "Blocks",

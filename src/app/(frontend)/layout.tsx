@@ -3,7 +3,6 @@ import { headers } from "next/headers";
 import React from "react";
 import "@/styles/globals.css";
 import { cn } from "../../utilities";
-import { Header } from "@/components/web/header/header";
 import { Footer } from "@/components/web/footer";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -48,7 +47,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={cn("antialiased overflow-x-hidden relative")}>
-        <Header />
         {children}
         <Footer />
       </body>
