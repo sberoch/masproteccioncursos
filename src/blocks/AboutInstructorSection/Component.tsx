@@ -73,13 +73,13 @@ export function AboutInstructorSection(
 
   return (
     <section
-      className="relative bg-white py-20 md:py-[120px] scroll-mt-[100px] before:absolute before:left-0 before:right-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-[#e5e7eb] before:to-transparent"
+      className="relative bg-background py-20 md:py-[120px] scroll-mt-[100px] before:absolute before:left-0 before:right-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-border before:to-transparent"
       id="sobre-mi"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <div className="grid gap-12 items-center lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div className="relative">
-            <div className="relative overflow-hidden rounded-[20px] shadow-xl before:absolute before:inset-0 before:z-10 before:rounded-[20px] before:border-[3px] before:border-[#66b4e4] before:opacity-50">
+            <div className="relative overflow-hidden rounded-[20px] shadow-xl before:absolute before:inset-0 before:z-10 before:rounded-[20px] before:border-[3px] before:border-brand before:opacity-50">
               <Image
                 src={imageUrl}
                 alt={imageAlt}
@@ -89,21 +89,21 @@ export function AboutInstructorSection(
               />
             </div>
             <div
-              className="absolute -bottom-8 -right-8 -z-10 h-[150px] w-[150px] rounded-[20px] bg-gradient-to-br from-[#66b4e4] to-[#0f4ba3] opacity-30"
+              className="absolute -bottom-8 -right-8 -z-10 h-[150px] w-[150px] rounded-[20px] bg-gradient-to-br from-brand to-brand-hover opacity-30"
               aria-hidden
             />
           </div>
 
           <div className="py-5">
-            <span className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0f4ba3] before:h-0.5 before:w-10 before:bg-[#0f4ba3]">
+            <span className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand before:h-0.5 before:w-10 before:bg-brand">
               {label}
             </span>
-            <h2 className="font-display mb-6 text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-[#111827]">
+            <h2 className="font-display mb-6 text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-foreground">
               {title}
             </h2>
 
             {bio.map((paragraph, i) => (
-              <p key={i} className="mb-8 text-lg text-[#4b5563]">
+              <p key={i} className="mb-8 text-lg text-muted-foreground">
                 {paragraph}
               </p>
             ))}
@@ -112,24 +112,24 @@ export function AboutInstructorSection(
               {credentials.map((item) => (
                 <div
                   key={item.title}
-                  className="flex items-start gap-4 rounded-xl bg-[#f9fafb] p-4 transition hover:translate-x-2 hover:bg-[#e8f4fc]"
+                  className="flex items-start gap-4 rounded-xl bg-muted p-4 transition hover:translate-x-2 hover:bg-brand-muted"
                 >
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-card shadow-sm">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth={2}
-                      className="h-6 w-6 text-[#0f4ba3]"
+                      className="h-6 w-6 text-brand"
                     >
                       {item.icon}
                     </svg>
                   </div>
                   <div>
-                    <h4 className="mb-1 font-semibold text-[#1f2937]">
+                    <h4 className="mb-1 font-semibold text-foreground">
                       {item.title}
                     </h4>
-                    <p className="text-sm text-[#4b5563]">{item.desc}</p>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </div>
                 </div>
               ))}

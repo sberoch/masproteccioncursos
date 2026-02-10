@@ -52,15 +52,15 @@ export function FAQSection(props?: Partial<FAQBlock> | null) {
 
   return (
     <section
-      className="bg-[#f9fafb] py-20 md:py-[120px] scroll-mt-[100px]"
+      className="bg-muted py-20 md:py-[120px] scroll-mt-[100px]"
       id="faq"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <div className="mx-auto mb-16 max-w-[600px] text-center">
-          <span className="mb-4 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0f4ba3] before:h-0.5 before:w-10 before:bg-[#0f4ba3]">
+          <span className="mb-4 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand before:h-0.5 before:w-10 before:bg-brand">
             {label}
           </span>
-          <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-[#111827]">
+          <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-foreground">
             {title}
           </h2>
         </div>
@@ -69,11 +69,11 @@ export function FAQSection(props?: Partial<FAQBlock> | null) {
           {items.map((item, index) => (
             <div
               key={index}
-              className="animate-on-scroll mb-4 overflow-hidden rounded-xl border border-[#f3f4f6] bg-white shadow-sm"
+              className="animate-on-scroll mb-4 overflow-hidden rounded-xl border border-border bg-card shadow-sm"
             >
               <button
                 type="button"
-                className="flex w-full items-center justify-between gap-4 bg-transparent px-6 py-6 text-left text-lg font-semibold text-[#1f2937] transition hover:text-[#0f4ba3]"
+                className="flex w-full items-center justify-between gap-4 bg-transparent px-6 py-6 text-left text-lg font-semibold text-foreground transition hover:text-brand"
                 onClick={() => toggle(index)}
                 aria-expanded={openIndex === index}
               >
@@ -84,7 +84,7 @@ export function FAQSection(props?: Partial<FAQBlock> | null) {
                   stroke="currentColor"
                   strokeWidth={2}
                   className={cn(
-                    "h-6 w-6 flex-shrink-0 text-[#0f4ba3] transition",
+                    "h-6 w-6 flex-shrink-0 text-brand transition",
                     openIndex === index && "rotate-180"
                   )}
                 >
@@ -97,7 +97,7 @@ export function FAQSection(props?: Partial<FAQBlock> | null) {
                   openIndex === index ? "max-h-[500px]" : "max-h-0"
                 )}
               >
-                <div className="px-6 pb-6 pt-0 text-[#4b5563] leading-relaxed">
+                <div className="px-6 pb-6 pt-0 text-muted-foreground leading-relaxed">
                   {item.answer}
                 </div>
               </div>

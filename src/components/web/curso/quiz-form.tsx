@@ -86,7 +86,7 @@ export function QuizForm({
 
   if (questions.length === 0) {
     return (
-      <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#374151]">
+      <div className="rounded-xl border border-border bg-card p-6 text-foreground">
         No hay preguntas en este cuestionario.
       </div>
     );
@@ -94,16 +94,16 @@ export function QuizForm({
 
   if (result != null) {
     return (
-      <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 shadow-md">
-        <h3 className="text-lg font-semibold text-[#111827]">Resultado</h3>
-        <p className="mt-2 text-[#374151]">
+      <div className="rounded-xl border border-border bg-card p-6 shadow-md">
+        <h3 className="text-lg font-semibold text-foreground">Resultado</h3>
+        <p className="mt-2 text-foreground">
           Puntuación: <strong>{result.score}%</strong>
           {result.score >= passingScore ? " — Aprobado" : " — No aprobado"}
         </p>
         {result.certificateUrl && (
           <a
             href={result.certificateUrl}
-            className="mt-3 inline-block text-[#0f4ba3] underline hover:no-underline"
+            className="mt-3 inline-block text-brand underline hover:no-underline"
           >
             Ver certificado
           </a>
@@ -113,11 +113,11 @@ export function QuizForm({
   }
 
   return (
-    <div className="space-y-6 rounded-xl border border-[#e5e7eb] bg-white p-6 shadow-md">
-      <h3 className="text-lg font-semibold text-[#111827]">Cuestionario</h3>
+    <div className="space-y-6 rounded-xl border border-border bg-card p-6 shadow-md">
+      <h3 className="text-lg font-semibold text-foreground">Cuestionario</h3>
       {questions.map((q, qIndex) => (
         <fieldset key={qIndex} className="space-y-2">
-          <legend className="text-sm font-medium text-[#374151]">
+          <legend className="text-sm font-medium text-foreground">
             {qIndex + 1}. {q.questionText}
           </legend>
           <div className="flex flex-col gap-2">
@@ -127,8 +127,8 @@ export function QuizForm({
                 className={cn(
                   "flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 transition",
                   selected[String(qIndex)] === optIndex
-                    ? "border-[#0f4ba3] bg-[#0f4ba3]/5"
-                    : "border-[#e5e7eb] hover:border-[#0f4ba3]/50",
+                    ? "border-brand bg-brand-muted"
+                    : "border-border hover:border-brand/50",
                 )}
               >
                 <input
@@ -141,9 +141,9 @@ export function QuizForm({
                       [String(qIndex)]: optIndex,
                     }))
                   }
-                  className="h-4 w-4 text-[#0f4ba3]"
+                  className="h-4 w-4 text-brand"
                 />
-                <span className="text-[#111827]">{opt.optionText}</span>
+                <span className="text-foreground">{opt.optionText}</span>
               </label>
             ))}
           </div>
@@ -152,12 +152,12 @@ export function QuizForm({
       <Button
         onClick={handleSubmit}
         disabled={!allAnswered || submitting || authDisabled}
-        className="rounded-lg bg-[#0f4ba3] px-4 py-2 text-sm font-medium text-white shadow-md hover:bg-[#0d4190]"
+        className="rounded-lg bg-brand px-4 py-2 text-sm font-medium text-brand-foreground shadow-md hover:bg-brand-hover"
       >
         {submitting ? "Enviando…" : "Enviar respuestas"}
       </Button>
       {authDisabled && (
-        <p className="text-sm text-[#6b7280]">
+        <p className="text-sm text-muted-foreground">
           Inicia sesión para guardar tus resultados del cuestionario.
         </p>
       )}

@@ -50,20 +50,20 @@ export function CourseIntroSection(props?: Partial<CourseIntroBlock> | null) {
 
   return (
     <section
-      className="relative overflow-hidden bg-white py-20 md:py-[120px] scroll-mt-[100px] before:absolute before:left-0 before:right-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-[#e5e7eb] before:to-transparent"
+      className="relative overflow-hidden bg-background py-20 md:py-[120px] scroll-mt-[100px] before:absolute before:left-0 before:right-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-border before:to-transparent"
       id="introduccion"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <div className="grid gap-12 items-center lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
-            <span className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0f4ba3] before:h-0.5 before:w-10 before:bg-[#0f4ba3]">
+            <span className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand before:h-0.5 before:w-10 before:bg-brand">
               {label}
             </span>
-            <h2 className="font-display mb-6 text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-[#111827]">
+            <h2 className="font-display mb-6 text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-foreground">
               {title}
             </h2>
             {hasStoryContent ? (
-              <div className="space-y-5 text-lg leading-relaxed text-[#4b5563] [&_.payload-richtext]:!mb-0 [&_.payload-richtext]:!mt-0">
+              <div className="space-y-5 text-lg leading-relaxed text-muted-foreground [&_.payload-richtext]:!mb-0 [&_.payload-richtext]:!mt-0">
                 {storyParagraphs!.map((p, i) =>
                   p?.paragraph?.root ? (
                     <RichText
@@ -77,10 +77,10 @@ export function CourseIntroSection(props?: Partial<CourseIntroBlock> | null) {
               </div>
             ) : (
               <>
-                <p className="mb-5 text-lg leading-relaxed text-[#4b5563]">
+                <p className="mb-5 text-lg leading-relaxed text-muted-foreground">
                   {DEFAULT_STORY[0]}
                 </p>
-                <p className="text-lg leading-relaxed text-[#4b5563]">
+                <p className="text-lg leading-relaxed text-muted-foreground">
                   {DEFAULT_STORY[1]}
                 </p>
               </>
@@ -90,7 +90,7 @@ export function CourseIntroSection(props?: Partial<CourseIntroBlock> | null) {
           <div className="order-1 lg:order-2">
             <PlayVideoTrigger
               videoSrc={videoSrc}
-              className="relative aspect-video cursor-pointer overflow-hidden rounded-[20px] bg-[#f3f4f6] shadow-xl before:absolute before:inset-0 before:z-10 before:bg-gradient-to-br before:from-[#0f4ba3]/20 before:to-black/30 before:transition before:hover:from-[#0f4ba3]/10 before:hover:to-black/20"
+              className="relative aspect-video cursor-pointer overflow-hidden rounded-[20px] bg-muted shadow-xl before:absolute before:inset-0 before:z-10 before:bg-gradient-to-br before:from-brand/20 before:to-black/30 before:transition before:hover:from-brand/10 before:hover:to-black/20"
             >
               <Image
                 src={thumbnailSrc}
@@ -99,11 +99,11 @@ export function CourseIntroSection(props?: Partial<CourseIntroBlock> | null) {
                 height={360}
                 className="h-full w-full object-cover transition duration-400 hover:scale-[1.03]"
               />
-              <div className="absolute left-1/2 top-1/2 z-20 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg transition hover:scale-110 hover:shadow-xl">
+              <div className="absolute left-1/2 top-1/2 z-20 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-card shadow-lg transition hover:scale-110 hover:shadow-xl">
                 <svg
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="ml-1 h-8 w-8 text-[#ec1313]"
+                  className="ml-1 h-8 w-8 text-brand"
                 >
                   <path d="M8 5v14l11-7z" />
                 </svg>
@@ -112,9 +112,9 @@ export function CourseIntroSection(props?: Partial<CourseIntroBlock> | null) {
           </div>
         </div>
 
-        <div className="relative mx-auto mt-20 max-w-3xl rounded-3xl border border-[#f3f4f6] bg-gradient-to-br from-[#e8f4fc] to-[#f9fafb] px-14 py-12 text-center before:absolute before:left-1/2 before:top-0 before:h-1 before:w-20 before:-translate-x-1/2 before:rounded before:bg-gradient-to-r before:from-[#0f4ba3] before:to-[#66b4e4]">
+        <div className="relative mx-auto mt-20 max-w-3xl rounded-3xl border border-border bg-gradient-to-br from-brand-muted to-muted px-14 py-12 text-center before:absolute before:left-1/2 before:top-0 before:h-1 before:w-20 before:-translate-x-1/2 before:rounded before:bg-gradient-to-r before:from-brand before:to-brand-hover">
           {description?.root?.children?.length ? (
-            <div className="text-xl leading-relaxed text-[#374151] [&_.payload-richtext]:!max-w-none">
+            <div className="text-xl leading-relaxed text-foreground [&_.payload-richtext]:!max-w-none">
               <RichText
                 data={description}
                 enableGutter={false}
@@ -122,8 +122,8 @@ export function CourseIntroSection(props?: Partial<CourseIntroBlock> | null) {
               />
             </div>
           ) : (
-            <p className="text-xl leading-relaxed text-[#374151]">
-              <strong className="font-semibold text-[#0f4ba3]">
+            <p className="text-xl leading-relaxed text-foreground">
+              <strong className="font-semibold text-brand">
                 Más Protección
               </strong>{" "}
               {DEFAULT_DESCRIPTION}

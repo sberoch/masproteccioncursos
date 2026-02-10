@@ -60,15 +60,15 @@ export function TestimonialsSection(props?: Partial<TestimonialsBlock> | null) {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#0f4ba3] py-20 md:py-[120px] scroll-mt-[100px] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_10%_20%,rgba(102,180,228,0.2)_0%,transparent_40%),radial-gradient(circle_at_90%_80%,rgba(236,19,19,0.1)_0%,transparent_40%)]"
+      className="relative overflow-hidden bg-brand py-20 md:py-[120px] scroll-mt-[100px] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_10%_20%,color-mix(in_oklch,var(--brand-foreground)_20%,transparent)_0%,transparent_40%),radial-gradient(circle_at_90%_80%,color-mix(in_oklch,var(--brand-foreground)_10%,transparent)_0%,transparent_40%)]"
       id="testimonios"
     >
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6">
         <div className="relative z-10 mb-16 text-center">
-          <span className="mb-4 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#66b4e4] before:h-0.5 before:w-10 before:bg-[#66b4e4]">
+          <span className="mb-4 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-foreground/90 before:h-0.5 before:w-10 before:bg-brand-foreground/90">
             {label}
           </span>
-          <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-white">
+          <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-brand-foreground">
             {title}
           </h2>
         </div>
@@ -77,7 +77,7 @@ export function TestimonialsSection(props?: Partial<TestimonialsBlock> | null) {
           {items.map((t, i) => (
             <div
               key={i}
-              className="animate-on-scroll rounded-[20px] border border-white/20 bg-white/10 p-8 backdrop-blur transition hover:-translate-y-1 hover:bg-white/15"
+              className="animate-on-scroll rounded-[20px] border border-brand-foreground/20 bg-brand-foreground/10 p-8 backdrop-blur transition hover:-translate-y-1 hover:bg-brand-foreground/15"
             >
               <PlayVideoTrigger
                 videoSrc={t.videoSrc}
@@ -90,17 +90,17 @@ export function TestimonialsSection(props?: Partial<TestimonialsBlock> | null) {
                   height={360}
                   className="h-full w-full object-cover transition hover:scale-105"
                 />
-                <div className="absolute left-1/2 top-1/2 z-20 flex h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#ec1313] shadow-[0_4px_20px_rgba(236,19,19,0.5)] transition hover:scale-110 hover:animate-pulse">
+                <div className="absolute left-1/2 top-1/2 z-20 flex h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-destructive shadow-lg transition hover:scale-110 hover:animate-pulse">
                   <svg
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="ml-1 h-7 w-7 text-white"
+                    className="ml-1 h-7 w-7 text-destructive-foreground"
                   >
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </PlayVideoTrigger>
-              <p className="mb-5 text-[1.05rem] italic leading-relaxed text-white/90">
+              <p className="mb-5 text-[1.05rem] italic leading-relaxed text-brand-foreground/90">
                 {t.quote}
               </p>
               <div className="flex items-center gap-3">
@@ -109,11 +109,11 @@ export function TestimonialsSection(props?: Partial<TestimonialsBlock> | null) {
                   alt=""
                   width={48}
                   height={48}
-                  className="rounded-full border-2 border-[#66b4e4] object-cover"
+                  className="rounded-full border-2 border-brand-foreground/80 object-cover"
                 />
                 <div>
-                  <h4 className="font-semibold text-white">{t.name}</h4>
-                  <span className="text-sm text-[#66b4e4]">{t.role}</span>
+                  <h4 className="font-semibold text-brand-foreground">{t.name}</h4>
+                  <span className="text-sm text-brand-foreground/80">{t.role}</span>
                 </div>
               </div>
             </div>

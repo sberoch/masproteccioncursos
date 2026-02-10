@@ -73,13 +73,13 @@ export function CourseSidebar({
       : [];
 
   return (
-    <aside className="w-full shrink-0 border-l border-[#e5e7eb] bg-white lg:w-80">
+    <aside className="w-full shrink-0 border-l border-border bg-card lg:w-80">
       <div className="sticky top-14 flex h-[calc(100vh-3.5rem)] flex-col overflow-hidden">
-        <div className="border-b border-[#e5e7eb] px-4 py-3">
-          <h2 className="text-sm font-semibold text-[#111827]">
+        <div className="border-b border-border px-4 py-3">
+          <h2 className="text-sm font-semibold text-foreground">
             Contenido del curso
           </h2>
-          <p className="mt-0.5 text-xs text-[#374151]">
+          <p className="mt-0.5 text-xs text-muted-foreground">
             {completedCount} / {totalLessons} lecciones
           </p>
         </div>
@@ -95,10 +95,10 @@ export function CourseSidebar({
               ).length;
               return (
                 <AccordionItem key={mod.id} value={String(mod.id)}>
-                  <AccordionTrigger className="px-4 py-3 text-left font-medium text-[#111827] hover:no-underline">
+                  <AccordionTrigger className="px-4 py-3 text-left font-medium text-foreground hover:no-underline">
                     <span className="flex flex-1 flex-col items-start gap-0.5 text-left">
                       <span className="text-base">{mod.title}</span>
-                      <span className="text-xs font-normal text-[#374151]">
+                      <span className="text-xs font-normal text-muted-foreground">
                         {completedInModule} / {mod.lessons.length} completed
                       </span>
                     </span>
@@ -127,24 +127,24 @@ export function CourseSidebar({
                               className={cn(
                                 "flex items-center gap-2 rounded px-3 py-3 text-sm transition",
                                 isActive
-                                  ? "border-l-4 border-[#0f4ba3] bg-[#0f4ba3]/10 font-medium text-[#0f4ba3]"
-                                  : "text-[#374151] hover:bg-[#f3f4f6]",
+                                  ? "border-l-4 border-brand bg-brand-muted font-medium text-brand"
+                                  : "text-foreground hover:bg-muted",
                               )}
                             >
                               <span className="flex shrink-0">
                                 {isCompleted ? (
-                                  <CheckCircle2 className="h-4 w-4 text-[#0f4ba3]" />
+                                  <CheckCircle2 className="h-4 w-4 text-brand" />
                                 ) : (
-                                  <Circle className="h-4 w-4 text-[#9ca3af]" />
+                                  <Circle className="h-4 w-4 text-muted-foreground" />
                                 )}
                               </span>
-                              <Icon className="h-4 w-4 shrink-0 text-[#6b7280]" />
+                              <Icon className="h-4 w-4 shrink-0 text-muted-foreground" />
                               <span className="min-w-0 flex-1">
                                 <span className="block truncate">
                                   {lesson.title}
                                 </span>
                                 {durationLabel && (
-                                  <span className="mt-0.5 block text-xs font-normal text-[#6b7280]">
+                                  <span className="mt-0.5 block text-xs font-normal text-muted-foreground">
                                     {durationLabel}
                                   </span>
                                 )}

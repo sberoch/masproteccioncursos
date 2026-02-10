@@ -12,13 +12,18 @@ import { Label } from "@/components/ui/label";
 
 const registerSchema = z
   .object({
-    name: z.string().min(1, "Name is required"),
-    email: z.string().min(1, "Email is required").email("Invalid email"),
-    password: z.string().min(6, "Password must be at least 6 characters"),
-    passwordConfirm: z.string().min(1, "Please confirm your password"),
+    name: z.string().min(1, "El nombre es obligatorio"),
+    email: z
+      .string()
+      .min(1, "El correo es obligatorio")
+      .email("Correo no válido"),
+    password: z
+      .string()
+      .min(6, "La contraseña debe tener al menos 6 caracteres"),
+    passwordConfirm: z.string().min(1, "Confirma tu contraseña"),
   })
   .refine((data) => data.password === data.passwordConfirm, {
-    message: "Passwords do not match",
+    message: "Las contraseñas no coinciden",
     path: ["passwordConfirm"],
   });
 
@@ -61,7 +66,7 @@ export function RegisterForm() {
 
       if (!res.ok) {
         setError(
-          json.message ?? json.errors?.[0]?.message ?? "Registration failed"
+          json.message ?? json.errors?.[0]?.message ?? "Error en el registro"
         );
         return;
       }
@@ -82,19 +87,21 @@ export function RegisterForm() {
         router.refresh();
       }
     } catch {
-      setError("Something went wrong");
+      setError("Algo ha fallado");
     }
   }
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto max-w-sm space-y-6"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
       <div className="space-y-2">
-        <h1 className="text-2xl font-semibold">Registro</h1>
+        <h1 className="text-2xl font-semibold text-foreground">
+          Crear cuenta
+        </h1>
         <p className="text-muted-foreground text-sm">
-          Crea una cuenta para acceder al curso.
+          ¿Ya tienes cuenta?{" "}
+          <Link href="/login" className="underline hover:text-foreground">
+            Iniciar sesión
+          </Link>
         </p>
       </div>
 
@@ -118,7 +125,7 @@ export function RegisterForm() {
           )}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">Correo electrónico</Label>
           <Input
             id="email"
             type="email"
@@ -157,16 +164,13 @@ export function RegisterForm() {
         </div>
       </div>
 
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
+      <Button
+        type="submit"
+        className="w-full bg-brand text-brand-foreground hover:bg-brand-hover"
+        disabled={isSubmitting}
+      >
         {isSubmitting ? "Registrando…" : "Registrarse"}
       </Button>
-
-      <p className="text-center text-muted-foreground text-sm">
-        ¿Ya tienes cuenta?{" "}
-        <Link href="/login" className="underline hover:text-foreground">
-          Iniciar sesión
-        </Link>
-      </p>
     </form>
   );
 }

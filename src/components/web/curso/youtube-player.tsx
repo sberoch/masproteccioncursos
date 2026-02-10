@@ -23,7 +23,7 @@ export function YoutubePlayer({ youtubeUrl }: YoutubePlayerProps) {
 
   if (!videoId) {
     return (
-      <div className="flex aspect-video w-full items-center justify-center rounded-xl bg-[#e5e7eb] text-[#374151]">
+      <div className="flex aspect-video w-full items-center justify-center rounded-xl bg-muted text-muted-foreground">
         No hay video configurado
       </div>
     );

@@ -50,8 +50,8 @@ export function LandingHeaderMobile({ items }: { items: LandingNavItem[] }) {
               onClick={() => setOpen(false)}
               className={
                 item.cta
-                  ? "inline-flex items-center justify-center rounded-lg bg-[#ec1313] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#c91010]"
-                  : "text-lg font-medium text-[#374151] transition hover:text-[#0f4ba3] py-2"
+                  ? "inline-flex items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-brand-foreground shadow-sm transition hover:bg-brand-hover"
+                  : "py-2 text-lg font-medium text-foreground transition hover:text-brand"
               }
             >
               {item.label}

@@ -21,6 +21,8 @@ type LessonInfoProps = {
   isCompleted?: boolean;
   /** When true, hide "Mark as Complete" (auth disabled / mock mode). */
   authDisabled?: boolean;
+  /** When true, do not render the title (e.g. when title is shown above content). */
+  hideTitle?: boolean;
 };
 
 export function LessonInfo({
@@ -31,6 +33,7 @@ export function LessonInfo({
   lessonType,
   isCompleted,
   authDisabled = false,
+  hideTitle = false,
 }: LessonInfoProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -55,12 +58,20 @@ export function LessonInfo({
     }
   }
 
+  const showDuration = lessonType === "video" || durationSeconds != null;
+
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e5e7eb] pb-4">
+    <div className={cn(
+      "flex flex-wrap items-center justify-between gap-3",
+      !hideTitle && "border-b border-border pb-4",
+      hideTitle && (showDuration || showMarkComplete) && "pt-0"
+    )}>
       <div>
-        <h2 className="text-xl font-semibold text-[#111827]">{lessonTitle}</h2>
-        {(lessonType === "video" || durationSeconds != null) && (
-          <p className="mt-0.5 text-sm text-[#374151]">
+        {!hideTitle && (
+          <h2 className="text-xl font-semibold text-foreground">{lessonTitle}</h2>
+        )}
+        {showDuration && (
+          <p className={cn("text-sm text-muted-foreground", !hideTitle && "mt-0.5")}>
             Duración: {formatDuration(durationSeconds ?? undefined)}
           </p>
         )}
@@ -70,7 +81,7 @@ export function LessonInfo({
           onClick={handleMarkComplete}
           disabled={loading}
           className={cn(
-            "rounded-lg bg-[#0f4ba3] px-4 py-2 text-sm font-medium text-white shadow-md transition hover:bg-[#0d4190]",
+            "rounded-lg bg-brand px-4 py-2 text-sm font-medium text-brand-foreground shadow-md transition hover:bg-brand-hover",
           )}
         >
           {loading ? "Guardando…" : "Marcar como completado"}

@@ -139,27 +139,59 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
   const completedCount = completedLessonIds.size;
   const isCompleted = completedLessonIds.has(lesson.id);
 
+  const isTextOrQuiz = lesson.type === "text" || lesson.type === "quiz";
+
+  const hasLessonInfoContent =
+    lesson.type === "video" ||
+    lesson.durationSeconds != null ||
+    ((lesson.type === "video" || lesson.type === "text") && !isCompleted);
+
+  const lessonInfo = (opts: { hideTitle?: boolean }) => (
+    <LessonInfo
+      lessonTitle={lesson.title}
+      durationSeconds={lesson.durationSeconds}
+      courseId={courseId}
+      lessonId={lesson.id}
+      lessonType={lesson.type}
+      isCompleted={isCompleted}
+      authDisabled={false}
+      hideTitle={opts.hideTitle}
+    />
+  );
+
   return (
     <>
-      <CourseHeader courseTitle={courseTitle} />
       <div className="mx-auto flex w-full max-w-[1400px]">
         <main className="min-w-0 flex-1 px-4 py-6 sm:px-6">
           <div className="space-y-4">
-            <LessonContent
-              lesson={sanitizeLessonForClient(lesson)}
-              courseId={courseId}
-              passingScore={passingScore}
-              authDisabled={false}
-            />
-            <LessonInfo
-              lessonTitle={lesson.title}
-              durationSeconds={lesson.durationSeconds}
-              courseId={courseId}
-              lessonId={lesson.id}
-              lessonType={lesson.type}
-              isCompleted={isCompleted}
-              authDisabled={false}
-            />
+            {isTextOrQuiz ? (
+              <>
+                <h1 className="text-2xl font-semibold text-foreground">
+                  {lesson.title}
+                </h1>
+                <LessonContent
+                  lesson={sanitizeLessonForClient(lesson)}
+                  courseId={courseId}
+                  passingScore={passingScore}
+                  authDisabled={false}
+                />
+                {hasLessonInfoContent && (
+                  <div className="rounded-xl border border-border bg-card p-6">
+                    {lessonInfo({ hideTitle: true })}
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <LessonContent
+                  lesson={sanitizeLessonForClient(lesson)}
+                  courseId={courseId}
+                  passingScore={passingScore}
+                  authDisabled={false}
+                />
+                {hasLessonInfoContent && lessonInfo({})}
+              </>
+            )}
           </div>
         </main>
         <CourseSidebar

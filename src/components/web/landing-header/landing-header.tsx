@@ -51,8 +51,8 @@ function getVisibleNavItems(blocks: NonNullable<Home["content"]>["blocks"]) {
     blocks
       .map((b) => b.blockType)
       .filter((t): t is LandingNavBlockType =>
-        NAV_BLOCK_TYPES.includes(t as LandingNavBlockType)
-      )
+        NAV_BLOCK_TYPES.includes(t as LandingNavBlockType),
+      ),
   );
   const visible = NAV_ITEMS.filter((item) => blockTypes.has(item.blockType));
   return visible.length > 0 ? visible : NAV_ITEMS;
@@ -68,12 +68,12 @@ export async function LandingHeader() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-[#e5e7eb] bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto w-full max-w-[1200px] px-6">
-        <div className="flex h-16 items-center justify-between lg:h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full max-h-[76px] border-b border-border bg-card/95">
+      <div className="mx-auto w-full max-w-[1200px] px-6 max-h-[76px]">
+        <div className="flex items-center justify-between lg:h-[76px]">
           <Link
             href="/"
-            className="flex items-center gap-2 text-[#111827] no-underline"
+            className="flex items-center gap-2 text-foreground no-underline"
           >
             <Image
               src="/logo-mili.jpeg"
@@ -82,7 +82,7 @@ export async function LandingHeader() {
               height={48}
               className="h-10 w-10 rounded-full object-cover lg:h-12 lg:w-12"
             />
-            <span className="font-semibold text-[#111827] lg:text-lg">
+            <span className="font-semibold text-foreground lg:text-lg">
               Más Protección
             </span>
           </Link>
@@ -94,8 +94,8 @@ export async function LandingHeader() {
                 href={item.href}
                 className={
                   item.cta
-                    ? "inline-flex items-center justify-center rounded-lg bg-[#ec1313] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#c91010]"
-                    : "text-[#374151] transition hover:text-[#0f4ba3]"
+                    ? "inline-flex items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-brand-foreground shadow-lg transition hover:bg-brand-hover"
+                    : "cursor-pointer font-semibold text-foreground"
                 }
               >
                 {item.label}

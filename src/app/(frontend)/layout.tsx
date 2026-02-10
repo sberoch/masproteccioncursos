@@ -4,6 +4,7 @@ import React from "react";
 import "@/styles/globals.css";
 import { cn } from "../../utilities";
 import { Footer } from "@/components/web/footer";
+import { ThemePicker } from "@/components/web/theme-picker";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -47,8 +48,14 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={cn("antialiased overflow-x-hidden relative")}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('theme')||'petrol';document.documentElement.setAttribute('data-theme',t);})();`,
+          }}
+        />
         {children}
-        <Footer />
+        {/* <Footer /> */}
+        <ThemePicker />
       </body>
     </html>
   );

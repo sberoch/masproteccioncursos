@@ -10,7 +10,7 @@ import { MobileMenu } from "./mobile-menu";
 export const Header = async () => {
   const header: HeaderType = (await getCachedGlobal(
     "header",
-    1
+    1,
   )()) as HeaderType;
   const socials = await getSocials();
 
@@ -45,7 +45,7 @@ export const Header = async () => {
               <CMSLink
                 {...header.cta.link}
                 label={header.cta.label || header.cta.link.label}
-                className="bg-[#ed1566] text-white text-xl px-6 py-5 rounded-full"
+                className="bg-brand text-brand-foreground text-xl px-6 py-5 rounded-full"
               />
             )}
           </nav>

@@ -51,37 +51,37 @@ export function CourseModulesSection(
 
   return (
     <section
-      className="relative bg-linear-to-b from-[#f9fafb] to-white py-20 md:py-[120px] scroll-mt-[100px]"
+      className="relative bg-linear-to-b from-muted to-background py-20 md:py-[120px] scroll-mt-[100px]"
       id="curso"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <div className="mx-auto mb-16 max-w-[700px] text-center">
-          <span className="mb-4 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0f4ba3] before:h-0.5 before:w-10 before:bg-[#0f4ba3]">
+          <span className="mb-4 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand before:h-0.5 before:w-10 before:bg-brand">
             {label}
           </span>
-          <h2 className="font-display mb-4 text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-[#111827]">
+          <h2 className="font-display mb-4 text-[clamp(2rem,4vw,2.75rem)] font-normal leading-tight text-foreground">
             {title}
           </h2>
-          <p className="mt-4 text-lg text-[#4b5563]">{subtitle}</p>
+          <p className="mt-4 text-lg text-muted-foreground">{subtitle}</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {modules.map((mod, i) => (
             <div
               key={i}
-              className="group animate-on-scroll relative overflow-hidden rounded-2xl border border-[#f3f4f6] bg-white p-8 shadow-md transition hover:-translate-y-2 hover:shadow-xl before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:origin-left before:scale-x-0 before:bg-gradient-to-r before:from-[#0f4ba3] before:to-[#66b4e4] before:transition group-hover:before:scale-x-100"
+              className="group animate-on-scroll relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-md transition hover:-translate-y-2 hover:shadow-xl before:absolute before:left-0 before:right-0 before:top-0 before:h-1 before:origin-left before:scale-x-0 before:bg-gradient-to-r before:from-brand before:to-brand-hover before:transition group-hover:before:scale-x-100"
             >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border-2 border-[#66b4e4] bg-gradient-to-br from-[#e8f4fc] to-white font-display text-xl text-[#0f4ba3]">
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border-2 border-brand bg-gradient-to-br from-brand-muted to-background font-display text-xl text-brand">
                 {mod.number}
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-[#1f2937]">
+              <h3 className="mb-3 text-xl font-semibold text-foreground">
                 {mod.title}
               </h3>
-              <p className="text-[#4b5563] text-[0.95rem] leading-relaxed">
+              <p className="text-muted-foreground text-[0.95rem] leading-relaxed">
                 {mod.description ?? ""}
               </p>
               <svg
-                className="absolute bottom-5 right-5 h-10 w-10 text-[#0f4ba3] opacity-10"
+                className="absolute bottom-5 right-5 h-10 w-10 text-brand opacity-10"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >

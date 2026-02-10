@@ -1,11 +1,11 @@
 import { renderLandingBlocks } from "@/blocks/render-landing-blocks";
-import { LivePreviewListener } from "@/components/payload/live-preview";
 import { LandingHeader } from "@/components/web/landing-header/landing-header";
 import { LandingShell } from "@/components/web/landing-shell";
 import type { Home } from "@/payload-types";
 import { cn } from "@/utilities";
 import { getCachedGlobal } from "@/utilities/getGlobals";
 import { Fraunces, Outfit } from "next/font/google";
+import { LivePreviewListener } from "@/components/payload/live-preview";
 
 const fraunces = Fraunces({
   subsets: ["latin"],

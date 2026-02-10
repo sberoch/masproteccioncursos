@@ -13,19 +13,19 @@ export function CTASection(props?: Partial<CTABlock> | null) {
 
   return (
     <section
-      className="relative overflow-hidden bg-linear-to-br from-[#0f4ba3] to-[#1a5dc4] py-20 md:py-[120px] scroll-mt-[100px] before:absolute before:-top-1/2 before:-right-1/5 before:h-[200%] before:w-[60%] before:-skew-x-15 before:bg-white/5"
+      className="relative overflow-hidden bg-linear-to-br from-brand to-brand-hover py-20 md:py-[120px] scroll-mt-[100px] before:absolute before:-top-1/2 before:-right-1/5 before:h-[200%] before:w-[60%] before:-skew-x-15 before:bg-white/5"
       id="contacto"
     >
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6">
         <div className="relative z-10 mx-auto max-w-[700px] text-center">
-          <h2 className="font-display mb-6 text-[clamp(2rem,4vw,3rem)] font-normal text-white">
+          <h2 className="font-display mb-6 text-[clamp(2rem,4vw,3rem)] font-normal text-brand-foreground">
             {heading}
           </h2>
-          <p className="mb-10 text-xl text-white/80">{text}</p>
+          <p className="mb-10 text-xl text-brand-foreground/80">{text}</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={primaryHref}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#ec1313] px-9 py-[18px] text-lg font-semibold text-white shadow-[0_4px_14px_rgba(236,19,19,0.4)] transition hover:-translate-y-0.5 hover:bg-[#c91010] hover:shadow-[0_6px_20px_rgba(236,19,19,0.5)]"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-foreground px-9 py-[18px] text-lg font-semibold text-brand shadow-lg transition hover:-translate-y-0.5 hover:opacity-90 hover:shadow-xl"
             >
               {primaryLabel}
               <svg
@@ -42,7 +42,7 @@ export function CTASection(props?: Partial<CTABlock> | null) {
             </a>
             <Link
               href={secondaryHref}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white bg-transparent px-9 py-[18px] text-lg font-semibold text-white transition hover:bg-white hover:text-[#0f4ba3]"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-brand-foreground bg-transparent px-9 py-[18px] text-lg font-semibold text-brand-foreground transition hover:bg-brand-foreground hover:text-brand"
             >
               {secondaryLabel}
               <svg
