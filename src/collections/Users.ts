@@ -1,16 +1,29 @@
 import type { CollectionConfig } from "payload";
 
-import { authenticated } from "../access/authenticated";
 import { isAdmin } from "../access/isAdmin";
+import { isAdminOrSelfUser } from "../access/isAdminOrSelfUser";
+
+/** Allow create: logged-in users (e.g. admins), or unauthenticated only when creating a student (public registration). */
+function allowCreateOrStudentRegistration({
+  req,
+  data,
+}: {
+  req: { user?: { id: number; role: string } | null };
+  data?: { role?: string };
+}) {
+  if (req.user) return true;
+  if (!req.user && data?.role === "student") return true;
+  return false;
+}
 
 export const Users: CollectionConfig = {
   slug: "users",
   access: {
     admin: isAdmin,
-    create: authenticated,
+    create: allowCreateOrStudentRegistration,
     delete: isAdmin,
-    read: authenticated,
-    update: authenticated,
+    read: isAdminOrSelfUser,
+    update: isAdminOrSelfUser,
   },
   admin: {
     defaultColumns: ["name", "email", "role"],
@@ -72,6 +85,39 @@ export const Users: CollectionConfig = {
         },
       },
     },
+    {
+      name: "enrollmentStatus",
+      type: "select",
+      label: {
+        en: "Enrollment status",
+        es: "Estado de inscripcion",
+      },
+      admin: {
+        description: {
+          en: "For students: pending until payment/activation. Admins ignore.",
+          es: "Para estudiantes: pendiente hasta pago/activacion. Los admins lo ignoran.",
+        },
+      },
+      options: [
+        { label: { en: "Pending", es: "Pendiente" }, value: "pending" },
+        { label: { en: "Active", es: "Activo" }, value: "active" },
+        { label: { en: "Cancelled", es: "Cancelado" }, value: "cancelled" },
+      ],
+    },
   ],
+  hooks: {
+    beforeChange: [
+      ({ data, req, operation }) => {
+        if (operation === "create" && !req.user) {
+          return {
+            ...data,
+            role: "student",
+            enrollmentStatus: data?.enrollmentStatus ?? "pending",
+          };
+        }
+        return data;
+      },
+    ],
+  },
   timestamps: true,
 };

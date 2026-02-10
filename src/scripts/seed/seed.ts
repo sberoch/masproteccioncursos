@@ -5,6 +5,7 @@ import { seedLayout } from "./layout";
 import { seedMainPages } from "./main-pages";
 import { seedUsers } from "./users";
 import { seedSocials } from "./socials";
+import { seedCourse } from "./seed-course";
 
 export const seed = async (payload: Payload) => {
   await seedUsers(payload);
@@ -12,6 +13,7 @@ export const seed = async (payload: Payload) => {
   await seedMainPages(payload);
   await seedContactForm(payload);
   await seedSocials(payload);
+  await seedCourse(payload);
 };
 
 async function runSeed() {

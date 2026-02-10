@@ -694,6 +694,10 @@ export interface User {
    * Students can only access the frontend. Admins can access the admin panel.
    */
   role: 'student' | 'admin';
+  /**
+   * For students: pending until payment/activation. Admins ignore.
+   */
+  enrollmentStatus?: ('pending' | 'active' | 'cancelled') | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -749,6 +753,10 @@ export interface Lesson {
    * Video duration in seconds
    */
   durationSeconds?: number | null;
+  /**
+   * Reading time in minutes
+   */
+  readingTime?: number | null;
   body?: {
     root: {
       type: string;
@@ -1177,6 +1185,7 @@ export interface LessonsSelect<T extends boolean = true> {
   isFinalQuiz?: T;
   youtubeUrl?: T;
   durationSeconds?: T;
+  readingTime?: T;
   body?: T;
   questions?:
     | T
@@ -1202,6 +1211,7 @@ export interface LessonsSelect<T extends boolean = true> {
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
   role?: T;
+  enrollmentStatus?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

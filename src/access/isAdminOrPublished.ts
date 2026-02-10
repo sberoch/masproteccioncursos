@@ -1,4 +1,4 @@
-import type { Access, AccessArgs, Where } from "payload";
+import type { AccessArgs, Where } from "payload";
 
 import type { User } from "@/payload-types";
 

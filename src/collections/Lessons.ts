@@ -253,6 +253,22 @@ export const Lessons: CollectionConfig = {
         },
       },
     },
+    {
+      name: "readingTime",
+      type: "number",
+      min: 0,
+      label: {
+        en: "Reading Time (minutes)",
+        es: "Tiempo de lectura (minutos)",
+      },
+      admin: {
+        condition: (data) => data?.type === "text",
+        description: {
+          en: "Reading time in minutes",
+          es: "Tiempo de lectura en minutos",
+        },
+      },
+    },
     // TEXT FIELDS - Conditional
     {
       name: "body",

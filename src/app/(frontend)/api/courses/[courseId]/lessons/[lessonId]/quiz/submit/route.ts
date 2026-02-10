@@ -24,6 +24,9 @@ export async function POST(
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    if (user.role !== "student") {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
 
     const body: QuizSubmission = await request.json();
     const lessonIdNum = parseInt(lessonId, 10);
