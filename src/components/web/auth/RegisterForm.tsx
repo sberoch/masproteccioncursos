@@ -66,7 +66,7 @@ export function RegisterForm() {
 
       if (!res.ok) {
         setError(
-          json.message ?? json.errors?.[0]?.message ?? "Error en el registro"
+          json.message ?? json.errors?.[0]?.message ?? "Error en el registro",
         );
         return;
       }
@@ -94,12 +94,15 @@ export function RegisterForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
       <div className="space-y-2">
-        <h1 className="text-2xl font-semibold text-foreground">
+        <h1 className="font-display text-3xl font-semibold leading-tight text-foreground">
           Crear cuenta
         </h1>
         <p className="text-muted-foreground text-sm">
           ¿Ya tienes cuenta?{" "}
-          <Link href="/login" className="underline hover:text-foreground">
+          <Link
+            href="/login"
+            className="underline underline-offset-2 hover:text-brand"
+          >
             Iniciar sesión
           </Link>
         </p>
@@ -118,6 +121,7 @@ export function RegisterForm() {
             id="name"
             type="text"
             autoComplete="name"
+            className="h-11 rounded-lg"
             {...register("name")}
           />
           {errors.name && (
@@ -130,6 +134,7 @@ export function RegisterForm() {
             id="email"
             type="email"
             autoComplete="email"
+            className="h-11 rounded-lg"
             {...register("email")}
           />
           {errors.email && (
@@ -142,10 +147,13 @@ export function RegisterForm() {
             id="password"
             type="password"
             autoComplete="new-password"
+            className="h-11 rounded-lg"
             {...register("password")}
           />
           {errors.password && (
-            <p className="text-destructive text-sm">{errors.password.message}</p>
+            <p className="text-destructive text-sm">
+              {errors.password.message}
+            </p>
           )}
         </div>
         <div className="space-y-2">
@@ -154,6 +162,7 @@ export function RegisterForm() {
             id="passwordConfirm"
             type="password"
             autoComplete="new-password"
+            className="h-11 rounded-lg"
             {...register("passwordConfirm")}
           />
           {errors.passwordConfirm && (
@@ -166,7 +175,9 @@ export function RegisterForm() {
 
       <Button
         type="submit"
-        className="w-full bg-brand text-brand-foreground hover:bg-brand-hover"
+        variant="brand"
+        size="auth"
+        className="w-full"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Registrando…" : "Registrarse"}

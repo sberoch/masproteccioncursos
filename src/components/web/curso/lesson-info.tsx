@@ -1,9 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/utilities";
+import { LessonMarkCompleteButton } from "./lesson-mark-complete-button";
 
 function formatDuration(seconds: number | null | undefined): string {
   if (seconds == null || seconds < 0) return "—";
@@ -23,6 +21,8 @@ type LessonInfoProps = {
   authDisabled?: boolean;
   /** When true, do not render the title (e.g. when title is shown above content). */
   hideTitle?: boolean;
+  /** When false, do not render the button (e.g. card with only title + duration). Default true. */
+  showMarkCompleteButton?: boolean;
 };
 
 export function LessonInfo({
@@ -34,29 +34,17 @@ export function LessonInfo({
   isCompleted,
   authDisabled = false,
   hideTitle = false,
+  showMarkCompleteButton = true,
 }: LessonInfoProps) {
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
-
   const showMarkComplete =
+    showMarkCompleteButton &&
     !authDisabled &&
     (lessonType === "video" || lessonType === "text") &&
     !isCompleted;
 
-  async function handleMarkComplete() {
-    setLoading(true);
-    try {
-      const res = await fetch(
-        `/api/courses/${courseId}/lessons/${lessonId}/complete`,
-        { method: "POST" },
-      );
-      if (res.ok) {
-        router.refresh();
-      }
-    } finally {
-      setLoading(false);
-    }
-  }
+  const button = showMarkComplete ? (
+    <LessonMarkCompleteButton courseId={courseId} lessonId={lessonId} />
+  ) : null;
 
   const showDuration = lessonType === "video" || durationSeconds != null;
 
@@ -68,7 +56,9 @@ export function LessonInfo({
     )}>
       <div>
         {!hideTitle && (
-          <h2 className="text-xl font-semibold text-foreground">{lessonTitle}</h2>
+          <h2 className="font-display text-2xl font-semibold leading-tight text-foreground">
+            {lessonTitle}
+          </h2>
         )}
         {showDuration && (
           <p className={cn("text-sm text-muted-foreground", !hideTitle && "mt-0.5")}>
@@ -76,17 +66,7 @@ export function LessonInfo({
           </p>
         )}
       </div>
-      {showMarkComplete && (
-        <Button
-          onClick={handleMarkComplete}
-          disabled={loading}
-          className={cn(
-            "rounded-lg bg-brand px-4 py-2 text-sm font-medium text-brand-foreground shadow-md transition hover:bg-brand-hover",
-          )}
-        >
-          {loading ? "Guardando…" : "Marcar como completado"}
-        </Button>
-      )}
+      {button}
     </div>
   );
 }

@@ -30,7 +30,7 @@ export function YoutubePlayer({ youtubeUrl }: YoutubePlayerProps) {
   }
 
   return (
-    <div className="aspect-video w-full overflow-hidden rounded-xl shadow-md">
+    <div className="aspect-video w-full overflow-hidden rounded-2xl border border-border bg-card/50 shadow-md backdrop-blur supports-backdrop-filter:bg-card/30">
       <iframe
         src={`https://www.youtube.com/embed/${videoId}`}
         title="Video de la lección"

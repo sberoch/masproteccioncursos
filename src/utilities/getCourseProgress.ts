@@ -15,9 +15,24 @@ export type CourseProgressResult = {
   hasCertificate: boolean;
   firstLessonId: number | null;
   resumeLessonId: number | null;
+  /** First lesson user is allowed to open (module-gated); use for redirect and dashboard link */
+  firstAllowedLessonId: number | null;
   /** Ordered modules with completion status for stepper UI */
   modules: ModuleProgressItem[];
 };
+
+/**
+ * Returns true if the user may access a lesson in the given module (module index 0, or previous module completed).
+ */
+export function canAccessLessonByProgress(
+  progress: CourseProgressResult,
+  lessonModuleId: number,
+): boolean {
+  const i = progress.modules.findIndex((m) => m.id === lessonModuleId);
+  if (i < 0) return false;
+  if (i === 0) return true;
+  return progress.modules[i - 1].completed === true;
+}
 
 /**
  * Get progress for a course and user. Used by the dashboard and can be used by the progress API.
@@ -47,6 +62,7 @@ export async function getCourseProgressForUser(
       hasCertificate: false,
       firstLessonId: null,
       resumeLessonId: null,
+      firstAllowedLessonId: null,
       modules: [],
     };
   }
@@ -59,6 +75,7 @@ export async function getCourseProgressForUser(
     sort: "position",
     limit: 500,
     depth: 0,
+    overrideAccess: true,
   });
 
   const orderedLessonIds = lessonsResult.docs.map((l) => l.id);
@@ -72,6 +89,7 @@ export async function getCourseProgressForUser(
       hasCertificate: false,
       firstLessonId: null,
       resumeLessonId: null,
+      firstAllowedLessonId: null,
       modules: orderedModules.map((m) => ({
         id: m.id,
         title: m.title,
@@ -143,6 +161,14 @@ export async function getCourseProgressForUser(
     };
   });
 
+  const firstIncompleteModuleIndex = modules.findIndex((m) => !m.completed);
+  const firstAllowedLessonId =
+    firstIncompleteModuleIndex >= 0
+      ? (orderedLessonIds.find((id) =>
+          (lessonsByModule.get(orderedModules[firstIncompleteModuleIndex].id) ?? []).includes(id),
+        ) ?? firstLessonId)
+      : firstLessonId;
+
   return {
     totalLessons,
     completedLessons,
@@ -151,6 +177,7 @@ export async function getCourseProgressForUser(
     hasCertificate: certificateResult.docs.length > 0,
     firstLessonId,
     resumeLessonId,
+    firstAllowedLessonId,
     modules,
   };
 }

@@ -47,7 +47,9 @@ export function LoginForm() {
 
       if (!res.ok) {
         setError(
-          json.message ?? json.errors?.[0]?.message ?? "Error al iniciar sesión"
+          json.message ??
+            json.errors?.[0]?.message ??
+            "Error al iniciar sesión",
         );
         return;
       }
@@ -68,12 +70,15 @@ export function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
       <div className="space-y-2">
-        <h1 className="text-2xl font-semibold text-foreground">
+        <h1 className="font-display text-3xl font-semibold leading-tight text-foreground">
           Bienvenido de nuevo
         </h1>
         <p className="text-muted-foreground text-sm">
           ¿No tienes cuenta?{" "}
-          <Link href="/register" className="underline hover:text-foreground">
+          <Link
+            href="/register"
+            className="underline underline-offset-2 hover:text-brand"
+          >
             Regístrate
           </Link>
         </p>
@@ -113,7 +118,7 @@ export function LoginForm() {
               type="email"
               autoComplete="email"
               placeholder="correo electrónico"
-              className="pl-9"
+              className="h-11 rounded-lg pl-9"
               {...register("email")}
             />
           </div>
@@ -148,7 +153,7 @@ export function LoginForm() {
               type="password"
               autoComplete="current-password"
               placeholder="Contraseña"
-              className="pl-9"
+              className="h-11 rounded-lg pl-9"
               {...register("password")}
             />
           </div>
@@ -162,7 +167,9 @@ export function LoginForm() {
 
       <Button
         type="submit"
-        className="w-full bg-brand text-brand-foreground hover:bg-brand-hover"
+        variant="brand"
+        size="auth"
+        className="w-full"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Entrando…" : "Iniciar sesión"}

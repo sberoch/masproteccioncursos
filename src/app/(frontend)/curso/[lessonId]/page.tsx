@@ -1,11 +1,15 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
 import { Role, withAuth, type WithAuthUserProps } from "@/auth/guard";
-import { CourseHeader } from "@/components/web/curso/course-header";
 import { CourseSidebar } from "@/components/web/curso/course-sidebar";
 import { LessonContent } from "@/components/web/curso/lesson-content";
 import { LessonInfo } from "@/components/web/curso/lesson-info";
+import { LessonMarkCompleteButton } from "@/components/web/curso/lesson-mark-complete-button";
+import {
+  canAccessLessonByProgress,
+  getCourseProgressForUser,
+} from "@/utilities/getCourseProgress";
 import type { Course, Lesson, Module } from "@/payload-types";
 
 type Params = { params: Promise<{ lessonId: string }> };
@@ -51,18 +55,27 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
     collection: "lessons",
     id: lessonId,
     depth: 2,
+    overrideAccess: true,
   });
 
   if (!lesson) notFound();
 
   const { courseId, moduleId } = getCourseIdAndModule(lesson);
 
-  let courseTitle = "";
+  const progress = await getCourseProgressForUser(payload, courseId, user);
+  if (!canAccessLessonByProgress(progress, moduleId)) {
+    const target = progress.firstAllowedLessonId
+      ? `/curso/${progress.firstAllowedLessonId}`
+      : "/curso";
+    redirect(target);
+  }
+
+  let _courseTitle = "";
   let passingScore = 70;
   const moduleRef = lesson.module as Module | number;
   if (typeof moduleRef === "object" && moduleRef?.course) {
     const course = moduleRef.course as Course;
-    courseTitle = course.title ?? "";
+    _courseTitle = course.title ?? "";
     passingScore = course.passingScore ?? 70;
   } else {
     const courseDoc = await payload.findByID({
@@ -71,7 +84,7 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
       depth: 0,
     });
     if (courseDoc) {
-      courseTitle = courseDoc.title;
+      _courseTitle = courseDoc.title;
       passingScore = (courseDoc as Course).passingScore ?? 70;
     }
   }
@@ -89,6 +102,7 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
     where: { module: { in: moduleIds } },
     sort: "position",
     depth: 0,
+    overrideAccess: true,
   });
 
   const lessonsByModule = new Map<number, Lesson[]>();
@@ -117,36 +131,34 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
 
   const totalLessons = lessonsResult.docs.length;
 
-  const progressResult = await payload.find({
-    collection: "lesson-progress",
-    where: {
-      and: [
-        { user: { equals: user.id } },
-        { lesson: { in: lessonsResult.docs.map((l) => l.id) } },
-        { completed: { equals: true } },
-      ],
-    },
-    limit: 500,
-    depth: 0,
-    overrideAccess: false,
-    user,
-  });
-  const completedLessonIds = new Set(
-    progressResult.docs.map((p) =>
-      typeof p.lesson === "object" ? p.lesson.id : p.lesson,
-    ),
-  );
-  const completedCount = completedLessonIds.size;
+  const unlockedLessonIds = new Set<number>();
+  for (let i = 0; i < sidebarModules.length; i++) {
+    const allowed =
+      i === 0 || (progress.modules[i - 1]?.completed === true);
+    if (allowed) {
+      for (const les of sidebarModules[i].lessons) {
+        unlockedLessonIds.add(les.id);
+      }
+    }
+  }
+
+  const completedLessonIds = progress.completedLessonIds;
+  const completedCount = progress.completedLessons;
   const isCompleted = completedLessonIds.has(lesson.id);
 
   const isTextOrQuiz = lesson.type === "text" || lesson.type === "quiz";
 
+  const showMarkCompleteNextToTitle =
+    lesson.type === "text" && !isCompleted;
+
   const hasLessonInfoContent =
     lesson.type === "video" ||
-    lesson.durationSeconds != null ||
-    ((lesson.type === "video" || lesson.type === "text") && !isCompleted);
+    lesson.durationSeconds != null;
 
-  const lessonInfo = (opts: { hideTitle?: boolean }) => (
+  const lessonInfo = (opts: {
+    hideTitle?: boolean;
+    showMarkCompleteButton?: boolean;
+  }) => (
     <LessonInfo
       lessonTitle={lesson.title}
       durationSeconds={lesson.durationSeconds}
@@ -156,19 +168,28 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
       isCompleted={isCompleted}
       authDisabled={false}
       hideTitle={opts.hideTitle}
+      showMarkCompleteButton={opts.showMarkCompleteButton}
     />
   );
 
   return (
     <>
       <div className="mx-auto flex w-full max-w-[1400px]">
-        <main className="min-w-0 flex-1 px-4 py-6 sm:px-6">
-          <div className="space-y-4">
+        <main className="min-w-0 flex-1 px-4 py-8 sm:px-6">
+          <div className="space-y-5">
             {isTextOrQuiz ? (
               <>
-                <h1 className="text-2xl font-semibold text-foreground">
-                  {lesson.title}
-                </h1>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h1 className="font-display text-3xl font-semibold leading-tight text-foreground">
+                    {lesson.title}
+                  </h1>
+                  {showMarkCompleteNextToTitle && (
+                    <LessonMarkCompleteButton
+                      courseId={courseId}
+                      lessonId={lesson.id}
+                    />
+                  )}
+                </div>
                 <LessonContent
                   lesson={sanitizeLessonForClient(lesson)}
                   courseId={courseId}
@@ -176,8 +197,11 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
                   authDisabled={false}
                 />
                 {hasLessonInfoContent && (
-                  <div className="rounded-xl border border-border bg-card p-6">
-                    {lessonInfo({ hideTitle: true })}
+                  <div className="rounded-2xl border border-border bg-card/90 p-6 shadow-sm backdrop-blur supports-backdrop-filter:bg-card/80">
+                    {lessonInfo({
+                      hideTitle: false,
+                      showMarkCompleteButton: false,
+                    })}
                   </div>
                 )}
               </>
@@ -189,7 +213,11 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
                   passingScore={passingScore}
                   authDisabled={false}
                 />
-                {hasLessonInfoContent && lessonInfo({})}
+                {hasLessonInfoContent && (
+                  <div className="rounded-2xl border border-border bg-card/90 p-6 shadow-sm backdrop-blur supports-backdrop-filter:bg-card/80">
+                    {lessonInfo({})}
+                  </div>
+                )}
               </>
             )}
           </div>
@@ -197,6 +225,7 @@ async function CursoLessonPage({ params, user }: CursoLessonPageProps) {
         <CourseSidebar
           modules={sidebarModules}
           completedLessonIds={completedLessonIds}
+          unlockedLessonIds={unlockedLessonIds}
           currentLessonId={lesson.id}
           currentModuleId={moduleId}
           totalLessons={totalLessons}

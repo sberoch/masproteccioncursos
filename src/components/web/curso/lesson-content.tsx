@@ -25,7 +25,7 @@ export function LessonContent({
 
   if (lesson.type === "text" && lesson.body) {
     return (
-      <div className="rounded-xl  bg-card p-6 ">
+      <div className="rounded-2xl border border-border bg-card/90 p-6 shadow-sm backdrop-blur supports-backdrop-filter:bg-card/80">
         <RichText data={lesson.body} enableGutter={false} />
       </div>
     );
@@ -45,7 +45,7 @@ export function LessonContent({
 
   if (lesson.type === "text") {
     return (
-      <div className="rounded-xl border border-border bg-card p-6 text-foreground">
+      <div className="rounded-2xl border border-border bg-card/90 p-6 text-foreground shadow-sm backdrop-blur supports-backdrop-filter:bg-card/80">
         No hay contenido para esta lección.
       </div>
     );

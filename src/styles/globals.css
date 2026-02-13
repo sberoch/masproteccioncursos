@@ -418,6 +418,22 @@
   font-family: var(--font-fraunces), Georgia, serif;
 }
 
+/* Auth pages: reuse landing typography (next/font variables applied on .auth-page) */
+.auth-page {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+}
+.auth-page .font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+/* Curso pages: reuse landing typography (next/font variables applied on .curso-page) */
+.curso-page {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+}
+.curso-page .font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
 /* Hero decorative cross (pseudo-elements) */
 .landing-hero-cross {
   position: absolute;

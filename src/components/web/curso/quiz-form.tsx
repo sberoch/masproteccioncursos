@@ -152,7 +152,9 @@ export function QuizForm({
       <Button
         onClick={handleSubmit}
         disabled={!allAnswered || submitting || authDisabled}
-        className="rounded-lg bg-brand px-4 py-2 text-sm font-medium text-brand-foreground shadow-md hover:bg-brand-hover"
+        variant="brand"
+        size="sm"
+        className="shadow-md hover:shadow-lg"
       >
         {submitting ? "Enviando…" : "Enviar respuestas"}
       </Button>

@@ -7,7 +7,7 @@ import {
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
 
-import { authenticated } from "../access/authenticated";
+import { canReadLessonByProgress } from "../access/canReadLessonByProgress";
 import { isAdmin } from "../access/isAdmin";
 
 // Quiz question options array field
@@ -121,7 +121,7 @@ export const Lessons: CollectionConfig = {
     },
   },
   access: {
-    read: authenticated,
+    read: canReadLessonByProgress,
     create: isAdmin,
     update: isAdmin,
     delete: isAdmin,

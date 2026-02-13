@@ -13,6 +13,7 @@ import {
   FileText,
   PlayCircle,
   HelpCircle,
+  Lock,
 } from "lucide-react";
 import { cn } from "@/utilities";
 
@@ -40,6 +41,91 @@ type LessonItem = {
   type: "video" | "text" | "quiz";
 };
 
+type SidebarLessonRowProps = {
+  lesson: LessonItem;
+  isActive: boolean;
+  isCompleted: boolean;
+  isUnlocked: boolean;
+};
+
+function SidebarLessonRow({
+  lesson,
+  isActive,
+  isCompleted,
+  isUnlocked,
+}: SidebarLessonRowProps) {
+  const durationLabel = formatLessonDuration(
+    lesson.durationSeconds,
+    lesson.readingTime,
+    lesson.type,
+  );
+  const Icon =
+    lesson.type === "video"
+      ? PlayCircle
+      : lesson.type === "quiz"
+        ? HelpCircle
+        : FileText;
+
+  const rowContent = (
+    <>
+      <span className="flex shrink-0">
+        {!isUnlocked ? (
+          <Lock className="h-4 w-4 text-muted-foreground" />
+        ) : isCompleted ? (
+          <CheckCircle2 className="h-4 w-4 text-brand" />
+        ) : (
+          <Circle className="h-4 w-4 text-muted-foreground" />
+        )}
+      </span>
+      <Icon className="h-4 w-4 shrink-0 text-muted-foreground" />
+      <span className="min-w-0 flex-1">
+        <span className="block truncate">{lesson.title}</span>
+        {durationLabel && (
+          <span className="mt-0.5 block text-xs font-normal text-muted-foreground">
+            {durationLabel}
+          </span>
+        )}
+      </span>
+      {isActive && isUnlocked && (
+        <span
+          className="ml-2 h-9 w-1 rounded-full bg-linear-to-b from-brand to-brand-hover opacity-80"
+          aria-hidden
+        />
+      )}
+    </>
+  );
+
+  if (isUnlocked) {
+    return (
+      <li>
+        <Link
+          href={`/curso/${lesson.id}`}
+          className={cn(
+            "group/lesson flex items-center gap-2 rounded-lg px-3 py-3 text-sm transition",
+            isActive
+              ? "bg-brand-muted font-medium text-foreground"
+              : "text-foreground hover:bg-muted/80",
+          )}
+        >
+          {rowContent}
+        </Link>
+      </li>
+    );
+  }
+
+  return (
+    <li>
+      <span
+        title="Completa el módulo anterior"
+        className="flex cursor-not-allowed items-center gap-2 rounded-lg px-3 py-3 text-sm text-muted-foreground"
+        aria-disabled
+      >
+        {rowContent}
+      </span>
+    </li>
+  );
+}
+
 type ModuleItem = {
   id: number;
   title: string;
@@ -50,6 +136,8 @@ type ModuleItem = {
 type CourseSidebarProps = {
   modules: ModuleItem[];
   completedLessonIds: Set<number>;
+  /** Lesson ids the user is allowed to open (module-gated). Locked lessons render disabled. */
+  unlockedLessonIds: Set<number>;
   currentLessonId: number;
   /** When set, this module's accordion is open by default. */
   currentModuleId?: number;
@@ -60,6 +148,7 @@ type CourseSidebarProps = {
 export function CourseSidebar({
   modules,
   completedLessonIds,
+  unlockedLessonIds,
   currentLessonId,
   currentModuleId,
   totalLessons,
@@ -73,9 +162,9 @@ export function CourseSidebar({
       : [];
 
   return (
-    <aside className="w-full shrink-0 border-l border-border bg-card lg:w-80">
+    <aside className="w-full shrink-0 border-l border-border bg-card/80 backdrop-blur supports-backdrop-filter:bg-card/70 lg:w-80">
       <div className="sticky top-14 flex h-[calc(100vh-3.5rem)] flex-col overflow-hidden">
-        <div className="border-b border-border px-4 py-3">
+        <div className="border-b border-border px-4 py-4">
           <h2 className="text-sm font-semibold text-foreground">
             Contenido del curso
           </h2>
@@ -105,54 +194,15 @@ export function CourseSidebar({
                   </AccordionTrigger>
                   <AccordionContent className="pb-1 pt-0">
                     <ul className="space-y-0.5 px-2">
-                      {mod.lessons.map((lesson) => {
-                        const isActive = lesson.id === currentLessonId;
-                        const isCompleted = completedLessonIds.has(lesson.id);
-                        const href = `/curso/${lesson.id}`;
-                        const durationLabel = formatLessonDuration(
-                          lesson.durationSeconds,
-                          lesson.readingTime,
-                          lesson.type,
-                        );
-                        const Icon =
-                          lesson.type === "video"
-                            ? PlayCircle
-                            : lesson.type === "quiz"
-                              ? HelpCircle
-                              : FileText;
-                        return (
-                          <li key={lesson.id}>
-                            <Link
-                              href={href}
-                              className={cn(
-                                "flex items-center gap-2 rounded px-3 py-3 text-sm transition",
-                                isActive
-                                  ? "border-l-4 border-brand bg-brand-muted font-medium text-brand"
-                                  : "text-foreground hover:bg-muted",
-                              )}
-                            >
-                              <span className="flex shrink-0">
-                                {isCompleted ? (
-                                  <CheckCircle2 className="h-4 w-4 text-brand" />
-                                ) : (
-                                  <Circle className="h-4 w-4 text-muted-foreground" />
-                                )}
-                              </span>
-                              <Icon className="h-4 w-4 shrink-0 text-muted-foreground" />
-                              <span className="min-w-0 flex-1">
-                                <span className="block truncate">
-                                  {lesson.title}
-                                </span>
-                                {durationLabel && (
-                                  <span className="mt-0.5 block text-xs font-normal text-muted-foreground">
-                                    {durationLabel}
-                                  </span>
-                                )}
-                              </span>
-                            </Link>
-                          </li>
-                        );
-                      })}
+                      {mod.lessons.map((lesson) => (
+                        <SidebarLessonRow
+                          key={lesson.id}
+                          lesson={lesson}
+                          isActive={lesson.id === currentLessonId}
+                          isCompleted={completedLessonIds.has(lesson.id)}
+                          isUnlocked={unlockedLessonIds.has(lesson.id)}
+                        />
+                      ))}
                     </ul>
                   </AccordionContent>
                 </AccordionItem>

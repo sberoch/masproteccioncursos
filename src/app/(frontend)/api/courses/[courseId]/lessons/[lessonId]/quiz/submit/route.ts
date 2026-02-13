@@ -36,6 +36,7 @@ export async function POST(
     const lesson = await payload.findByID({
       collection: "lessons",
       id: lessonIdNum,
+      overrideAccess: true,
     });
 
     if (!lesson || lesson.type !== "quiz") {

@@ -38,25 +38,25 @@ async function CursoDashboardPage({ user }: CursoDashboardPageProps) {
 
   return (
     <>
-      <div className="mx-auto w-full max-w-[1400px] px-4 py-8 sm:px-6">
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-foreground">
+      <div className="mx-auto w-full max-w-[1400px] px-4 py-10 sm:px-6">
+        <section className="mb-10">
+          <h2 className="font-display text-3xl font-semibold leading-tight text-foreground">
             Hola, {user.name ?? user.email ?? "Estudiante"}
           </h2>
-          <p className="text-muted-foreground mt-1 text-sm">
+          <p className="text-muted-foreground mt-2 max-w-2xl text-sm">
             Aquí puedes ver tu progreso y continuar con el curso.
           </p>
         </section>
 
         {coursesWithProgress.length === 0 ? (
-          <p className="text-muted-foreground rounded-lg border border-border bg-card p-6 text-center">
+          <p className="text-muted-foreground rounded-2xl border border-border bg-card/90 p-8 text-center shadow-sm backdrop-blur supports-backdrop-filter:bg-card/80">
             No hay cursos disponibles.
           </p>
         ) : (
           <ul className="flex flex-col gap-6">
             {coursesWithProgress.map(({ course, progress }: { course: Course; progress: CourseProgressResult }) => {
               const targetLessonId =
-                progress.resumeLessonId ?? progress.firstLessonId;
+                progress.firstAllowedLessonId ?? progress.firstLessonId;
               const hasStarted = progress.completedLessons > 0;
               const isComplete =
                 progress.totalLessons > 0 &&
@@ -72,21 +72,29 @@ async function CursoDashboardPage({ user }: CursoDashboardPageProps) {
               return (
                 <li
                   key={course.id}
-                  className="flex w-full flex-col overflow-hidden rounded-xl bg-card"
+                  className="group relative flex w-full flex-col overflow-hidden rounded-2xl border border-border bg-card/90 shadow-md transition hover:-translate-y-1 hover:shadow-xl backdrop-blur supports-backdrop-filter:bg-card/80"
                 >
+                  <div
+                    className="pointer-events-none absolute inset-x-6 top-0 h-1 rounded-b bg-linear-to-r from-brand to-brand-hover opacity-60"
+                    aria-hidden
+                  />
                   {thumbnailUrl && (
-                    <div className="relative h-40 w-full shrink-0 bg-muted">
+                    <div className="relative h-44 w-full shrink-0 bg-muted">
+                      <div
+                        className="pointer-events-none absolute inset-0 z-10 bg-linear-to-br from-transparent from-55% to-brand/25 opacity-70 transition group-hover:opacity-90"
+                        aria-hidden
+                      />
                       <Image
                         src={thumbnailUrl}
                         alt=""
                         fill
-                        className="object-cover"
+                        className="object-cover transition duration-500 group-hover:scale-[1.02]"
                         sizes="(max-width: 1400px) 100vw, 1400px"
                       />
                     </div>
                   )}
                   <div className="flex flex-col p-6">
-                    <h3 className="text-lg font-semibold text-foreground">
+                    <h3 className="font-display text-2xl font-semibold leading-tight text-foreground">
                       {course.title}
                     </h3>
                     {course.description && (
@@ -100,7 +108,7 @@ async function CursoDashboardPage({ user }: CursoDashboardPageProps) {
                         lecciones
                       </span>
                       {progress.hasCertificate && (
-                        <span className="rounded bg-brand-muted px-2 py-0.5 text-xs font-medium text-brand">
+                        <span className="rounded-full bg-brand-muted px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand">
                           Certificado
                         </span>
                       )}
@@ -108,8 +116,9 @@ async function CursoDashboardPage({ user }: CursoDashboardPageProps) {
                     <div className="mt-6 flex w-full justify-center">
                       <Button
                         asChild
+                        variant="brand"
                         size="lg"
-                        className="w-full max-w-xl bg-brand text-brand-foreground hover:bg-brand-hover"
+                        className="w-full max-w-xl"
                       >
                         <Link
                           href={

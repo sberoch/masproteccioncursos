@@ -51,6 +51,7 @@ export async function GET(
       where: { module: { in: moduleIds } },
       sort: "position",
       limit: 500,
+      overrideAccess: true,
     });
 
     const lessonIds = lessons.docs.map((l) => l.id);
